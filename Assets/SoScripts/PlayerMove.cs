@@ -3,16 +3,22 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float movementSpeed;
-    private CharacterController characterController;
+    [SerializeField] private float forwardSpeed;
+    [SerializeField] private float sideSpeed;
     private Vector3 playerVelocity;
+    
+    [Header("Rotation")]
+    [SerializeField] private float rotationSpeed;
+    
+    [Header("Vertical")]
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float stickToGroundVelocity;
     private bool isJumping = false;
     private float verticalVelocity;
-    [SerializeField] private float jumpForce;
     private float gravity = 9.18f;
-    [SerializeField] private float stickToGroundVelocity;
 
-    [SerializeField] private float rotationSpeed;
+    private CharacterController characterController;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,12 +47,12 @@ public class PlayerMove : MonoBehaviour
         var yInput =  Input.GetAxis("Vertical");
         
         var input = xInput * transform.right + yInput * transform.forward;
-        if (input.sqrMagnitude < 1)
+        if (input.sqrMagnitude > 1)
         {
             input.Normalize();
         }
         
-        input = new Vector3(input.x * movementSpeed, 0, input.z * movementSpeed);
+        input = new Vector3(input.x * sideSpeed, 0, input.z * forwardSpeed);
         playerVelocity = input;
     }
     
