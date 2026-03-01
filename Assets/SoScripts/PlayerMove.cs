@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,6 +19,13 @@ public class PlayerMove : MonoBehaviour
     private bool isJumping = false;
     private float verticalVelocity;
     private float gravity = 9.18f;
+    
+    [Header("Dashing")]
+    private bool canDash = true;
+    private bool isDashing = false;
+    private float dashSpeed = 3;
+    [SerializeField] private float totalDashTime = 3;
+    [SerializeField] private float dashCooldown = 3;
 
     private CharacterController characterController;
     
@@ -28,7 +38,12 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash == true)
+        {
+            StartCoroutine(Dash());
+        }
         ApplyTotalVelocity();
+
         
         UpdateMoveVelocity();
         UpdateVerticalVelocity();
@@ -74,6 +89,23 @@ public class PlayerMove : MonoBehaviour
             verticalVelocity = stickToGroundVelocity;
         }
         verticalVelocity -= gravity * Time.deltaTime;
+    }
+
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        canDash = false;
+        
+        float startTime = Time.time;
+        while (Time.time < startTime + totalDashTime)
+        {
+            Vector3 movementDirection = transform.forward;
+            characterController.Move(Vector3.forward * dashSpeed);//dashSpeed * Time.deltaTime * characterController.movementDirection);
+        yield return null;
+        }
+        isDashing = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
     private void UpdateRotation()
     {
