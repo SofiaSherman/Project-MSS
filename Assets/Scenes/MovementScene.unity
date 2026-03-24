@@ -154,8 +154,6 @@ MonoBehaviour:
   rotationSpeed: 270
   jumpForce: 5
   stickToGroundVelocity: -1
-  totalDashTime: 1
-  dashCooldown: 3
 --- !u!143 &722611186
 CharacterController:
   m_ObjectHideFlags: 0
