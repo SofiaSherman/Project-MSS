@@ -31,8 +31,12 @@ abstract public class Guns : MonoBehaviour
 
                 if (Physics.Raycast(transform.position, m_Camera.transform.forward, out hit, bulletDistance))
                 {
+                    if (hit.collider.gameObject.GetComponent<EnemyManager>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<EnemyManager>().ReceiveDamage(damage);
+                        Debug.Log(hit.transform.name);
+                    }
                     Debug.DrawRay(transform.position, m_Camera.transform.forward, Color.red, 3f);
-                    Debug.Log(hit.transform.name);
                 }
 
             }
@@ -41,12 +45,22 @@ abstract public class Guns : MonoBehaviour
     }
     protected virtual void ReloadGun()
     {
-        counter += Time.deltaTime;
-        if (counter >= reloadTime)
+        if (ammoCount == ammoCapacity) Debug.Log("full ammo");
+        else
         {
-            reloadTime = 0;
-            ammoCount = ammoCapacity;
-            ammoTotal -= ammoCapacity;
+            while (ammoCount != ammoCapacity)
+            {
+
+                counter += Time.deltaTime;
+                if (counter > 0)
+                {
+                    ammoCount++;
+                    ammoTotal--;
+                    Debug.Log(ammoCount + "shells in the chamber");
+                    counter = 0;
+                }
+            }
+            Debug.Log("gun realoaded");
         }
     }
 }
