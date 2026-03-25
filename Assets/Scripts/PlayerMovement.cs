@@ -5,13 +5,17 @@ using Cursor = UnityEngine.Cursor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float rotationSpeed = 20;
+    private float rotationSpeed = 100;
     private float forwardSpeed = 10;
     private float sideSpeed = 10;
+    private float sprintSpeed = 40;
 
     private Vector3 moveVelocity;
     private CharacterController characterController;
     private Camera m_Camera;
+    
+    //animation related
+    private bool isMoving = false;
 
     private void Start()
     {
@@ -33,12 +37,23 @@ public class PlayerMovement : MonoBehaviour
         var xInput = Input.GetAxis("Horizontal");
         var yInput = Input.GetAxis("Vertical");
 
+        if (xInput > 0)
+        {
+            isMoving =  true;
+        }
+
         Vector3 input = xInput * transform.right + yInput * transform.forward;
 
         if (input.sqrMagnitude > 1) input.Normalize();
 
-
-        input = new Vector3(input.x * sideSpeed, 0, input.z * forwardSpeed);
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            input = new Vector3(input.x * sideSpeed, 0, input.z * forwardSpeed);
+        }
+        else
+        {
+            input = new Vector3(input.x * sprintSpeed, 0, input.z * sprintSpeed);
+        }
 
 
         moveVelocity = input;
@@ -51,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
+        var mouseInput = Input.GetAxis("Mouse X");
+        transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0 );
         //transform.Rotate(m_Camera.transform.forward);
     }
 }
