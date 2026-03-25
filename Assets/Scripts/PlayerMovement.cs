@@ -40,15 +40,6 @@ public class PlayerMovement : MonoBehaviour
         var xInput = Input.GetAxis("Horizontal");
         var yInput = Input.GetAxis("Vertical");
 
-        if (xInput > 0 || yInput > 0)
-        {
-            animator.SetFloat("VelocityX", 0.5f);
-        }
-        else
-        {
-            animator.SetFloat("VelocityX", 0f);
-        }
-
         Vector3 input = xInput * transform.right + yInput * transform.forward;
 
         if (input.sqrMagnitude > 1) input.Normalize();
@@ -60,7 +51,6 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             input = new Vector3(input.x * sprintSpeed, 0, input.z * sprintSpeed);
-            animator.SetFloat("VelocityX", 1f);
         }
 
 
