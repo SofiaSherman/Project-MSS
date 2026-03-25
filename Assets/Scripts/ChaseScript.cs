@@ -21,7 +21,7 @@ public class ChaseScript : MonoBehaviour
 
     private void TargetDestination()
     {
-        if(counter >= 0.5f)
+        if(counter >= 0.2f)
         {
             _agent.SetDestination(_target.position);
             counter = 0;
