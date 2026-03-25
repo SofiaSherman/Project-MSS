@@ -19,6 +19,17 @@ public class Revolver : Guns
     }
     private void Update()
     {
+        counter += Time.deltaTime;
         if (Input.GetMouseButtonDown(0)) Shoot();
+        if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+    }
+
+    protected override void ReloadGun()
+    {
+        base.ReloadGun();
+    }
+    protected override void Shoot()
+    {
+        base.Shoot();
     }
 }

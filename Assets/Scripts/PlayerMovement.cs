@@ -51,6 +51,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
-        //transform.Rotate(m_Camera.transform.forward);
+        /*var xInput = Input.GetAxis("Horizontal");
+        var yInput = Input.GetAxis("Vertical");
+        
+        Vector2 lookVector = yInput * m_Camera.transform.forward + xInput * m_Camera.transform.right;
+        if(lookVector.sqrMagnitude > 1) lookVector.Normalize();
+
+        lookVector = new Vector3 (0,lookVector.y * m_Camera.transform.forward.z + lookVector.x * m_Camera.transform.right.x, 0) * rotationSpeed;
+        transform.Rotate(lookVector);*/
     }
 }
