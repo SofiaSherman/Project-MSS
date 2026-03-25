@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotationSpeed = 100;
     private float forwardSpeed = 10;
     private float sideSpeed = 10;
-    private float sprintSpeed = 40;
+    private float sprintSpeed = 20;
 
     private Vector3 moveVelocity;
     private CharacterController characterController;
@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
     
     //animation related
     private bool isMoving = false;
+    private Animator animator;
 
     private void Start()
     {
         m_Camera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
+        
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -37,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
         var xInput = Input.GetAxis("Horizontal");
         var yInput = Input.GetAxis("Vertical");
 
-        if (xInput > 0)
+        if (xInput > 0 || yInput > 0)
         {
-            isMoving =  true;
+            animator.SetFloat("VelocityX", 0.5f);
+        }
+        else
+        {
+            animator.SetFloat("VelocityX", 0f);
         }
 
         Vector3 input = xInput * transform.right + yInput * transform.forward;
@@ -53,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             input = new Vector3(input.x * sprintSpeed, 0, input.z * sprintSpeed);
+            animator.SetFloat("VelocityX", 1f);
         }
 
 

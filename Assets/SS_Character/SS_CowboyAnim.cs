@@ -11,9 +11,14 @@ public class SS_CowboyAnim : MonoBehaviour
 
     void Update()
     {
-        /*if (animations.velocityX == true)
+        if (Input.GetMouseButtonDown(0))
         {
-            
-        }*/
+            animator.SetTrigger("Shoot_Rifle");
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            animator.SetTrigger("Reload_Rifle");
+        }
+        
     }
 }
