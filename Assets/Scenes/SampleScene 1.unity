@@ -837,6 +837,7 @@ GameObject:
   - component: {fileID: 859376936}
   - component: {fileID: 859376938}
   - component: {fileID: 859376937}
+  - component: {fileID: 859376939}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -1023,6 +1024,18 @@ MonoBehaviour:
   ammoText: {fileID: 1049865156}
   totalAmmoText: {fileID: 2007101628}
   shootingPoint: {fileID: 1509308912}
+--- !u!114 &859376939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859376928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367cc15da8c7c2843acfd9c07898d0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
 --- !u!1 &1049865154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,6 +2018,18 @@ PrefabInstance:
       propertyPath: <target>k__BackingField
       value: 
       objectReference: {fileID: 859376932}
+    - target: {fileID: 3845231476300712843, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+      propertyPath: m_Acceleration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845231476300712843, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845231476300712843, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4235288683219635754, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
       propertyPath: _target
       value: 
