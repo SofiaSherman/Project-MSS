@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             weapons[0].gameObject.SetActive(true);
             weapons[1].gameObject.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunAvailable)
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) //&& shotgunAvailable)
         {
             weapons[0].gameObject.SetActive(false);
             weapons[1].gameObject.SetActive(true);
