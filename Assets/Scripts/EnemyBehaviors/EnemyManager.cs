@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
 {
     [field: SerializeField] public Transform target { get; private set; }
 
-    public float speed { get; private set; } = 10;
+    public float speed { get; private set; } = 2;
 
     [SerializeField] private EnemyStates enemyState;
     [SerializeField] private EnemyBase[] enemyStates;
@@ -64,7 +64,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (AttackRange(attackingRange)) return;
 
-        speed = 10;
+        speed = 2;
         ChangeState(EnemyStates.Chasing);
         
     }

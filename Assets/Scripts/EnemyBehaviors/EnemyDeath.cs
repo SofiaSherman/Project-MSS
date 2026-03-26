@@ -9,16 +9,18 @@ public class EnemyDeath : EnemyBase
 
     private void Update()
     {
-        Dying();
+       
     }
     private void Dying()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,2);
+        _animator.SetTrigger("Death");
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
+        Dying();
         _agent.speed = _enemyManager.speed;
     }
 }

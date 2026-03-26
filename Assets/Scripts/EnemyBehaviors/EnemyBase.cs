@@ -7,6 +7,8 @@ abstract public class EnemyBase : MonoBehaviour
 {
     [SerializeField] protected Transform _target;
 
+    protected Animator _animator;
+
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
 
@@ -17,6 +19,7 @@ abstract public class EnemyBase : MonoBehaviour
         attackDamage = 1;
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
+        _animator = GetComponent<Animator>();
     }
 
     protected virtual void OnEnable()
