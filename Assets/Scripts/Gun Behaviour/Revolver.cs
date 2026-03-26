@@ -30,8 +30,12 @@ public class Revolver : Guns
     }
     private void UpdateInput()
     {
-        if (Input.GetMouseButtonDown(0)) Shoot();
-        if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+        if (!PauseMenu.isPaused)
+        {
+
+            if (Input.GetMouseButtonDown(0)) Shoot();
+            if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+        }
         //CameraZoom();
     }
     /*private void CameraZoom()
