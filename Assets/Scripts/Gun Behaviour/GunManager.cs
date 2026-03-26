@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
     public enum GunStash
@@ -17,16 +18,29 @@ public class GunManager : MonoBehaviour
 
     [SerializeField] public GunStash currentGun;
     [SerializeField] public Guns[] currentGuns;
-
-    private KeyCode keys;
     private void Start()
     {
+        currentGuns[0].enabled = true;  
         m_Revolver = GetComponent<Revolver>();
         m_Shotgun = GetComponent<Shotgun>();
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        WeaponChanger();
+    }
+
+    private void ChangeGun(GunStash newGun)
+    {
+        currentGun = newGun;
+        for(int i = 0; i < currentGuns.Length; i++)
+        {
+            currentGuns[i].enabled = i == (int)currentGun;
+        }
+    }
+
+    private void WeaponChanger()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeGun(GunStash.Revolver);
         }
@@ -41,15 +55,6 @@ public class GunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             ChangeGun(GunStash.Dynamite);
-        }
-    }
-
-    private void ChangeGun(GunStash newGun)
-    {
-        currentGun = newGun;
-        for(int i = 0; i < currentGuns.Length; i++)
-        {
-            currentGuns[i].enabled = i == (int)currentGun;
         }
     }
 }
