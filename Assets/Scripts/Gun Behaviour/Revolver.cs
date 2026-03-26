@@ -14,15 +14,32 @@ public class Revolver : Guns
         //other statistics
         reloadTime = 4;
         bulletAmount = 1;
-        damage = 10;
+        damage = 5;
         bulletDistance = 100;
     }
     private void Update()
     {
         counter += Time.deltaTime;
+        UpdateText();
+        UpdateInput();
+    }
+    private void UpdateText()
+    {
+        totalAmmoText.text = ammoTotal.ToString();
+        ammoText.text = ammoCount + " / " + ammoCapacity;
+    }
+    private void UpdateInput()
+    {
         if (Input.GetMouseButtonDown(0)) Shoot();
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+        //CameraZoom();
     }
+    /*private void CameraZoom()
+    {
+        if (Input.GetMouseButton(1)) m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, ZoomValue, 10f);
+        if (Input.GetMouseButtonUp(1)) m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, 60, 10f);
+
+    }*/ //TO DO, IMPLEMENT ZOOMING IN, HEAVILY WIP
 
     protected override void ReloadGun()
     {
