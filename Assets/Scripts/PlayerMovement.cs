@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     //weapon related
     [SerializeField] private Transform weaponParent;
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
+    
+    public bool shotgunAvailable = false;
 
     private void Start()
     {
@@ -61,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
             weapons[0].gameObject.SetActive(true);
             weapons[1].gameObject.SetActive(false);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunAvailable)
         {
             weapons[0].gameObject.SetActive(false);
             weapons[1].gameObject.SetActive(true);
