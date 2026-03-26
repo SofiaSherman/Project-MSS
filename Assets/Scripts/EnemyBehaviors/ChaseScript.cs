@@ -1,16 +1,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ChaseScript : MonoBehaviour
+public class ChaseScript : EnemyBase
 {
-    [SerializeField] private Transform _target;
 
-    private NavMeshAgent _agent;
     private float counter;
 
-    private void Start()
+    protected override void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        base.Start();
     }
 
     private void Update()
@@ -21,11 +19,17 @@ public class ChaseScript : MonoBehaviour
 
     private void TargetDestination()
     {
-        if(counter >= 0.5f)
+        if (counter >= 0.2f)
         {
+            transform.LookAt(_target.position);
             _agent.SetDestination(_target.position);
             counter = 0;
-        } 
+        }
+    }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _agent.speed = _enemyManager.speed;
     }
 }

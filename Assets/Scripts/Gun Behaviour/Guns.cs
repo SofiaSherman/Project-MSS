@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
@@ -5,6 +6,11 @@ using Random = UnityEngine.Random;
 
 abstract public class Guns : MonoBehaviour
 {
+    [SerializeField] public TMP_Text ammoText;
+    [SerializeField] public TMP_Text totalAmmoText;
+    [SerializeField] public GameObject shootingPoint;
+
+
     protected float damage;
     protected float bulletAmount;
     protected float bulletDistance;
@@ -14,6 +20,9 @@ abstract public class Guns : MonoBehaviour
     protected float reloadTime;
     protected float counter = 0;
 
+    protected float ZoomValue = 20;
+
+
     protected Camera m_Camera;
 
     protected virtual void Start()
@@ -22,21 +31,23 @@ abstract public class Guns : MonoBehaviour
     }
     protected virtual void Shoot()
     {
-        if (ammoCount >= 0)
+        //do you have bullets left?
+        if (ammoCount > 0)
         {
             ammoCount--;
+            //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++)
             {
                 RaycastHit hit;
 
-                if (Physics.Raycast(transform.position, m_Camera.transform.forward, out hit, bulletDistance))
+                if (Physics.Raycast(shootingPoint.transform.position, m_Camera.transform.forward, out hit, bulletDistance))
                 {
+                    //does it hit an object that has an enemy script?
                     if (hit.collider.gameObject.GetComponent<EnemyManager>() != null)
                     {
                         hit.collider.gameObject.GetComponent<EnemyManager>().ReceiveDamage(damage);
-                        Debug.Log(hit.transform.name);
                     }
-                    Debug.DrawRay(transform.position, m_Camera.transform.forward, Color.red, 3f);
+                    Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward, Color.red, 3f);
                 }
 
             }
@@ -45,22 +56,23 @@ abstract public class Guns : MonoBehaviour
     }
     protected virtual void ReloadGun()
     {
+        //is your ammo capacity full?
         if (ammoCount == ammoCapacity) Debug.Log("full ammo");
         else
         {
-            while (ammoCount != ammoCapacity)
+            //reload while the ammoCount is not equal to the capacity AND you still have stockpile left
+            while (ammoCount != ammoCapacity && ammoTotal > 0)
             {
-
+                //reload and reset until full
                 counter += Time.deltaTime;
-                if (counter > 0)
+                if (counter > reloadTime)
                 {
                     ammoCount++;
                     ammoTotal--;
-                    Debug.Log(ammoCount + "shells in the chamber");
                     counter = 0;
                 }
             }
-            Debug.Log("gun realoaded");
         }
     }
+
 }
