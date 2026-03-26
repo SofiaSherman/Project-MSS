@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -17,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     //animation related
     private bool isMoving = false;
     private Animator animator;
+    
+    //weapon related
+    [SerializeField] private Transform weaponParent;
+    [SerializeField] private List<GameObject> weapons = new List<GameObject>();
 
     private void Start()
     {
@@ -25,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         
         animator = GetComponent<Animator>();
+        
+        SetWeapons();
+
     }
 
     private void Update()
@@ -33,6 +41,31 @@ public class PlayerMovement : MonoBehaviour
         UpdateRotation();
 
         ApplyTotalVelocity();
+
+
+        GetWeapons();
+    }
+
+    private void SetWeapons()
+    {
+        foreach (Transform child in weaponParent)
+        {
+            weapons.Add(child.gameObject);
+        }
+    }
+
+    private void GetWeapons()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            weapons[0].gameObject.SetActive(true);
+            weapons[1].gameObject.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            weapons[0].gameObject.SetActive(false);
+            weapons[1].gameObject.SetActive(true);
+        }
     }
     private void UpdateMoveVelocity()
     {
