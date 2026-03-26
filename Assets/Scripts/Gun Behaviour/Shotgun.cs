@@ -38,8 +38,12 @@ public class Shotgun : Guns
                 shootVector += new Vector3(randomX, randomY, 0);
                 if (Physics.Raycast(transform.position, shootVector, out hit, bulletDistance))
                 {
+                    if (hit.collider.gameObject.GetComponent<EnemyManager>() != null)
+                    {
+                        hit.collider.gameObject.GetComponent<EnemyManager>().ReceiveDamage(damage);
+                        Debug.Log(hit.transform.name);
+                    }
                     Debug.DrawRay(transform.position, shootVector, Color.red, 3f);
-                    Debug.Log(hit.transform.name);
                 }
             }
         }
@@ -47,22 +51,6 @@ public class Shotgun : Guns
     }
     protected override void ReloadGun()
     {
-        if (ammoCount == ammoCapacity) Debug.Log("full ammo");
-        else
-        {
-            while (ammoCount != ammoCapacity)
-            {
-                
-                counter += Time.deltaTime;
-                if (counter > 0)
-                {
-                    ammoCount++;
-                    ammoTotal--;
-                    Debug.Log(ammoCount + "shells in the chamber");
-                    counter = 0;
-                }
-            }
-            Debug.Log("gun realoaded");
-        }
+        base.ReloadGun();
     }
 }
