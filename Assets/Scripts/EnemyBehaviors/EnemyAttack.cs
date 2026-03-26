@@ -22,7 +22,7 @@ public class EnemyAttack : EnemyBase
         if (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             attackCounter = 0;
-            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
+            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 2);
             foreach (Collider result in results)
             {
                 if (result.gameObject.GetComponent<PlayerManager>())

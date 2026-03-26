@@ -24,7 +24,7 @@ public class EnemyManager : MonoBehaviour
 
     public void Start()
     {
-        attackingRange = 5;
+        attackingRange = 3;
         ChangeState(EnemyStates.Chasing);
         maxHealth = 10;
         currentHealth = 10;

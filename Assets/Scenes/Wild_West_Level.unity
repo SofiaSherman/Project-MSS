@@ -16310,6 +16310,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4802508748792832130, guid: 22ea8d63c4d3f994fbae282cce650d5e, type: 3}
       insertIndex: 7
       addedObject: {fileID: 1763779412}
+    - targetCorrespondingSourceObject: {fileID: 4802508748792832130, guid: 22ea8d63c4d3f994fbae282cce650d5e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1763779420}
   m_SourcePrefab: {fileID: 100100000, guid: 22ea8d63c4d3f994fbae282cce650d5e, type: 3}
 --- !u!1001 &667803425
 PrefabInstance:
@@ -45441,6 +45444,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6442dacb20a75074488ffd7716710b19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SS_CowboyAnim
+--- !u!114 &1763779420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635279379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367cc15da8c7c2843acfd9c07898d0ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
 --- !u!1001 &1763897654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54100,6 +54115,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 805518861777955858, guid: d62d4c73cd90bf34caa0219abba5740f, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1763779404}
+    - target: {fileID: 3443300930749797566, guid: d62d4c73cd90bf34caa0219abba5740f, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 1763779404}
+    - target: {fileID: 4902531184340346928, guid: d62d4c73cd90bf34caa0219abba5740f, type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 1763779404}
