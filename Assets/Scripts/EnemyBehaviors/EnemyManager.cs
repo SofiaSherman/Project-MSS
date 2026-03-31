@@ -18,13 +18,11 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
-    private float attackingRange;
     private float maxHealth;
     private float currentHealth;
 
     public void Start()
     {
-        attackingRange = 5;
         ChangeState(EnemyStates.Chasing);
         maxHealth = 10;
         currentHealth = 10;
@@ -60,7 +58,7 @@ public class EnemyManager : MonoBehaviour
 
     private void UpdateAttack()
     {
-        if (AttackRange(attackingRange)) return;
+        if (AttackRange(attackDistance)) return;
 
         speed = 10;
         ChangeState(EnemyStates.Chasing);
@@ -68,7 +66,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void UpdateChase()
     {
-        if (!AttackRange(attackingRange) && currentHealth > 0) return;
+        if (!AttackRange(attackDistance) && currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Attacking);
 

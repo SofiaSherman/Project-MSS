@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyAttack : EnemyBase
@@ -10,18 +11,14 @@ public class EnemyAttack : EnemyBase
         base.Start();
         attackSpeed = 3f;
     }
-    private void Update()
-    {
-        Attack();
-    }
 
-    private void Attack()
+    private IEnumerator Attack()
     {
-        float attackCounter = 3;
-        attackCounter += Time.deltaTime;
-        if (_agent.remainingDistance < _enemyManager.attackDistance)
+        while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
-            attackCounter = 0;
+            yield return new WaitForSeconds(.1f);
+            Debug.Log("attacking");
+
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
             foreach (Collider result in results)
             {
@@ -29,10 +26,13 @@ public class EnemyAttack : EnemyBase
                 {
                     Debug.Log(result);
                     result.gameObject.GetComponent<PlayerManager>().TakeDamage(attackDamage);
-                } 
+                }
             }
+            yield return new WaitForSeconds(3);
         }
     }
+    
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, 1);
@@ -41,6 +41,12 @@ public class EnemyAttack : EnemyBase
     protected override void OnEnable()
     {
         base.OnEnable();
+        StartCoroutine(Attack());
         _agent.speed = _enemyManager.speed;
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(Attack());
     }
 }

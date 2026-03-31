@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private float health = 3;
+    public float health = 3;
     private void Start()
     {
         
