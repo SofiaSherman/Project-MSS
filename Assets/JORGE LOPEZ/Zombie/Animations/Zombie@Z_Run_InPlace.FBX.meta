@@ -108,6 +108,7 @@ ModelImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+<<<<<<< Updated upstream
 AssetOrigin:
   serializedVersion: 1
   productId: 30232
@@ -115,3 +116,5 @@ AssetOrigin:
   packageVersion: 
   assetPath: Assets/JORGE LOPEZ/Zombie/Animations/Zombie@Z_Run_InPlace.FBX
   uploadId: 0
+=======
+>>>>>>> Stashed changes
