@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: ac90e69aea4bb3c488a2d18817900ff3
-=======
-guid: 3d38f487fccf7764abc62da0631f3279
->>>>>>> parent of 4583a29 (Revert "Merge branch 'A-Sonia' into dev")
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -26,11 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-<<<<<<< HEAD
-    animationCompression: 1
-=======
     animationCompression: 3
->>>>>>> parent of 4583a29 (Revert "Merge branch 'A-Sonia' into dev")
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -90,10 +82,6 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< HEAD
-    human: []
-    skeleton: []
-=======
     human:
     - boneName: mixamorig:Hips
       humanName: Hips
@@ -759,7 +747,6 @@ ModelImporter:
       position: {x: 0.00008756997, y: 0.122120045, z: -8.771485e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
->>>>>>> parent of 4583a29 (Revert "Merge branch 'A-Sonia' into dev")
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -770,15 +757,6 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-<<<<<<< HEAD
-    hasExtraRoot: 0
-    skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
-  humanoidOversampling: 1
-  avatarSetup: 0
-=======
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 6314d1bed22b1984f9b1a80b4dc4f639, type: 3}
@@ -786,7 +764,6 @@ ModelImporter:
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
->>>>>>> parent of 4583a29 (Revert "Merge branch 'A-Sonia' into dev")
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
