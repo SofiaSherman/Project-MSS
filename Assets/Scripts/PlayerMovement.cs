@@ -7,8 +7,8 @@ using Cursor = UnityEngine.Cursor;
 public class PlayerMovement : MonoBehaviour
 {
     private float rotationSpeed = 50;
-    private float forwardSpeed = 5;
-    private float sideSpeed = 5;
+    [SerializeField] private float forwardSpeed = 5;
+    [SerializeField] private float sideSpeed = 5;
     private float sprintSpeed = 10;
 
     private Vector3 moveVelocity;
