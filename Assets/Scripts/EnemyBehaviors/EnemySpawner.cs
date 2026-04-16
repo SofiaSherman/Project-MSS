@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M)) activeSpawner = true;
     }
 
-    IEnumerator Spawner()
+    private IEnumerator Spawner()
     {
         while (activeSpawner == true)
         {
