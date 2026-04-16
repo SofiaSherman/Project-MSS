@@ -13,13 +13,23 @@ abstract public class EnemyBase : MonoBehaviour
     protected EnemyManager _enemyManager;
 
     protected float attackDamage;
+
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+        _enemyManager = GetComponent<EnemyManager>();
+    }
     protected virtual void Start()
     {
         //base script from where behaviors inherit, basics here and setting up for the children scripts
         attackDamage = 1;
+<<<<<<< HEAD
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
         _animator = GetComponent<Animator>();
+=======
+        
+>>>>>>> D-Simon
     }
 
     protected virtual void OnEnable()

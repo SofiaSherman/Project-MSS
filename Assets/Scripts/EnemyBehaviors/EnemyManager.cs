@@ -14,18 +14,15 @@ public class EnemyManager : MonoBehaviour
 
     public float speed { get; private set; } = 2;
 
-    [SerializeField] private EnemyStates enemyState;
-    [SerializeField] private EnemyBase[] enemyStates;
+    [SerializeField] public EnemyStates enemyState;
+    [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
-    private float attackingRange;
-    public bool attacking;
     private float maxHealth;
     private float currentHealth;
 
     public void Start()
     {
-        attackingRange = 2;
         ChangeState(EnemyStates.Chasing);
         maxHealth = 10;
         currentHealth = 10;
@@ -57,12 +54,11 @@ public class EnemyManager : MonoBehaviour
         {
             enemyStates[i].enabled = i == (int)enemyState;
         }
-        Debug.Log(enemyState);
     }
 
     private void UpdateAttack()
     {
-        if (AttackRange(attackingRange)) return;
+        if (AttackRange(attackDistance)) return;
 
         speed = 2;
         ChangeState(EnemyStates.Chasing);
@@ -70,7 +66,7 @@ public class EnemyManager : MonoBehaviour
     }
     private void UpdateChase()
     {
-        if (!AttackRange(attackingRange) && currentHealth > 0) return;
+        if (!AttackRange(attackDistance) && currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Attacking);
 
@@ -81,10 +77,11 @@ public class EnemyManager : MonoBehaviour
 
     private bool AttackRange(float attackRange)
     {
-        if(!target) return false;
+        //if(!target) return false;
         var sqrDistance = (target.position - transform.position).sqrMagnitude;
-        return sqrDistance <= Mathf.Pow(attackRange, 2);
+        return sqrDistance <= Mathf.Pow(attackRange, 1);
     }
+
     public void ReceiveDamage(float damage)
     {
         if(currentHealth <= 0)
