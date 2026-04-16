@@ -6,7 +6,7 @@ public class Shotgun : Guns
     {
         base.Start();
         //setting up ammo
-        ammoCount = 4;
+        AmmoCount = 4;
         ammoCapacity = 4;
         ammoTotal = 16;
 
@@ -28,7 +28,7 @@ public class Shotgun : Guns
     {
         //updates the text in the UI regarding the ammo
         totalAmmoText.text = ammoTotal.ToString();
-        ammoText.text = ammoCount + " / " + ammoCapacity;
+        ammoText.text = AmmoCount + " / " + ammoCapacity;
     }
     private void UpdateInput()
     {
@@ -38,9 +38,9 @@ public class Shotgun : Guns
     }
     protected override void Shoot()
     {
-        if (ammoCount > 0)
+        if (AmmoCount > 0)
         {
-            ammoCount--;
+            AmmoCount--;
             for (int i = 0; i < bulletAmount; i++)
             {
                 //the shotgun is different, as in it has more than one "bullet", in pellets
