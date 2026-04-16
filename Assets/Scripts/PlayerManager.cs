@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public float health = 3;
+    public float Health { get; private set; } = 3;
     private void Start()
     {
         
@@ -11,8 +11,8 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if(health <= 0) Death();
-        health -= damage;
+        if(Health <= 0) Death();
+        Health -= damage;
     }
     private void Death()
     {
