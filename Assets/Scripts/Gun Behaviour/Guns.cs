@@ -15,7 +15,7 @@ abstract public class Guns : MonoBehaviour
     protected float bulletAmount;
     protected float bulletDistance;
     protected float ammoCapacity;
-    public float AmmoCount { get; protected set; }
+    protected float ammoCount;
     protected float ammoTotal;
     protected float reloadTime;
     protected float counter = 0;
@@ -32,9 +32,9 @@ abstract public class Guns : MonoBehaviour
     protected virtual void Shoot()
     {
         //do you have bullets left?
-        if (AmmoCount > 0)
+        if (ammoCount > 0)
         {
-            AmmoCount--;
+            ammoCount--;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++)
             {
@@ -57,17 +57,17 @@ abstract public class Guns : MonoBehaviour
     protected virtual void ReloadGun()
     {
         //is your ammo capacity full?
-        if (AmmoCount == ammoCapacity) Debug.Log("full ammo");
+        if (ammoCount == ammoCapacity) Debug.Log("full ammo");
         else
         {
             //reload while the ammoCount is not equal to the capacity AND you still have stockpile left
-            while (AmmoCount != ammoCapacity && ammoTotal > 0)
+            while (ammoCount != ammoCapacity && ammoTotal > 0)
             {
                 //reload and reset until full
                 counter += Time.deltaTime;
                 if (counter > reloadTime)
                 {
-                    AmmoCount++;
+                    ammoCount++;
                     ammoTotal--;
                     counter = 0;
                 }

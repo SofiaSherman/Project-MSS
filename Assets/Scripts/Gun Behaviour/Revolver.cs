@@ -7,7 +7,7 @@ public class Revolver : Guns
     {
         base.Start();
         //setting up ammo
-        AmmoCount = 6;
+        ammoCount = 6;
         ammoCapacity = 6;
         ammoTotal = 24;
 
@@ -26,7 +26,7 @@ public class Revolver : Guns
     private void UpdateText()
     {
         totalAmmoText.text = ammoTotal.ToString();
-        ammoText.text = AmmoCount + " / " + ammoCapacity;
+        ammoText.text = ammoCount + " / " + ammoCapacity;
     }
     private void UpdateInput()
     {
