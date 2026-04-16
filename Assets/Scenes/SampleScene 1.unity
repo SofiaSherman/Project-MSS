@@ -1036,7 +1036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367cc15da8c7c2843acfd9c07898d0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  health: 3
 --- !u!1 &1049865154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,10 +2015,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2114074144646188871, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
-      propertyPath: attackDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2114074144646188871, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
       propertyPath: <target>k__BackingField
       value: 
       objectReference: {fileID: 859376932}
@@ -2039,10 +2034,6 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 859376932}
-    - target: {fileID: 6297467195557876280, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
-      propertyPath: m_LinearDamping
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6897458978509840847, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
       propertyPath: _target
       value: 
