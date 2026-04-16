@@ -16,10 +16,15 @@ public class EnemyAttack : EnemyBase
     {
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
+<<<<<<< HEAD
             yield return new WaitForSeconds(.1f);
             Debug.Log("attacking");
 
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
+=======
+            attackCounter = 0;
+            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 2);
+>>>>>>> dev
             foreach (Collider result in results)
             {
                 if (result.gameObject.GetComponent<PlayerManager>())
