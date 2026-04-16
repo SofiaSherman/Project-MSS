@@ -15,9 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera m_Camera;
     
-    //animation related
-    private bool isMoving = false;
-    private Animator animator;
+    public float VelocityX { get; private set; }
+    public float VelocityY { get; private set; }
     
     //weapon related
     [SerializeField] private Transform weaponParent;
@@ -30,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
         m_Camera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
-        
-        animator = GetComponent<Animator>();
         
         SetWeapons();
 
@@ -83,11 +80,8 @@ public class PlayerMovement : MonoBehaviour
 
         moveVelocity = input;
         
-        float velocityX = Vector3.Dot(moveVelocity, transform.right);
-        float velocityY = Vector3.Dot(moveVelocity, transform.forward);
-        
-        animator.SetFloat("VelocityY", velocityY, 0.1f, Time.deltaTime);
-        animator.SetFloat("VelocityX", velocityX, 0.1f, Time.deltaTime);
+        VelocityX = Vector3.Dot(moveVelocity, transform.right);
+        VelocityY = Vector3.Dot(moveVelocity, transform.forward);
     }
     private void ApplyTotalVelocity()
     {
