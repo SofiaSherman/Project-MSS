@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     
     public float VelocityX { get; private set; }
     public float VelocityY { get; private set; }
+    public float TotalVelocity { get; private set; }
     
     //weapon related
     [SerializeField] private Transform weaponParent;
@@ -36,13 +37,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(TotalVelocity);
         UpdateMoveVelocity();
         UpdateRotation();
 
         ApplyTotalVelocity();
 
 
-        GetWeapons();
+        //GetWeapons();
     }
 
     private void SetWeapons()
@@ -53,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void GetWeapons()
+    /*private void GetWeapons()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -65,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             weapons[0].gameObject.SetActive(false);
             weapons[1].gameObject.SetActive(true);
         }
-    }
+    }*/
     private void UpdateMoveVelocity()
     {
         var xInput = Input.GetAxis("Horizontal");
@@ -92,6 +94,17 @@ public class PlayerMovement : MonoBehaviour
         
         VelocityX = Vector3.Dot(normalizedVelocity, transform.right);
         VelocityY = Vector3.Dot(normalizedVelocity, transform.forward);
+
+        /*if (Input.GetKey(KeyCode.LeftShift))
+        {
+            
+            TotalVelocity = Mathf.Lerp(VelocityX + VelocityY, maxSpeed, Time.deltaTime);
+        }
+        else
+        {
+            TotalVelocity = Mathf.Lerp(VelocityX + VelocityY, maxSpeed, Time.deltaTime / 2f);
+        }*/
+            
     }
     private void ApplyTotalVelocity()
     {

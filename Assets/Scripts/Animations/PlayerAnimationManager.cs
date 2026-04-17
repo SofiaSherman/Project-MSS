@@ -27,28 +27,55 @@ public class PlayerAnimationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovementAnimations();
-
-        WeaponAnimations();
-        
         //check death
         if (_playerManager.Health <= 0)
         {
             _animator.SetTrigger("Death");
         }
         
-        if (_gunManager.currentGun == GunStash.Revolver)
-        {
-            //Debug.Log("Revolver");
-        }
+        MovementAnimations();
+
+        WeaponAnimations();
+        
+
+        CurrentWeaponHeldAnimation();
 
     }
 
+    private void CurrentWeaponHeldAnimation()
+    {
+        //check currently held weapon
+        if (_gunManager.currentGun == GunStash.Revolver)
+        {
+            _animator.SetBool("IsHoldingRevolver", true);
+            _animator.SetBool("IsHoldingRifle", false);
+            _animator.SetBool("IsHoldingDynamite", false);
+        }
+        else if (_gunManager.currentGun == GunStash.Rifle)
+        {
+            _animator.SetBool("IsHoldingRevolver", false);
+            _animator.SetBool("IsHoldingRifle", true);
+            _animator.SetBool("IsHoldingDynamite", false);
+        }
+        else if (_gunManager.currentGun == GunStash.Shotgun)
+        {
+            _animator.SetBool("IsHoldingRevolver", false);
+            _animator.SetBool("IsHoldingRifle", true);
+            _animator.SetBool("IsHoldingDynamite", false);
+        }
+        else if (_gunManager.currentGun == GunStash.Dynamite)
+        {
+            _animator.SetBool("IsHoldingRevolver", false);
+            _animator.SetBool("IsHoldingRifle", false);
+            _animator.SetBool("IsHoldingDynamite", true);
+        }
+    }
     private void MovementAnimations()
     {
         //check velocity
         _animator.SetFloat("VelocityY", _playerMovement.VelocityY, 0.1f, Time.deltaTime);
         _animator.SetFloat("VelocityX", _playerMovement.VelocityX, 0.1f, Time.deltaTime);
+        _animator.SetFloat("Totalvelocity", _playerMovement.TotalVelocity, 0.1f, Time.deltaTime);
         
         //check if running
         if (Input.GetKey(KeyCode.LeftShift))
@@ -65,14 +92,50 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         //check rifle shoot & reload
         //if(_revolver.AmmoCount <= 0) return;
-        if (Input.GetKeyDown(KeyCode.R))
+        if (_gunManager.currentGun == GunStash.Revolver)
         {
-            _animator.SetTrigger("Reload_Rifle");
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _animator.SetTrigger("Reload_Revolver");
+            }
+            else if (Input.GetMouseButtonDown(0) && _revolver.AmmoCount > 0)
+            {
+                _animator.SetTrigger("Shoot_Revolver");
+            }
         }
-        else if (Input.GetMouseButtonDown(0) && _revolver.AmmoCount > 0)
+        else if (_gunManager.currentGun == GunStash.Rifle)
         {
-            _animator.SetTrigger("Shoot_Rifle");
-            Debug.Log(_revolver.AmmoCount);
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _animator.SetTrigger("Reload_Rifle");
+            }
+            else if (Input.GetMouseButtonDown(0)) //&& _rifle.AmmoCount > 0)
+            {
+                _animator.SetTrigger("Shoot_Rifle");
+            }
         }
+        else if (_gunManager.currentGun == GunStash.Shotgun)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _animator.SetTrigger("Reload_Revolver");
+            }
+            else if (Input.GetMouseButtonDown(0) && _shotgun.AmmoCount > 0)
+            {
+                _animator.SetTrigger("Shoot_Revolver");
+            }
+        }
+        else if (_gunManager.currentGun == GunStash.Dynamite)
+        {
+            if (Input.GetMouseButtonDown(0)) //&& _dynamite.AmmoCount > 0)
+            {
+                _animator.SetTrigger("ThrowDynamite");
+            }
+        }
+    }
+
+    private void RevolverAnimations()
+    {
+        
     }
 }
