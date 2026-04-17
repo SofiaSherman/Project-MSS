@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float rotationSpeed = 50;
     [SerializeField] private float forwardSpeed = 5;
     [SerializeField] private float sideSpeed = 5;
-    private float sprintSpeed = 10;
+    [SerializeField] private float sprintSpeed = 10;
 
     private Vector3 moveVelocity;
     private CharacterController characterController;
@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private void UpdateMoveVelocity()
     {
-
         var xInput = Input.GetAxis("Horizontal");
         var yInput = Input.GetAxis("Vertical");
 
@@ -76,12 +75,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (input.sqrMagnitude > 1) input.Normalize();
 
-        input = new Vector3(input.x * sprintSpeed, 0, input.z * sprintSpeed);
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            input = new Vector3(input.x * sprintSpeed, 0, input.z * sprintSpeed);
+
+        }
+        else
+        {
+            input = new Vector3(input.x * forwardSpeed, 0, input.z * sideSpeed);
+        }
 
         moveVelocity = input;
+        float maxSpeed = sprintSpeed;
+        Vector3 normalizedVelocity = moveVelocity / maxSpeed;
         
-        VelocityX = Vector3.Dot(moveVelocity, transform.right);
-        VelocityY = Vector3.Dot(moveVelocity, transform.forward);
+        VelocityX = Vector3.Dot(normalizedVelocity, transform.right);
+        VelocityY = Vector3.Dot(normalizedVelocity, transform.forward);
     }
     private void ApplyTotalVelocity()
     {
