@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     
     public float VelocityX { get; private set; }
     public float VelocityY { get; private set; }
-    public float TotalVelocity { get; private set; }
     
     //weapon related
     [SerializeField] private Transform weaponParent;
@@ -37,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(TotalVelocity);
         UpdateMoveVelocity();
         UpdateRotation();
 

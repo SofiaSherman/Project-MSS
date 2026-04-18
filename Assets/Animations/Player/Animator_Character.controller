@@ -366,16 +366,16 @@ AnimatorStateMachine:
     m_Position: {x: 140, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8840585733477975469}
-    m_Position: {x: -70, y: -140, z: 0}
+    m_Position: {x: 350, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -189762502753911284}
-    m_Position: {x: -280, y: -140, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5285686686734204219}
     m_Position: {x: 140, y: -140, z: 0}
   - serializedVersion: 1
+    m_State: {fileID: -5285686686734204219}
+    m_Position: {x: -290, y: -140, z: 0}
+  - serializedVersion: 1
     m_State: {fileID: -8640854986586850810}
-    m_Position: {x: 350, y: -140, z: 0}
+    m_Position: {x: -70, y: -140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5106421160292372071}
     m_Position: {x: 560, y: -140, z: 0}
@@ -953,10 +953,7 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Reload_Revolver
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8504313145121407662}
   m_Solo: 0

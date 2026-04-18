@@ -10,6 +10,10 @@ public class PlayerAnimationManager : MonoBehaviour
     private Revolver _revolver;
     
     private Animator _animator;
+    private AnimatorClipInfo[] m_CurrentClipInfo;
+    private float m_CurrentClipLength;
+    
+    private bool isReloading = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -75,7 +79,6 @@ public class PlayerAnimationManager : MonoBehaviour
         //check velocity
         _animator.SetFloat("VelocityY", _playerMovement.VelocityY, 0.1f, Time.deltaTime);
         _animator.SetFloat("VelocityX", _playerMovement.VelocityX, 0.1f, Time.deltaTime);
-        _animator.SetFloat("Totalvelocity", _playerMovement.TotalVelocity, 0.1f, Time.deltaTime);
         
         //check if running
         if (Input.GetKey(KeyCode.LeftShift))
@@ -97,8 +100,9 @@ public class PlayerAnimationManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _animator.SetTrigger("Reload_Revolver");
+                isReloading = true;
             }
-            else if (Input.GetMouseButtonDown(0) && _revolver.AmmoCount > 0)
+            else if (Input.GetMouseButtonDown(0) && _revolver.AmmoCount > 0 && !isReloading)
             {
                 _animator.SetTrigger("Shoot_Revolver");
             }
@@ -134,4 +138,15 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
+    private void CollectClipData()
+    {
+        m_CurrentClipInfo = this._animator.GetCurrentAnimatorClipInfo(0);
+        m_CurrentClipLength = m_CurrentClipInfo[0].clip.length;
+    }
+
+    public void ReloadComplete()
+    {
+        isReloading = false;
+        Debug.Log("Reload Complete");
+    }
 }
