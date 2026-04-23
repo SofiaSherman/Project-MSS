@@ -55,13 +55,13 @@ public class PlayerAnimationManager : MonoBehaviour
             _animator.SetBool("IsHoldingRifle", false);
             _animator.SetBool("IsHoldingDynamite", false);
         }
-        else if (_gunManager.currentGun == GunStash.Shotgun)
+        else if (_gunManager.currentGun == GunStash.Rifle)
         {
             _animator.SetBool("IsHoldingRevolver", false);
             _animator.SetBool("IsHoldingRifle", true);
             _animator.SetBool("IsHoldingDynamite", false);
         }
-        else if (_gunManager.currentGun == GunStash.Rifle)
+        else if (_gunManager.currentGun == GunStash.Shotgun)
         {
             _animator.SetBool("IsHoldingRevolver", false);
             _animator.SetBool("IsHoldingRifle", true);
@@ -107,17 +107,6 @@ public class PlayerAnimationManager : MonoBehaviour
                 _animator.SetTrigger("Shoot_Revolver");
             }
         }
-        else if (_gunManager.currentGun == GunStash.Shotgun)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                _animator.SetTrigger("Reload_Rifle");
-            }
-            else if (Input.GetMouseButtonDown(0) && _shotgun.AmmoCount > 0)
-            {
-                _animator.SetTrigger("Shoot_Rifle");
-            }
-        }
         else if (_gunManager.currentGun == GunStash.Rifle)
         {
             if (Input.GetKeyDown(KeyCode.R))
@@ -129,6 +118,17 @@ public class PlayerAnimationManager : MonoBehaviour
                 _animator.SetTrigger("Shoot_Rifle");
             }
         }
+        else if (_gunManager.currentGun == GunStash.Shotgun)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _animator.SetTrigger("Reload_Revolver");
+            }
+            else if (Input.GetMouseButtonDown(0) && _shotgun.AmmoCount > 0)
+            {
+                _animator.SetTrigger("Shoot_Revolver");
+            }
+        }
         else if (_gunManager.currentGun == GunStash.Dynamite)
         {
             if (Input.GetMouseButtonDown(0)) //&& _dynamite.AmmoCount > 0)
@@ -138,6 +138,7 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private void CollectClipData()
     {
         m_CurrentClipInfo = this._animator.GetCurrentAnimatorClipInfo(0);
@@ -148,5 +149,10 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         isReloading = false;
         Debug.Log("Reload Complete");
+=======
+    private void RevolverAnimations()
+    {
+        
+>>>>>>> parent of ff5b23d (finished basic anims)
     }
 }
