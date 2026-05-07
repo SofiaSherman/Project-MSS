@@ -2278,7 +2278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea201740c4ba44b841e57042c461c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  <target>k__BackingField: {fileID: 0}
+  <target>k__BackingField: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
   enemyState: 0
   enemyStates:
   - {fileID: 4369570398611948062}
@@ -2297,7 +2297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69b7909b4d3f5848a82c3c3b4b90b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _target: {fileID: 0}
+  _target: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
   attackPoint: {fileID: 7126990195403694693}
 --- !u!114 &8218912450861291743
 MonoBehaviour:
@@ -2311,7 +2311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a18f4ea960d86f4f93f315946923123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
-  _target: {fileID: 0}
+  _target: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
 --- !u!95 &7457322807440470184
 Animator:
   serializedVersion: 7
