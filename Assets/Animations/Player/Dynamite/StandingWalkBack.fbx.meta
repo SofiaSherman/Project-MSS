@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9a7bf9f7fbbb7a043943c166f2110c2d
+guid: 50b05413104f2c646bb737d73ea88477
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -82,7 +82,7 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< HEAD:Assets/Animations/Player/Dynamite/Throw/PlayerRigged@Toss Grenade_OG.fbx.meta
+<<<<<<< HEAD
     human: []
     skeleton: []
 =======
@@ -751,7 +751,7 @@ ModelImporter:
       position: {x: 0.00008756997, y: 0.122120045, z: -8.771485e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
->>>>>>> dev:Assets/Animations/Player/Dynamite/PlayerRigged@Grenade Throw.fbx.meta
+>>>>>>> dev
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -764,11 +764,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-<<<<<<< HEAD:Assets/Animations/Player/Dynamite/Throw/PlayerRigged@Toss Grenade_OG.fbx.meta
+<<<<<<< HEAD
   lastHumanDescriptionAvatarSource: {instanceID: 0}
 =======
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3cc6b8118edaca240bd68d02fd26688d, type: 3}
->>>>>>> dev:Assets/Animations/Player/Dynamite/PlayerRigged@Grenade Throw.fbx.meta
+>>>>>>> dev
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
