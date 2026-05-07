@@ -138,7 +138,6 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
-<<<<<<< HEAD
     private void CollectClipData()
     {
         m_CurrentClipInfo = this._animator.GetCurrentAnimatorClipInfo(0);
@@ -149,10 +148,9 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         isReloading = false;
         Debug.Log("Reload Complete");
-=======
+    }
     private void RevolverAnimations()
     {
-        
->>>>>>> parent of ff5b23d (finished basic anims)
+
     }
 }
