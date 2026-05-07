@@ -7,6 +7,7 @@ public enum EnemyStates
     Death
 }
 [RequireComponent(typeof(EnemyAttack), typeof(EnemyDeath), typeof(ChaseScript))]
+[RequireComponent(typeof (EnemyHealth))]
 
 public class EnemyManager : MonoBehaviour
 {
@@ -18,14 +19,14 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
-    private float maxHealth;
-    private float currentHealth;
+    private EnemyHealth enemyHealth;
 
     public void Start()
     {
+        enemyHealth = GetComponent<EnemyHealth>();
         ChangeState(EnemyStates.Chasing);
-        maxHealth = 10;
-        currentHealth = 10;
+        enemyHealth.maxHealth = 10;
+        enemyHealth.currentHealth = 10;
     }
     private void Update()
     {
@@ -66,11 +67,11 @@ public class EnemyManager : MonoBehaviour
     }
     private void UpdateChase()
     {
-        if (!AttackRange(attackDistance) && currentHealth > 0) return;
+        if (!AttackRange(attackDistance) && enemyHealth.currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Attacking);
 
-        if (currentHealth > 0) return;
+        if (enemyHealth.currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Death);
     }
@@ -84,13 +85,13 @@ public class EnemyManager : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        if(currentHealth <= 0)
+        if(enemyHealth.currentHealth <= 0)
         {
             UpdateChase();
         }
         else
         {
-            currentHealth -= damage;
+            enemyHealth.currentHealth -= damage;
         }
     }
 }

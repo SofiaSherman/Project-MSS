@@ -22,10 +22,10 @@ public class EnemyAttack : EnemyBase
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
             foreach (Collider result in results)
             {
-                if (result.gameObject.GetComponent<PlayerManager>())
+                if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
                 {
                     Debug.Log(result);
-                    result.gameObject.GetComponent<PlayerManager>().TakeDamage(attackDamage);
+                    playerdamage.TakeDamage(attackDamage);
                 }
             }
             yield return new WaitForSeconds(3);

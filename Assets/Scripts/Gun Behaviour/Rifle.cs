@@ -1,24 +1,24 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Revolver : Guns
+public class Rifle : Guns
 {
     protected override void Start()
     {
         base.Start();
         //setting up ammo
-        ammoCount = 6;
-        ammoCapacity = 6;
-        ammoTotal = 24;
+        ammoCount = 15;
+        ammoCapacity = 15;
+        ammoTotal = 45f;
 
         //other statistics
         reloadTime = 4;
         bulletAmount = 1;
-        damage = 5;
+        damage = 10;
         bulletDistance = 100;
 
         minZoom = 60;
-        maxZoom = 30;
+        maxZoom = 20;
     }
     private void Update()
     {
@@ -36,6 +36,7 @@ public class Revolver : Guns
     {
         if (Input.GetMouseButtonDown(0)) Shoot();
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
+        //CameraZoom();
     }
 
     protected override void CameraZoom()
@@ -51,6 +52,7 @@ public class Revolver : Guns
     {
         base.Shoot();
     }
+
     private void OnEnable()
     {
         StopAllCoroutines();

@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fe8c16427b53447b4ef334a5a0d28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  spawnedObject: {fileID: 7005274572829334751, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+  spawnedObject: {fileID: 2083494665}
   interval: 5
 --- !u!1 &721295099
 GameObject:
@@ -838,6 +838,8 @@ GameObject:
   - component: {fileID: 859376938}
   - component: {fileID: 859376937}
   - component: {fileID: 859376939}
+  - component: {fileID: 859376940}
+  - component: {fileID: 859376941}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Player
@@ -1009,6 +1011,7 @@ MonoBehaviour:
   currentGuns:
   - {fileID: 859376938}
   - {fileID: 859376936}
+  - {fileID: 859376941}
 --- !u!114 &859376938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1036,7 +1039,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367cc15da8c7c2843acfd9c07898d0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+--- !u!114 &859376940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859376928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb3678630578574b917be77f638f563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   health: 3
+--- !u!114 &859376941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859376928}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3647bed990ed04ba4dbdd8657ba0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rifle
+  ammoText: {fileID: 1049865156}
+  totalAmmoText: {fileID: 2007101628}
+  shootingPoint: {fileID: 1509308912}
 --- !u!1 &1049865154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1509308913}
+  - component: {fileID: 1509308914}
   m_Layer: 0
   m_Name: ShootingPoint
   m_TagString: Untagged
@@ -1466,6 +1497,116 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1305575148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &1509308914
+LineRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509308912}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 1}
+      key1: {r: 0.8113208, g: 0.77859545, b: 0.6842649, a: 1}
+      key2: {r: 0.6613985, g: 0.6613985, b: 0.6613985, a: 0}
+      key3: {r: 0.6613985, g: 0.6613985, b: 0.6613985, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 47108
+      ctime3: 47108
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 0, y: 0}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MaskInteraction: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &1655851811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,7 +1971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: 0}
+  m_AnchoredPosition: {x: -14, y: 10}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1957004144
@@ -2007,6 +2148,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007101626}
   m_CullTransparentMesh: 1
+--- !u!1 &2083494665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7005274572829334751, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+  m_PrefabInstance: {fileID: 7942655413250669263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7942655413250669263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2050,6 +2196,10 @@ PrefabInstance:
     - target: {fileID: 7005274572829334751, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7005274572829334751, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7091159723973276139, guid: 15d33e02aaf1dcc42ab7fb158cd5a60a, type: 3}
       propertyPath: _target

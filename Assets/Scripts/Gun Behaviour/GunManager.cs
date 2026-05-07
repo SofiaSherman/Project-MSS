@@ -9,7 +9,7 @@ using UnityEngine;
         Dynamite
     }
 
-[RequireComponent(typeof(Revolver), typeof(Shotgun))]
+[RequireComponent(typeof(Revolver), typeof(Shotgun), typeof(Rifle))]
 
 public class GunManager : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class GunManager : MonoBehaviour
     [SerializeField] public Guns[] currentGuns;
     private void Start()
     {
-        currentGuns[0].enabled = true;  
+        ChangeGun(0);
         m_Revolver = GetComponent<Revolver>();
         m_Shotgun = GetComponent<Shotgun>();
     }

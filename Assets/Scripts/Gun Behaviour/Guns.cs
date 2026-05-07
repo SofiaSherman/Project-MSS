@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Net;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -20,14 +22,20 @@ abstract public class Guns : MonoBehaviour
     protected float reloadTime;
     protected float counter = 0;
 
-    protected float ZoomValue = 20;
+    protected float minZoom;
+    protected float maxZoom;
 
-
+    protected float zoomCounter = 0;
     protected Camera m_Camera;
+    protected LineRenderer m_LineRenderer;
 
     protected virtual void Start()
     {
+        m_LineRenderer = GetComponentInChildren<LineRenderer>();
         m_Camera = GetComponentInChildren<Camera>();
+
+        m_LineRenderer.startWidth = 0.05f;
+        m_LineRenderer.endWidth = 0.05f;
     }
     protected virtual void Shoot()
     {
@@ -43,11 +51,12 @@ abstract public class Guns : MonoBehaviour
                 if (Physics.Raycast(shootingPoint.transform.position, m_Camera.transform.forward, out hit, bulletDistance))
                 {
                     //does it hit an object that has an enemy script?
-                    if (hit.collider.gameObject.GetComponent<EnemyManager>() != null)
+                    if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
                     {
-                        hit.collider.gameObject.GetComponent<EnemyManager>().ReceiveDamage(damage);
+                        damageable.TakeDamage(damage);
                     }
-                    Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward, Color.red, 3f);
+                    m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
+                    Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward * 100, Color.red, 3f);
                 }
 
             }
@@ -74,5 +83,39 @@ abstract public class Guns : MonoBehaviour
             }
         }
     }
+    protected virtual void CameraZoom()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            StopAllCoroutines();
+            StartCoroutine(ZoomIn());
+        }
 
+        if (Input.GetMouseButtonUp(1))
+        {
+            StopAllCoroutines();
+            StartCoroutine(ZoomOut());
+        }
+    }
+    protected IEnumerator ZoomIn()
+    {
+        while (m_Camera.fieldOfView >= maxZoom + 2)
+        {
+            m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, maxZoom, 10f * Time.deltaTime);
+            yield return new WaitForSeconds(0);
+        }
+    }
+    protected IEnumerator ZoomOut()
+    {
+        while (m_Camera.fieldOfView <= minZoom - 2)
+        {
+            m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, minZoom, 10f * Time.deltaTime);
+            yield return new WaitForSeconds(0);
+        }
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }

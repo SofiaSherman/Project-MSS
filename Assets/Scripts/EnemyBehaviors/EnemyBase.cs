@@ -7,6 +7,7 @@ abstract public class EnemyBase : MonoBehaviour
 {
     [SerializeField] protected Transform _target;
 
+
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
 
