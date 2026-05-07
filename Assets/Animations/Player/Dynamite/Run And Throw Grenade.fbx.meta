@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d73fcea088e9da64688cf6b9753cb162
+guid: dfe6a316a6e626e43bb05198214242c1
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -82,6 +82,10 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
+<<<<<<< HEAD:Assets/Animations/Player/Normal/PlayerRigged@Death.fbx.meta
+    human: []
+    skeleton: []
+=======
     human:
     - boneName: mixamorig:Hips
       humanName: Hips
@@ -747,6 +751,7 @@ ModelImporter:
       position: {x: 0.00008756997, y: 0.122120045, z: -8.771485e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+>>>>>>> dev:Assets/Animations/Player/Dynamite/PlayerRigged@Run And Throw Grenade.fbx.meta
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -757,13 +762,17 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
+<<<<<<< HEAD:Assets/Animations/Player/Normal/PlayerRigged@Death.fbx.meta
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+=======
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3cc6b8118edaca240bd68d02fd26688d, type: 3}
+>>>>>>> dev:Assets/Animations/Player/Dynamite/PlayerRigged@Run And Throw Grenade.fbx.meta
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 3
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 2
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
