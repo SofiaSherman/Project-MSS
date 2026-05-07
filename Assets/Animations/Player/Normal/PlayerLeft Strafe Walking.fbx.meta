@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5b83e4df73b07f44be44e76ced2465c
+guid: a2beaec04875f1f409b7317591c098dc
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -22,7 +22,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -82,10 +82,6 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< HEAD
-    human: []
-    skeleton: []
-=======
     human:
     - boneName: mixamorig:Hips
       humanName: Hips
@@ -751,7 +747,6 @@ ModelImporter:
       position: {x: 0.00008756997, y: 0.122120045, z: -8.771485e-10}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
->>>>>>> dev
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -762,17 +757,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
-<<<<<<< HEAD
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-=======
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3cc6b8118edaca240bd68d02fd26688d, type: 3}
->>>>>>> dev
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
