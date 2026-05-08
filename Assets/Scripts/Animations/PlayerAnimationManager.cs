@@ -133,7 +133,7 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0)) //&& _dynamite.AmmoCount > 0)
             {
-                _animator.SetTrigger("ThrowDynamite");
+                _animator.SetTrigger("Throw_Dynamite");
             }
         }
     }
