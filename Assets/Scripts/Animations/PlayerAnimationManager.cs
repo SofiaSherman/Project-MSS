@@ -122,11 +122,11 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                _animator.SetTrigger("Reload_Revolver");
+                _animator.SetTrigger("Reload_Rifle");
             }
             else if (Input.GetMouseButtonDown(0) && _shotgun.AmmoCount > 0)
             {
-                _animator.SetTrigger("Shoot_Revolver");
+                _animator.SetTrigger("Shoot_Rifle");
             }
         }
         else if (_gunManager.currentGun == GunStash.Dynamite)
