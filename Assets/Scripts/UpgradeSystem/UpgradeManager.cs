@@ -71,8 +71,8 @@ public class UpgradeManager : MonoBehaviour
                     UpgradeDamage(i);
                 }
             }
+            scoreManager.score -= 400;
         }
-        scoreManager.score -= 400;
     }
 
     public void CanUpgradeAmmo()
@@ -109,20 +109,27 @@ public class UpgradeManager : MonoBehaviour
     {
         if (activePageIndex == 1)
         {
+            if (revolverAmmoLevel < 5)
+            {
             playerRevolver.ammoTotal += 12;
             revolverAmmoLevel += 1;
             Debug.Log("Ammo upgraded, " + revolverAmmoLevel);
             visualLevelUpgrade.VisualUpgrade(revolverAmmoLevel, 2);
+            }
         }
         else if (activePageIndex == 2)
         {
         }
         else if (activePageIndex == 3)
         {
+            if (shotgunAmmoLevel < 5)
+            {
+                
             playerShotgun.ammoTotal += 8;
             shotgunAmmoLevel += 1;
             Debug.Log("Ammo upgraded, " + shotgunAmmoLevel);
             visualLevelUpgrade.VisualUpgrade(shotgunAmmoLevel, 6);
+            }
 
         }
         else if (activePageIndex == 4)
@@ -135,18 +142,24 @@ public class UpgradeManager : MonoBehaviour
     {
         if (activePageIndex == 1)
         {
-            playerRevolver.damage += 2;
-            revolverDamageLevel += 1;
-            visualLevelUpgrade.VisualUpgrade(revolverDamageLevel, 3);
+            if (revolverDamageLevel < 5)
+            {
+                playerRevolver.damage += 2;
+                revolverDamageLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(revolverDamageLevel, 3);
+            }
         }
         else if (activePageIndex == 2)
         {
         }
         else if (activePageIndex == 3)
         {
-            playerShotgun.damage += 2;
-            shotgunDamageLevel += 1;
-            visualLevelUpgrade.VisualUpgrade(shotgunDamageLevel, 7);
+            if (shotgunDamageLevel < 5)
+            {
+                playerShotgun.damage += 2;
+                shotgunDamageLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(shotgunDamageLevel, 7);
+            }
 
         }
         else if (activePageIndex == 4)
@@ -159,13 +172,17 @@ public class UpgradeManager : MonoBehaviour
 
     public void UpgradeHealth()
     {
-        if (scoreManager.score >= 200)
+        if (scoreManager.score >= 400)
         {
-            playerManager.Health += 1;
-            playerHealthLevel++;
-            visualLevelUpgrade.VisualUpgrade(playerHealthLevel, 1);
+            if (playerHealthLevel < 5)
+            {
+                playerManager.Health += 1;
+                playerHealthLevel++;
+                visualLevelUpgrade.VisualUpgrade(playerHealthLevel, 1);
 
-            scoreManager.score -= 200;
+                scoreManager.score -= 400;
+                
+            }
         }
     }
 
