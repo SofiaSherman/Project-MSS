@@ -111,7 +111,7 @@ public class UpgradeManager : MonoBehaviour
             playerRevolver.ammoTotal += 12;
             revolverAmmoLevel += 1;
             Debug.Log("Ammo upgraded, " + revolverAmmoLevel);
-            visualLevelUpgrade.VisualUpgrade(revolverAmmoLevel);
+            visualLevelUpgrade.VisualUpgrade(revolverAmmoLevel, 2);
         }
         else if (activePageIndex == 2)
         {
@@ -121,7 +121,7 @@ public class UpgradeManager : MonoBehaviour
             playerShotgun.ammoTotal += 8;
             shotgunAmmoLevel += 1;
             Debug.Log("Ammo upgraded, " + shotgunAmmoLevel);
-            visualLevelUpgrade.VisualUpgrade(shotgunAmmoLevel);
+            visualLevelUpgrade.VisualUpgrade(shotgunAmmoLevel, 6);
 
         }
         else if (activePageIndex == 4)
@@ -136,7 +136,7 @@ public class UpgradeManager : MonoBehaviour
         {
             playerRevolver.damage += 2;
             revolverDamageLevel += 1;
-            visualLevelUpgrade.VisualUpgrade(revolverDamageLevel);
+            visualLevelUpgrade.VisualUpgrade(revolverDamageLevel, 3);
         }
         else if (activePageIndex == 2)
         {
@@ -145,7 +145,7 @@ public class UpgradeManager : MonoBehaviour
         {
             playerShotgun.damage += 2;
             shotgunDamageLevel += 1;
-            visualLevelUpgrade.VisualUpgrade(shotgunDamageLevel);
+            visualLevelUpgrade.VisualUpgrade(shotgunDamageLevel, 7);
 
         }
         else if (activePageIndex == 4)
@@ -156,15 +156,19 @@ public class UpgradeManager : MonoBehaviour
 
     }
 
-    private void UpgradeHealth()
+    public void UpgradeHealth()
     {
         if (scoreManager.score >= 200)
         {
             playerManager.Health += 1;
         }
     }
-    
 
+
+    public void BoostMovement()
+    {
+        StartCoroutine(CoroutineBoostMovement());
+    }
     
     public IEnumerator CoroutineBoostMovement()
     {
