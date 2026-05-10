@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score = 0;
+    public int score = 0;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Plus))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             score += 100;
-            Debug.Log(score);
         }
     }
 }

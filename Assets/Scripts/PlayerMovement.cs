@@ -7,9 +7,9 @@ using Cursor = UnityEngine.Cursor;
 public class PlayerMovement : MonoBehaviour
 {
     private float rotationSpeed = 50;
-    [SerializeField] private float forwardSpeed = 5;
-    [SerializeField] private float sideSpeed = 5;
-    [SerializeField] private float sprintSpeed = 10;
+    [SerializeField] public float forwardSpeed = 5;
+    [SerializeField] public float sideSpeed = 5;
+    [SerializeField] public float sprintSpeed = 10;
 
     private Vector3 moveVelocity;
     private CharacterController characterController;
