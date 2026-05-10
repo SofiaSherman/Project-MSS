@@ -949,7 +949,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1318305323}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: CanUpgradeDamage
+        m_MethodName: CanUpgradeDamage400
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1536,7 +1536,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1318305323}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: CanUpgradeAmmo
+        m_MethodName: CanUpgradeAmmo400
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points required: 200'
+  m_text: 'Points required: 400'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2485,7 +2485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points required: 200'
+  m_text: 'Points required: 400'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3517,7 +3517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420.99994, y: -61}
+  m_AnchoredPosition: {x: 420.99994, y: -119.9}
   m_SizeDelta: {x: 518, y: 62.0902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &405868150
@@ -4136,7 +4136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points required: 200'
+  m_text: 'Points required: 400'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases health by 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6258,7 +6258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases amount by 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7489,7 +7489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases damage by 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9126,7 +9126,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VisualLevelUpgrade
   playerSpeedLevel: []
-  playerHealthLevel: []
+  playerHealthLevel:
+  - {fileID: 1988432412}
+  - {fileID: 1473562782}
+  - {fileID: 1707960156}
+  - {fileID: 1567901016}
+  - {fileID: 846360648}
   revolverAmmoLevel:
   - {fileID: 1176503621}
   - {fileID: 1448030581}
@@ -9139,12 +9144,42 @@ MonoBehaviour:
   - {fileID: 1503513293}
   - {fileID: 975352907}
   - {fileID: 736207453}
-  rifleAmmoLevel: []
-  rifleDamageLevel: []
-  shotgunAmmoLevel: []
-  shotgunDamageLevel: []
-  dynamiteAmmoLevel: []
-  dynamiteDamageLevel: []
+  rifleAmmoLevel:
+  - {fileID: 774300820}
+  - {fileID: 956735447}
+  - {fileID: 1044996132}
+  - {fileID: 692717639}
+  - {fileID: 1198136248}
+  rifleDamageLevel:
+  - {fileID: 1662772691}
+  - {fileID: 1748742252}
+  - {fileID: 1844587448}
+  - {fileID: 159736710}
+  - {fileID: 40975195}
+  shotgunAmmoLevel:
+  - {fileID: 1530560584}
+  - {fileID: 1600060391}
+  - {fileID: 1237772829}
+  - {fileID: 2012073270}
+  - {fileID: 895889620}
+  shotgunDamageLevel:
+  - {fileID: 538458730}
+  - {fileID: 1886296913}
+  - {fileID: 625094208}
+  - {fileID: 1571046090}
+  - {fileID: 732913967}
+  dynamiteAmmoLevel:
+  - {fileID: 1364082794}
+  - {fileID: 1418829374}
+  - {fileID: 555002722}
+  - {fileID: 1658566304}
+  - {fileID: 1739345608}
+  dynamiteDamageLevel:
+  - {fileID: 333725603}
+  - {fileID: 62307767}
+  - {fileID: 387659931}
+  - {fileID: 1819547330}
+  - {fileID: 709312690}
 --- !u!1 &1335450288
 GameObject:
   m_ObjectHideFlags: 0
@@ -9367,7 +9402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420.99994, y: 59}
+  m_AnchoredPosition: {x: 420.99994, y: 88.4}
   m_SizeDelta: {x: 518, y: 94.9874}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382862696
@@ -9390,7 +9425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Boosts movement speed for 5 seconds, Press T to activate'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10520,7 +10555,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1318305323}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: CanUpgradeDamage
+        m_MethodName: CanUpgradeDamage400
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11107,7 +11142,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1318305323}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: CanUpgradeAmmo
+        m_MethodName: CanUpgradeAmmo400
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11590,7 +11625,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases damage by 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11861,7 +11896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases damage by 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12233,7 +12268,7 @@ GameObject:
   - component: {fileID: 1825025098}
   - component: {fileID: 1825025099}
   m_Layer: 5
-  m_Name: AmmoUpgradeVisual
+  m_Name: HealthUpgradeVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13264,7 +13299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points required: 200'
+  m_text: 'Points required: 400'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14334,7 +14369,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Points required: 200'
+  m_text: 'Points required: 400'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14510,7 +14545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description: Increases total ammo by 12'
+  m_text: 'Description: Increases damage by 2'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

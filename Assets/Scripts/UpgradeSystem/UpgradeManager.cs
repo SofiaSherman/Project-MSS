@@ -68,6 +68,7 @@ public class UpgradeManager : MonoBehaviour
             {
                 if (pages[i].activeSelf)
                 {
+                    UpgradeDamage(i);
                 }
             }
         }
@@ -161,26 +162,21 @@ public class UpgradeManager : MonoBehaviour
         if (scoreManager.score >= 200)
         {
             playerManager.Health += 1;
+            playerHealthLevel++;
+            visualLevelUpgrade.VisualUpgrade(playerHealthLevel, 1);
+
+            scoreManager.score -= 200;
         }
     }
 
 
     public void BoostMovement()
     {
-        StartCoroutine(CoroutineBoostMovement());
-    }
-    
-    public IEnumerator CoroutineBoostMovement()
-    {
-        if (scoreManager.score >= 100)
+        if (scoreManager.score >= 200)
         {
-            playerMovement.forwardSpeed = 10;
-            playerMovement.sideSpeed = 10;
-            playerMovement.sprintSpeed = 20;
-            yield return new WaitForSeconds(5);
-            playerMovement.forwardSpeed = 5;
-            playerMovement.sideSpeed = 5;
-            playerMovement.sprintSpeed = 10;
+            playerMovement.movementBoostLevel += 1;
+            scoreManager.score -= 200;
         }
     }
+    
 }

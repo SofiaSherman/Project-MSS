@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private List<GameObject> weapons = new List<GameObject>();
     
     public bool shotgunAvailable = false;
+    
+    //boost related
+    public int movementBoostLevel = 0;
+    private bool isCurrentlyBoosting = false;
 
     private void Start()
     {
@@ -36,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        TimedSpeedBoost();
         UpdateMoveVelocity();
         UpdateRotation();
 
@@ -68,6 +74,18 @@ public class PlayerMovement : MonoBehaviour
     }*/
     private void UpdateMoveVelocity()
     {
+        if (isCurrentlyBoosting)
+        {
+            forwardSpeed = 10;
+            sideSpeed = 10;
+            sprintSpeed = 15;
+        }
+        else
+        {
+            forwardSpeed = 5;
+            sideSpeed = 5;
+            sprintSpeed = 10;
+        }
         var xInput = Input.GetAxis("Horizontal");
         var yInput = Input.GetAxis("Vertical");
 
@@ -115,5 +133,25 @@ public class PlayerMovement : MonoBehaviour
         var mouseInput = Input.GetAxis("Mouse X");
         transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0 );
         //transform.Rotate(m_Camera.transform.forward);
+    }
+
+    private void TimedSpeedBoost()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (movementBoostLevel > 0 && !isCurrentlyBoosting)
+            {
+                StartCoroutine(CoroutineBoostMovement());
+                movementBoostLevel -= 1;
+            }
+            
+        }
+    }
+
+    private IEnumerator CoroutineBoostMovement()
+    {
+        isCurrentlyBoosting = true;
+        yield return new WaitForSeconds(5);
+        isCurrentlyBoosting = false;
     }
 }
