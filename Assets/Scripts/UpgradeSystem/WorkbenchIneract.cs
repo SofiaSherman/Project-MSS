@@ -58,6 +58,9 @@ public class WorkbenchIneract : MonoBehaviour
         if (other.gameObject.tag == "InteractableBench")
         {
             upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
+            
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 
@@ -67,6 +70,8 @@ public class WorkbenchIneract : MonoBehaviour
         if (other.gameObject.tag == "InteractableBench")
         {
             upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 }
