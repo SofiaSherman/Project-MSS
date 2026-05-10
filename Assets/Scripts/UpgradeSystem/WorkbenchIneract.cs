@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class WorkbenchIneract : MonoBehaviour
 {
-    [SerializeField] private TMP_Text interactionText;
+    [SerializeField] private GameObject upgradeMenuCanvas;
+    
+    /*[SerializeField] private TMP_Text interactionText;
     [SerializeField] private TMP_Text interactionDenyText;
 
     private float interactionDistance = 10f;
@@ -16,27 +18,28 @@ public class WorkbenchIneract : MonoBehaviour
     
     private bool canInteract = false;
 
-    [SerializeField] private GameObject shotgunModel;
+    [SerializeField] private GameObject shotgunModel;*/
 
     void Start()
     {
-        interactionText.gameObject.SetActive(false);
+        upgradeMenuCanvas.SetActive(false);
+        /*interactionText.gameObject.SetActive(false);
         interactionDenyText.gameObject.SetActive(false);
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();*/
     }
 
     private void Update()
     {
-        if (canInteract)
+       /* if (canInteract)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CheckScore();
             }
-        }
+        }*/
     }
 
-    private void CheckScore()
+    /*private void CheckScore()
     {
         if (score == 10)
         {
@@ -47,15 +50,14 @@ public class WorkbenchIneract : MonoBehaviour
         {
             interactionDenyText.gameObject.SetActive(true);
         }
-    }
+    }*/
     
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "InteractableBench")
         {
-            interactionText.gameObject.SetActive(true);
-            canInteract = true;
+            upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
         }
     }
 
@@ -64,9 +66,7 @@ public class WorkbenchIneract : MonoBehaviour
     {
         if (other.gameObject.tag == "InteractableBench")
         {
-            interactionText.gameObject.SetActive(false);
-            interactionDenyText.gameObject.SetActive(false);
-            canInteract = false;
+            upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
         }
     }
 }
