@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
         if(Health <= 0) Death();
         Health -= damage;
     }
-    private void Death()
+    public void Death()
     {
         Destroy(gameObject);
     }

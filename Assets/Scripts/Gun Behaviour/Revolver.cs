@@ -7,7 +7,7 @@ public class Revolver : Guns
     {
         base.Start();
         //setting up ammo
-        AmmoCount = 6;
+        ammoCount = 6;
         ammoCapacity = 6;
         ammoTotal = 24;
 
@@ -26,7 +26,7 @@ public class Revolver : Guns
     private void UpdateText()
     {
         totalAmmoText.text = ammoTotal.ToString();
-        ammoText.text = AmmoCount + " / " + ammoCapacity;
+        ammoText.text = ammoCount + " / " + ammoCapacity;
     }
     private void UpdateInput()
     {
@@ -36,14 +36,7 @@ public class Revolver : Guns
             if (Input.GetMouseButtonDown(0)) Shoot();
             if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
         }
-        //CameraZoom();
     }
-    /*private void CameraZoom()
-    {
-        if (Input.GetMouseButton(1)) m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, ZoomValue, 10f);
-        if (Input.GetMouseButtonUp(1)) m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, 60, 10f);
-
-    }*/ //TO DO, IMPLEMENT ZOOMING IN, HEAVILY WIP
 
     protected override void ReloadGun()
     {
@@ -52,5 +45,10 @@ public class Revolver : Guns
     protected override void Shoot()
     {
         base.Shoot();
+    }
+
+    protected override void PowerUp()
+    {
+        
     }
 }

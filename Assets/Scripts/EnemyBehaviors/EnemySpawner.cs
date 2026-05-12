@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] public GameObject spawnedObject;
-    [SerializeField] public float interval;
+    [SerializeField] private GameObject[] spawnedObject;
+    [SerializeField] private float interval;
+    [SerializeField] private GameManager gameManager;
 
-    private bool activeSpawner;
+    private int decision;
+    public bool activeSpawner;
 
     private void Start()
     {
@@ -24,7 +26,18 @@ public class EnemySpawner : MonoBehaviour
     {
         while (activeSpawner == true)
         {
-            Instantiate(spawnedObject, transform.position, transform.rotation);
+            decision = Random.Range(0, gameManager.doorsOpen);
+            switch (decision)
+            {
+                case 0:
+                    Instantiate(spawnedObject[decision], transform.position, transform.rotation);
+                    gameManager.zombieTokens--;
+                    break;
+                case 1:
+                    Instantiate(spawnedObject[decision], transform.position, transform.rotation);
+                    gameManager.zombieTokens -= 2;
+                    break;
+            }
             yield return new WaitForSeconds(interval);
         }
     }

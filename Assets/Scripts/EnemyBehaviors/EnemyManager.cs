@@ -7,27 +7,26 @@ public enum EnemyStates
     Death
 }
 [RequireComponent(typeof(EnemyAttack), typeof(EnemyDeath), typeof(ChaseScript))]
+[RequireComponent(typeof (EnemyHealth))]
 
 public class EnemyManager : MonoBehaviour
 {
     [field: SerializeField] public Transform target { get; private set; }
 
-    public float speed { get; private set; } = 2;
+    public float speed { get; private set; } = 10;
 
     [SerializeField] public EnemyStates enemyState;
     [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
-    private float attackingRange;
-    private float maxHealth;
-    private float currentHealth;
+    private EnemyHealth enemyHealth;
 
     public void Start()
     {
-        attackingRange = 3;
+        enemyHealth = GetComponent<EnemyHealth>();
         ChangeState(EnemyStates.Chasing);
-        maxHealth = 10;
-        currentHealth = 10;
+        enemyHealth.maxHealth = 10;
+        enemyHealth.currentHealth = 10;
     }
     private void Update()
     {
@@ -45,7 +44,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void ChangeState(EnemyStates newState)
+    public void ChangeState(EnemyStates newState)
     {
         //from the parameter, we get the state
         enemyState = newState;
@@ -60,19 +59,19 @@ public class EnemyManager : MonoBehaviour
 
     private void UpdateAttack()
     {
-        if (AttackRange(attackingRange)) return;
+        if (AttackRange(attackDistance)) return;
 
-        speed = 2;
+        speed = 5;
         ChangeState(EnemyStates.Chasing);
         
     }
     private void UpdateChase()
     {
-        if (!AttackRange(attackingRange) && currentHealth > 0) return;
+        if (!AttackRange(attackDistance) && enemyHealth.currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Attacking);
 
-        if (currentHealth > 0) return;
+        if (enemyHealth.currentHealth > 0) return;
         speed = 0;
         ChangeState(EnemyStates.Death);
     }
@@ -86,13 +85,13 @@ public class EnemyManager : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        if(currentHealth <= 0)
+        if(enemyHealth.currentHealth <= 0)
         {
             UpdateChase();
         }
         else
         {
-            currentHealth -= damage;
+            enemyHealth.currentHealth -= damage;
         }
     }
 }
