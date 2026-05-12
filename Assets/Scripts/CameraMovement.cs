@@ -38,7 +38,7 @@ public class CameraMovement : MonoBehaviour
 
     private void TotalRotation()
     {
-        rotation = new Vector3(verticalRotation, horizontalRotation, 0) * Time.deltaTime;
+        rotation = new Vector3(verticalRotation, 0 , 0) * Time.deltaTime;
         rotation.z = 0;
         transform.localEulerAngles += rotation;
     }

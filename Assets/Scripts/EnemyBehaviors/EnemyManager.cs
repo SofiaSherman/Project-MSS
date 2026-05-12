@@ -44,7 +44,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    private void ChangeState(EnemyStates newState)
+    public void ChangeState(EnemyStates newState)
     {
         //from the parameter, we get the state
         enemyState = newState;
@@ -61,7 +61,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (AttackRange(attackDistance)) return;
 
-        speed = 10;
+        speed = 5;
         ChangeState(EnemyStates.Chasing);
         
     }

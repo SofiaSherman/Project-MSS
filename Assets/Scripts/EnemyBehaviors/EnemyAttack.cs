@@ -16,7 +16,6 @@ public class EnemyAttack : EnemyBase
     {
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
-            yield return new WaitForSeconds(.1f);
             Debug.Log("attacking");
 
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);

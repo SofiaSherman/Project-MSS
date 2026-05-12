@@ -10,11 +10,13 @@ abstract public class EnemyBase : MonoBehaviour
 
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
+    protected Animator _animator;
 
     protected float attackDamage;
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
     }

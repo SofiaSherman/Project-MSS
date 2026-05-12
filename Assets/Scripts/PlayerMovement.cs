@@ -5,7 +5,7 @@ using Cursor = UnityEngine.Cursor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float rotationSpeed = 20;
+    private float rotationSpeed = 100;
     private float forwardSpeed = 10;
     private float sideSpeed = 10;
 
@@ -51,13 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateRotation()
     {
-        /*var xInput = Input.GetAxis("Horizontal");
-        var yInput = Input.GetAxis("Vertical");
-        
-        Vector2 lookVector = yInput * m_Camera.transform.forward + xInput * m_Camera.transform.right;
-        if(lookVector.sqrMagnitude > 1) lookVector.Normalize();
-
-        lookVector = new Vector3 (0,lookVector.y * m_Camera.transform.forward.z + lookVector.x * m_Camera.transform.right.x, 0) * rotationSpeed;
-        transform.Rotate(lookVector);*/
+        var mouseInput = Input.GetAxisRaw("Mouse X");
+        transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0);
     }
 }

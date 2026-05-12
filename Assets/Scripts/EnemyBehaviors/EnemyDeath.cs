@@ -13,7 +13,8 @@ public class EnemyDeath : EnemyBase
     }
     private void Dying()
     {
-        Destroy(gameObject);
+        _animator.SetTrigger("Death");
+        Destroy(gameObject,5);
     }
 
     protected override void OnEnable()

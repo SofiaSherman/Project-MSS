@@ -10,19 +10,15 @@ using UnityEngine;
     }
 
 [RequireComponent(typeof(Revolver), typeof(Shotgun), typeof(Rifle))]
+[RequireComponent (typeof(DynamiteSpawn))]
 
 public class GunManager : MonoBehaviour
 {
-    private Revolver m_Revolver;
-    private Shotgun m_Shotgun;
-
     [SerializeField] public GunStash currentGun;
     [SerializeField] public Guns[] currentGuns;
     private void Start()
     {
         ChangeGun(0);
-        m_Revolver = GetComponent<Revolver>();
-        m_Shotgun = GetComponent<Shotgun>();
     }
     private void Update()
     {

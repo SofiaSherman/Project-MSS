@@ -1,24 +1,30 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class Revolver : Guns
+public class DynamiteSpawn : Guns
 {
+
+    [SerializeField] private GameObject dynamiteInstance;
+
+    private Dynamite dynamiteManager;
     protected override void Start()
     {
+        dynamiteManager = dynamiteInstance.GetComponent<Dynamite>();
         base.Start();
         //setting up ammo
-        ammoCount = 6;
-        ammoCapacity = 6;
-        ammoTotal = 24;
+        ammoCount = 1;
+        ammoCapacity = 1;
+        ammoTotal = 5;
 
         //other statistics
         reloadTime = 4;
         bulletAmount = 1;
-        damage = 5;
-        bulletDistance = 100;
+        damage = 40;
+        bulletDistance = 50;
 
         minZoom = 60;
-        maxZoom = 30;
+        maxZoom = 50;
     }
     private void Update()
     {
@@ -49,7 +55,17 @@ public class Revolver : Guns
     }
     protected override void Shoot()
     {
-        base.Shoot();
+        //do you have bullets left?
+        if (ammoCount > 0)
+        {
+            ammoCount--;
+            //take one bullet, and fire the bullet/pellet amount which can be modified
+            for (int i = 0; i < bulletAmount; i++) Instantiate(dynamiteInstance, shootingPoint.transform.position, m_Camera.transform.rotation);
+            dynamiteManager.Explosion();
+        }
+        else Debug.Log("no ammo");
+
+
     }
     private void OnEnable()
     {

@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Rifle : Guns
 {
+    public bool powerActive;
     protected override void Start()
     {
         base.Start();
@@ -51,10 +54,32 @@ public class Rifle : Guns
     protected override void Shoot()
     {
         base.Shoot();
+        if (powerActive == true) PowerUp();
     }
-
     private void OnEnable()
     {
         StopAllCoroutines();
+    }
+
+    protected override void PowerUp()
+    {
+
+         //TO DO: FINISH THE RICOCHET SYSTEM, CURRENTLY NOT REDIRECTING
+        //power up: ricochet
+        Collider[] targets = Physics.OverlapSphere(hit.point, 5);
+        RaycastHit ricochet;
+        Physics.Raycast(hit.point, targets[2].gameObject.transform.position, out ricochet);
+        if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
+        {
+            //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
+            damageable.TakeDamage(damage);
+        }
+        Debug.DrawRay(hit.point, targets[2].gameObject.transform.position * 100, Color.red, 10f);
+
+
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(hit.point, 5);
     }
 }

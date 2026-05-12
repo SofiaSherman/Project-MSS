@@ -85,4 +85,9 @@ public class Shotgun : Guns
     {
         StopAllCoroutines();
     }
+
+    protected override void PowerUp()
+    {
+        
+    }
 }

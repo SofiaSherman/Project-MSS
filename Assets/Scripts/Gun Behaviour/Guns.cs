@@ -12,7 +12,7 @@ abstract public class Guns : MonoBehaviour
     [SerializeField] public TMP_Text totalAmmoText;
     [SerializeField] public GameObject shootingPoint;
 
-
+    protected RaycastHit hit;
     protected float damage;
     protected float bulletAmount;
     protected float bulletDistance;
@@ -46,13 +46,13 @@ abstract public class Guns : MonoBehaviour
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++)
             {
-                RaycastHit hit;
 
                 if (Physics.Raycast(shootingPoint.transform.position, m_Camera.transform.forward, out hit, bulletDistance))
                 {
                     //does it hit an object that has an enemy script?
                     if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
                     {
+                        //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
                         damageable.TakeDamage(damage);
                     }
                     m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
@@ -118,4 +118,6 @@ abstract public class Guns : MonoBehaviour
     {
         StopAllCoroutines();
     }
+
+    protected abstract void PowerUp();
 }
