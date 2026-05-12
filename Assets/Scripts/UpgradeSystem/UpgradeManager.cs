@@ -9,9 +9,9 @@ public class UpgradeManager : MonoBehaviour
     private GameObject player;
 
     private Revolver playerRevolver;
-    //private Rifle playerRifle;
+    private Rifle playerRifle;
     private Shotgun playerShotgun;
-    //private Dynamite  playerDynamite;
+    private Dynamite  playerDynamite;
     private PlayerMovement playerMovement;
     private PlayerManager playerManager;
     
@@ -36,9 +36,9 @@ public class UpgradeManager : MonoBehaviour
         GameObject playerObj = GameObject.Find("Player");
         
         playerRevolver = playerObj.GetComponent<Revolver>();
-        //playerRifle = playerObj.GetComponent<Rifle>();
+        playerRifle = playerObj.GetComponent<Rifle>();
         playerShotgun = playerObj.GetComponent<Shotgun>();
-        //playerDynamite = playerObj.GetComponent<Dynamite>();
+        playerDynamite = playerObj.GetComponent<Dynamite>();
         
         playerMovement  = playerObj.GetComponent<PlayerMovement>();
         playerManager =  playerObj.GetComponent<PlayerManager>();
@@ -119,6 +119,12 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (activePageIndex == 2)
         {
+            if (rifleAmmoLevel < 5)
+            {
+                playerRifle.ammoTotal += 12;
+                rifleAmmoLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(rifleAmmoLevel, 4);
+            }
         }
         else if (activePageIndex == 3)
         {
@@ -134,6 +140,12 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (activePageIndex == 4)
         {
+            if (dynamiteAmmoLevel < 5)
+            {
+                playerDynamite.ammoTotal += 1;
+                dynamiteAmmoLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(dynamiteAmmoLevel, 8s);
+            }
             
         }
     }
