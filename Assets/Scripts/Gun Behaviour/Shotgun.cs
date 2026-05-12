@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class Shotgun : Guns
@@ -15,13 +16,16 @@ public class Shotgun : Guns
         bulletAmount = 10;
         damage = 2;
         bulletDistance = 100;
+
+        minZoom = 60;
+        maxZoom = 40;
     }
     private void Update()
     { 
         //keep updates clean please, only functions ideally
         UpdateText();
         UpdateInput();
-        
+        CameraZoom();
     }
     
     private void UpdateText()
@@ -44,8 +48,8 @@ public class Shotgun : Guns
             for (int i = 0; i < bulletAmount; i++)
             {
                 //the shotgun is different, as in it has more than one "bullet", in pellets
-                float randomX = Random.Range(-0.2f, 0.2f);
-                float randomY = Random.Range(-0.2f, 0.2f);
+                float randomX = Random.Range(-0.1f, 0.1f);
+                float randomY = Random.Range(-0.1f, 0.1f);
                 //each bullet will have their own direction
 
 
@@ -56,18 +60,34 @@ public class Shotgun : Guns
                 //that vector is applied to the raycast each time
                 if (Physics.Raycast(shootingPoint.transform.position, shootVector, out hit, bulletDistance))
                 {
-                    if (hit.collider.gameObject.GetComponent<EnemyManager>() != null)
+                    if (hit.collider.gameObject.TryGetComponent(out IDamageable damaged))
                     {
-                        hit.collider.gameObject.GetComponent<EnemyManager>().ReceiveDamage(damage);
+                        damaged.TakeDamage(damage); 
                     }
-                    Debug.DrawRay(shootingPoint.transform.position, shootVector, Color.red, 3f);
+                    Debug.DrawRay(shootingPoint.transform.position, shootVector * 100 , Color.red, 3f);
                 }
             }
         }
         else Debug.Log("no ammo");
     }
+
+    protected override void CameraZoom()
+    {
+        base.CameraZoom();
+    }
+
     protected override void ReloadGun()
     {
         base.ReloadGun();
+    }
+
+    private void OnEnable()
+    {
+        StopAllCoroutines();
+    }
+
+    protected override void PowerUp()
+    {
+        
     }
 }
