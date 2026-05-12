@@ -6,14 +6,22 @@ public class EnemyAttack : EnemyBase
     [SerializeField] private GameObject attackPoint;
 
     private float attackSpeed;
+    
+    private EnemyExplode _enemyExplode;
     protected override void Start()
     {
         base.Start();
         attackSpeed = 3f;
+
+        if (this.gameObject.GetComponent<EnemyExplode>() != null)
+        {
+            _enemyExplode = GetComponent<EnemyExplode>();
+        }
     }
 
     private IEnumerator Attack()
     {
+        Debug.Log("Tried attacking");
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             Debug.Log("attacking");
@@ -23,8 +31,15 @@ public class EnemyAttack : EnemyBase
             {
                 if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
                 {
-                    Debug.Log(result);
-                    playerdamage.TakeDamage(attackDamage);
+                    if (this.gameObject.CompareTag("ExplodingZombie"))
+                    {
+                        _enemyExplode.Explode();
+                    }
+                    else
+                    {
+                        Debug.Log(result);
+                        playerdamage.TakeDamage(attackDamage);
+                    }
                 }
             }
             yield return new WaitForSeconds(3);

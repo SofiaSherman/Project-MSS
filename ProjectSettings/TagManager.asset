@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - InteractableBench
+  - Body
+  - ExplodingZombie
   layers:
   - Default
   - TransparentFX
