@@ -102,7 +102,7 @@ public class PlayerAnimationManager : MonoBehaviour
                 _animator.SetTrigger("Reload_Revolver");
                 isReloading = true;
             }
-            else if (Input.GetMouseButtonDown(0) && _revolver.AmmoCount > 0 && !isReloading)
+            else if (Input.GetMouseButtonDown(0) && _revolver.ammoCount > 0 && !isReloading)
             {
                 _animator.SetTrigger("Shoot_Revolver");
             }
@@ -124,7 +124,7 @@ public class PlayerAnimationManager : MonoBehaviour
             {
                 _animator.SetTrigger("Reload_Rifle");
             }
-            else if (Input.GetMouseButtonDown(0) && _shotgun.AmmoCount > 0)
+            else if (Input.GetMouseButtonDown(0) && _shotgun.ammoCount > 0)
             {
                 _animator.SetTrigger("Shoot_Rifle");
             }
