@@ -37,6 +37,7 @@ public class EnemyManager : MonoBehaviour
                 UpdateAttack();
                 break;
             case EnemyStates.Death:
+
                 break;
             case EnemyStates.Chasing:
                 UpdateChase();
