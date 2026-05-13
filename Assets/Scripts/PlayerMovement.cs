@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     public float VelocityY { get; private set; }
     
     //weapon related
-    [SerializeField] private Transform weaponParent;
-    [SerializeField] private List<GameObject> weapons = new List<GameObject>();
+/*    [SerializeField] private Transform weaponParent;
+    [SerializeField] private List<GameObject> weapons = new List<GameObject>();*/
     
     public bool shotgunAvailable = false;
     
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
         
-        SetWeapons();
+        
 
     }
 
@@ -48,30 +48,9 @@ public class PlayerMovement : MonoBehaviour
         ApplyTotalVelocity();
 
 
-        //GetWeapons();
+        
     }
 
-    private void SetWeapons()
-    {
-        foreach (Transform child in weaponParent)
-        {
-            weapons.Add(child.gameObject);
-        }
-    }
-
-    /*private void GetWeapons()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            weapons[0].gameObject.SetActive(true);
-            weapons[1].gameObject.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) //&& shotgunAvailable)
-        {
-            weapons[0].gameObject.SetActive(false);
-            weapons[1].gameObject.SetActive(true);
-        }
-    }*/
     private void UpdateMoveVelocity()
     {
         if (isCurrentlyBoosting)
@@ -111,15 +90,6 @@ public class PlayerMovement : MonoBehaviour
         VelocityX = Vector3.Dot(normalizedVelocity, transform.right);
         VelocityY = Vector3.Dot(normalizedVelocity, transform.forward);
 
-        /*if (Input.GetKey(KeyCode.LeftShift))
-        {
-            
-            TotalVelocity = Mathf.Lerp(VelocityX + VelocityY, maxSpeed, Time.deltaTime);
-        }
-        else
-        {
-            TotalVelocity = Mathf.Lerp(VelocityX + VelocityY, maxSpeed, Time.deltaTime / 2f);
-        }*/
             
     }
     private void ApplyTotalVelocity()
@@ -132,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var mouseInput = Input.GetAxis("Mouse X");
         transform.Rotate(0, mouseInput * rotationSpeed * Time.deltaTime, 0 );
-        //transform.Rotate(m_Camera.transform.forward);
+
     }
 
     private void TimedSpeedBoost()

@@ -16,6 +16,9 @@ public class Revolver : Guns
         bulletAmount = 1;
         damage = 5;
         bulletDistance = 100;
+
+        minZoom = 60;
+        maxZoom = 30;
     }
     private void Update()
     {

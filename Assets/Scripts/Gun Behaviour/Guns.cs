@@ -27,15 +27,15 @@ abstract public class Guns : MonoBehaviour
 
     protected float zoomCounter = 0;
     protected Camera m_Camera;
-    protected LineRenderer m_LineRenderer;
+    //protected LineRenderer m_LineRenderer;
     
     protected virtual void Start()
     {
-        m_LineRenderer = GetComponentInChildren<LineRenderer>();
+        //m_LineRenderer = GetComponentInChildren<LineRenderer>();
         m_Camera = GetComponentInChildren<Camera>();
 
-        m_LineRenderer.startWidth = 0.05f;
-        m_LineRenderer.endWidth = 0.05f;
+        //m_LineRenderer.startWidth = 0.05f;
+        //m_LineRenderer.endWidth = 0.05f;
         
     }
     protected virtual void Shoot()
@@ -56,7 +56,7 @@ abstract public class Guns : MonoBehaviour
                         //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
                         damageable.TakeDamage(damage);
                     }
-                    m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
+                    //m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
                     Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward * 100, Color.red, 3f);
                 }
 
