@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 4235288683219635754}
   - component: {fileID: 7091159723973276139}
   - component: {fileID: 2350033056465040237}
+  - component: {fileID: 8840274130769415356}
   m_Layer: 0
   m_Name: TankZombie
   m_TagString: Untagged
@@ -105,13 +106,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
+  m_Speed: 7
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -213,7 +214,7 @@ Animator:
   m_GameObject: {fileID: 7005274572829334751}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b9bfec2c4f09f184a950b28d82191e3a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7bf9fa193bcf054d82afeecb9bdb8e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -225,6 +226,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8840274130769415356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005274572829334751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ec139948612604293f0adf4dfad213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 10
+  currentHealth: 0
 --- !u!1001 &8267785129580310780
 PrefabInstance:
   m_ObjectHideFlags: 0
