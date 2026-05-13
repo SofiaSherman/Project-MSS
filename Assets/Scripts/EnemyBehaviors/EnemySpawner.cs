@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.M)) activeSpawner = true;
     }
 
-    private IEnumerator Spawner()
+    public IEnumerator Spawner()
     {
         while (activeSpawner == true)
         {
@@ -32,8 +32,17 @@ public class EnemySpawner : MonoBehaviour
                 case 0:
                     Instantiate(spawnedObject[decision], transform.position, transform.rotation);
                     gameManager.zombieTokens--;
+                    Debug.Log(gameManager.zombieTokens);
                     break;
                 case 1:
+                    Instantiate(spawnedObject[decision], transform.position, transform.rotation);
+                    gameManager.zombieTokens -= 2;
+                    break;
+                case 2:
+                    Instantiate(spawnedObject[decision], transform.position, transform.rotation);
+                    gameManager.zombieTokens -= 2;
+                    break;
+                case 3:
                     Instantiate(spawnedObject[decision], transform.position, transform.rotation);
                     gameManager.zombieTokens -= 2;
                     break;

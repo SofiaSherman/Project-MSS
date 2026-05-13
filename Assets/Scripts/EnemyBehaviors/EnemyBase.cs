@@ -5,9 +5,8 @@ using UnityEngine.AI;
 [RequireComponent (typeof(NavMeshAgent), typeof(EnemyManager))]
 abstract public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] protected Transform _target;
 
-
+    protected Transform _target;
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
     protected Animator _animator;
@@ -16,6 +15,8 @@ abstract public class EnemyBase : MonoBehaviour
 
     private void Awake()
     {
+        PlayerManager temp = (PlayerManager)FindAnyObjectByType(typeof(PlayerManager));
+        _target = temp.GetComponent<Transform>();
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();

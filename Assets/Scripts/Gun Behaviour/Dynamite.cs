@@ -26,11 +26,18 @@ public class Dynamite : MonoBehaviour
         Collider[] exploded = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach(Collider c in exploded)
         {
-            if (!c.gameObject.TryGetComponent(out IDamageable damageable)) yield return new WaitForSeconds(1f);
-                    damageable.TakeDamage(damage);
-            c.GetComponent<Rigidbody>().AddForce(-transform.position + transform.up * 100, ForceMode.Impulse);
+            Rigidbody rb = c.GetComponent<Rigidbody>();
+            if (c.gameObject.TryGetComponent(out IDamageable damageable)) damageable.TakeDamage(damage);
+            if(rb != null) rb.AddExplosionForce(20 ,transform.position, explosionRadius, 2, ForceMode.Impulse);
+                    
         }
+
         Debug.Log("EXPLODED!!!!!");
         Destroy(gameObject);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }
