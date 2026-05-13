@@ -16949,7 +16949,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 0d14d6c323ee0dc46889d63ebda75729, type: 2}
     - target: {fileID: 2350033056465040237, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'mixamo.com'"
       objectReference: {fileID: 0}
     - target: {fileID: 6897458978509840847, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
       propertyPath: _target
