@@ -11,13 +11,17 @@ abstract public class EnemyBase : MonoBehaviour
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
 
-    protected float attackDamage;
+    [SerializeField] protected float attackDamage;
+
+    protected int scoreOnDeath;
+    protected ScoreManager _scoreManager;
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
         _animator = GetComponent<Animator>();
+        _scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
     }
     protected virtual void Start()
     {

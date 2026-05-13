@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 {
     [field: SerializeField] public Transform target { get; private set; }
 
-    public float speed { get; private set; } = 10;
+    [SerializeField] public float speed = 10; //{ get; private set; }
 
     [SerializeField] public EnemyStates enemyState;
     [SerializeField] public EnemyBase[] enemyStates;

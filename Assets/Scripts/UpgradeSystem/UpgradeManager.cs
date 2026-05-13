@@ -11,7 +11,7 @@ public class UpgradeManager : MonoBehaviour
     private Revolver playerRevolver;
     private Rifle playerRifle;
     private Shotgun playerShotgun;
-    private Dynamite  playerDynamite;
+    private DynamiteSpawn  playerDynamiteSpawn;
     private PlayerMovement playerMovement;
     private PlayerManager playerManager;
     
@@ -31,14 +31,14 @@ public class UpgradeManager : MonoBehaviour
     private int dynamiteAmmoLevel = 0;
     private void Start()
     {
-        scoreManager = GetComponent<ScoreManager>();
+        scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
         
         GameObject playerObj = GameObject.Find("Player");
         
         playerRevolver = playerObj.GetComponent<Revolver>();
         playerRifle = playerObj.GetComponent<Rifle>();
         playerShotgun = playerObj.GetComponent<Shotgun>();
-        playerDynamite = playerObj.GetComponent<Dynamite>();
+        playerDynamiteSpawn = playerObj.GetComponent<DynamiteSpawn>();
         
         playerMovement  = playerObj.GetComponent<PlayerMovement>();
         playerManager =  playerObj.GetComponent<PlayerManager>();
@@ -142,7 +142,7 @@ public class UpgradeManager : MonoBehaviour
         {
             if (dynamiteAmmoLevel < 5)
             {
-          //      playerDynamite.ammoTotal += 1;
+                playerDynamiteSpawn.ammoTotal += 1;
                 dynamiteAmmoLevel += 1;
                 visualLevelUpgrade.VisualUpgrade(dynamiteAmmoLevel, 8);
             }
@@ -163,6 +163,12 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (activePageIndex == 2)
         {
+            if (rifleDamageLevel < 5)
+            {
+                playerRifle.damage += 2;
+                rifleDamageLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(rifleDamageLevel, 5);
+            }
         }
         else if (activePageIndex == 3)
         {
@@ -176,7 +182,12 @@ public class UpgradeManager : MonoBehaviour
         }
         else if (activePageIndex == 4)
         {
-            
+            if (dynamiteDamageLevel < 5)
+            {
+                playerDynamiteSpawn.damage += 2;
+                dynamiteDamageLevel += 1;
+                visualLevelUpgrade.VisualUpgrade(dynamiteDamageLevel, 9);
+            }
         }
         scoreManager.score -= 200;
 

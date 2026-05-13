@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
-    public float maxHealth = 10;
+    [SerializeField] public float maxHealth = 10;
     public float currentHealth;
 
     private EnemyManager manager;
