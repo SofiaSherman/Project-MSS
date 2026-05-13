@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - InteractableBench
+  - Body
+  - InteractableWeaponBench
+  - GameManager
   layers:
   - Default
   - TransparentFX
