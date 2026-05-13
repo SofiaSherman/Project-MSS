@@ -142,9 +142,9 @@ public class UpgradeManager : MonoBehaviour
         {
             if (dynamiteAmmoLevel < 5)
             {
-                playerDynamite.ammoTotal += 1;
+          //      playerDynamite.ammoTotal += 1;
                 dynamiteAmmoLevel += 1;
-                visualLevelUpgrade.VisualUpgrade(dynamiteAmmoLevel, 8s);
+                visualLevelUpgrade.VisualUpgrade(dynamiteAmmoLevel, 8);
             }
             
         }
