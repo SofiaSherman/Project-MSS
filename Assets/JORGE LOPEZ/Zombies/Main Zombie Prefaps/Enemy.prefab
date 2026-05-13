@@ -2157,6 +2157,7 @@ GameObject:
   - component: {fileID: 1602178709562637783}
   - component: {fileID: 8218912450861291743}
   - component: {fileID: 7457322807440470184}
+  - component: {fileID: 3620707360265392014}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -2214,13 +2215,13 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 5
   avoidancePriority: 50
   m_AngularSpeed: 200
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 1
@@ -2238,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4689c4009ec916479487a3594228993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaseScript
-  _target: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+  _target: {fileID: 0}
 --- !u!54 &74773205226921490
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2278,7 +2279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea201740c4ba44b841e57042c461c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  <target>k__BackingField: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+  <target>k__BackingField: {fileID: 0}
   enemyState: 0
   enemyStates:
   - {fileID: 4369570398611948062}
@@ -2297,7 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69b7909b4d3f5848a82c3c3b4b90b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _target: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+  _target: {fileID: 0}
   attackPoint: {fileID: 7126990195403694693}
 --- !u!114 &8218912450861291743
 MonoBehaviour:
@@ -2311,7 +2312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a18f4ea960d86f4f93f315946923123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
-  _target: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+  _target: {fileID: 0}
 --- !u!95 &7457322807440470184
 Animator:
   serializedVersion: 7
@@ -2334,6 +2335,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3620707360265392014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157537121646823779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ec139948612604293f0adf4dfad213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 10
+  currentHealth: 0
 --- !u!1 &5222293332091800768
 GameObject:
   m_ObjectHideFlags: 0
