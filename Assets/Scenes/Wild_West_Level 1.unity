@@ -50577,8 +50577,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 802e08170e276064d93a07897c2ab1e0, type: 2}
     - target: {fileID: 2350033056465040237, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350033056465040237, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2350033056465040237, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
       propertyPath: m_WarningMessage
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845231476300712843, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845231476300712843, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6897458978509840847, guid: 53f29ca26a567d141bb43d85f9f521e9, type: 3}
       propertyPath: _target
