@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent (typeof(NavMeshAgent), typeof(EnemyManager))]
 abstract public class EnemyBase : MonoBehaviour
 {
-    protected ScoreManager _scoreManager;
+    [SerializeField] protected ScoreManager _scoreManager;
     protected Transform _target;
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;

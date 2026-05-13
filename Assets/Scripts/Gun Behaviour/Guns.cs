@@ -25,14 +25,13 @@ abstract public class Guns : MonoBehaviour
     protected float minZoom;
     protected float maxZoom;
 
-    protected float zoomCounter = 0;
     protected Camera m_Camera;
     //protected LineRenderer m_LineRenderer;
     
     protected virtual void Start()
     {
         //m_LineRenderer = GetComponentInChildren<LineRenderer>();
-        m_Camera = GetComponentInChildren<Camera>();
+        m_Camera = Camera.main;
 
         //m_LineRenderer.startWidth = 0.05f;
         //m_LineRenderer.endWidth = 0.05f;
