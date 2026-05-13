@@ -26,6 +26,9 @@ public class WeaponUpgradeManager : MonoBehaviour
     
     private WeaponUpgradeManager _weaponUpgradeManager;
     
+    [SerializeField] private GameObject pauseMenuObject;
+    private PauseMenu pauseMenu;
+    
 
     private void Start()
     {
@@ -35,6 +38,9 @@ public class WeaponUpgradeManager : MonoBehaviour
         _gunManager = GameObject.FindWithTag("Player").GetComponent<GunManager>();
 
         _weaponUpgradeManager = GetComponent<WeaponUpgradeManager>();
+        
+        pauseMenu = pauseMenuObject.GetComponent<PauseMenu>();
+
     }
 
     private void EnableScript()
@@ -78,6 +84,7 @@ public class WeaponUpgradeManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Entered");
             EnableScript();
             weaponUpgradeMenuCanvas.SetActive(!weaponUpgradeMenuCanvas.activeSelf);
 
@@ -87,8 +94,9 @@ public class WeaponUpgradeManager : MonoBehaviour
             }
             buttons[weaponType - 1].SetActive(true);
             
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
+            pauseMenu.UpgradePauseGame();
+            //Cursor.lockState = CursorLockMode.Confined;
+            //Cursor.visible = true;
         }
     }
 
@@ -97,6 +105,7 @@ public class WeaponUpgradeManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            pauseMenu.UpgradeResumeGame();
             weaponUpgradeMenuCanvas.SetActive(!weaponUpgradeMenuCanvas.activeSelf);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
