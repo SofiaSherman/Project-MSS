@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3878612905940070436}
   - component: {fileID: 9189719212564998070}
+  - component: {fileID: 3401075475857989982}
   m_Layer: 0
   m_Name: WeaponWorktable
   m_TagString: InteractableWeaponBench
@@ -54,6 +55,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.514845, y: 1.0932835, z: 1.771698}
   m_Center: {x: 0.17579746, y: 0.5287705, z: -0.3963337}
+--- !u!114 &3401075475857989982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050972709061505425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9eea8901c84f2846aa955d317f89268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponUpgradeManager
+  weaponUpgradeMenuCanvas: {fileID: 0}
+  weaponType: 1
+  weapon: {fileID: 0}
+  cost: 100
+  costText: {fileID: 0}
+  button: {fileID: 0}
+  boxTrigger: {fileID: 9189719212564998070}
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &908851363979947558
 PrefabInstance:
   m_ObjectHideFlags: 0

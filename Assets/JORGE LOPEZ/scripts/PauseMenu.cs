@@ -38,6 +38,17 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    public void UpgradePauseGame()
+    {
+        Time.timeScale = 0f;
+        isPaused = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+    public void UpgradeResumeGame()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+    }
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);

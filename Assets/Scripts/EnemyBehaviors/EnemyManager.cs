@@ -11,7 +11,7 @@ public enum EnemyStates
 
 public class EnemyManager : MonoBehaviour
 {
-    [field: SerializeField] public Transform target { get; private set; }
+    public Transform _target;
 
     [SerializeField] public float speed = 10; //{ get; private set; }
 
@@ -78,8 +78,8 @@ public class EnemyManager : MonoBehaviour
 
     private bool AttackRange(float attackRange)
     {
-        //if(!target) return false;
-        var sqrDistance = (target.position - transform.position).sqrMagnitude;
+        if(!_target) return false;
+        var sqrDistance = (_target.position - transform.position).sqrMagnitude;
         return sqrDistance <= Mathf.Pow(attackRange, 1);
     }
 

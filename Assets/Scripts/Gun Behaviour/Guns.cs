@@ -28,7 +28,7 @@ abstract public class Guns : MonoBehaviour
     protected float zoomCounter = 0;
     protected Camera m_Camera;
     protected LineRenderer m_LineRenderer;
-
+    
     protected virtual void Start()
     {
         m_LineRenderer = GetComponentInChildren<LineRenderer>();
@@ -36,6 +36,7 @@ abstract public class Guns : MonoBehaviour
 
         m_LineRenderer.startWidth = 0.05f;
         m_LineRenderer.endWidth = 0.05f;
+        
     }
     protected virtual void Shoot()
     {

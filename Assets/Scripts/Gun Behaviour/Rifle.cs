@@ -68,14 +68,18 @@ public class Rifle : Guns
         //power up: ricochet
         Collider[] targets = Physics.OverlapSphere(hit.point, 5);
         RaycastHit ricochet;
-        Physics.Raycast(hit.point, targets[2].gameObject.transform.position, out ricochet);
-        if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
-        {
-            //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
-            damageable.TakeDamage(damage);
-        }
-        Debug.DrawRay(hit.point, targets[2].gameObject.transform.position * 100, Color.red, 10f);
 
+        if (targets.Length < 1) return;
+        GameObject thing = targets[1].gameObject;
+        Physics.Raycast(hit.point, thing.transform.position, out ricochet);
+        Debug.DrawRay(hit.point, thing.transform.position * 100, Color.red, 10f);
+
+        //ricochet.collider.gameObject.TryGetComponent(out IDamageable damageable);
+        
+        //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
+        //damageable.TakeDamage(damage);
+        
+        
 
     }
     private void OnDrawGizmos()

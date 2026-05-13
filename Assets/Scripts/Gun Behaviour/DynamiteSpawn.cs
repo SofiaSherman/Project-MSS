@@ -61,7 +61,7 @@ public class DynamiteSpawn : Guns
             ammoCount--;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++) Instantiate(dynamiteInstance, shootingPoint.transform.position, m_Camera.transform.rotation);
-            dynamiteManager.Explosion();
+            StartCoroutine(dynamiteManager.Explosion());
         }
         else Debug.Log("no ammo");
 

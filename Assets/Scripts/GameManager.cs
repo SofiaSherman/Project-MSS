@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,27 +12,40 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         roundCount = 0;
-        zombieTokens = 10;
+        zombieTokens = 1;
         NewRound();
     }
 
+    private void Update()
+    {
+        StopSpawnZombies();
+        NewRound();
+    }
     private void NewRound()
     {
-        roundCount++;
-        zombieTokens = 10 + (roundCount * 1.3f);
-        foreach(EnemySpawner e in spawners)
+        EnemyManager thing = (EnemyManager)FindAnyObjectByType(typeof(EnemyManager));
+        if (thing == null)
         {
-            e.enabled = true;
+            roundCount++;
+            zombieTokens = 1 + (roundCount);
+            foreach (EnemySpawner e in spawners)
+            {
+                StartCoroutine(e.Spawner());
+                e.activeSpawner = true;
+            }
+            Debug.Log("new round");
         }
     }
 
-    private void StopSpawnZombies()
+    public void StopSpawnZombies()
     {
         if (zombieTokens <= 0)
         {
             foreach (EnemySpawner e in spawners)
             {
-                e.enabled = false;
+                StopCoroutine(e.Spawner());
+                e.activeSpawner = false;
+                Debug.Log("zombies exhausted");
             }
         }
     }
