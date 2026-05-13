@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
     private int dynamiteAmmoLevel = 0;
     private void Start()
     {
-        scoreManager = GetComponent<ScoreManager>();
+        scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
         
         GameObject playerObj = GameObject.Find("Player");
         

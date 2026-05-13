@@ -6,7 +6,8 @@ TagManager:
   tags:
   - InteractableBench
   - Body
-  - ExplodingZombie
+  - InteractableWeaponBench
+  - GameManager
   layers:
   - Default
   - TransparentFX
