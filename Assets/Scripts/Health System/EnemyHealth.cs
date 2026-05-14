@@ -10,7 +10,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private void Start()
     {
         manager = GetComponent<EnemyManager>();
-        maxHealth = currentHealth;
+        //maxHealth = currentHealth;
+        currentHealth = maxHealth;
     }
     public void TakeDamage(float damage)
     {

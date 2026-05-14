@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class EnemyDeath : EnemyBase
@@ -19,6 +20,7 @@ public class EnemyDeath : EnemyBase
         
         Destroy(gameObject,2);
         _animator.SetTrigger("Death");
+        _scoreManager.scoreText.text = "Score: " + _scoreManager.score.ToString();
     }
 
     protected override void OnEnable()

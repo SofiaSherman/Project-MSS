@@ -25,21 +25,22 @@ public class EnemyAttack : EnemyBase
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             Debug.Log("attacking");
+            _animator.SetTrigger("Attack");
 
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
             foreach (Collider result in results)
             {
                 if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
                 {
-                    if (this.gameObject.CompareTag("ExplodingZombie"))
+                    Debug.Log(result);
+                    playerdamage.TakeDamage(attackDamage);
+                    /*if (this.gameObject.CompareTag("ExplodingZombie"))
                     {
                         _enemyExplode.Explode();
                     }
                     else
                     {
-                        Debug.Log(result);
-                        playerdamage.TakeDamage(attackDamage);
-                    }
+                    }*/
                 }
             }
             yield return new WaitForSeconds(3);
