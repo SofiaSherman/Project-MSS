@@ -13,12 +13,12 @@ abstract public class Guns : MonoBehaviour
     [SerializeField] public GameObject shootingPoint;
 
     protected RaycastHit hit;
-    protected float damage;
+    public float damage;
     protected float bulletAmount;
     protected float bulletDistance;
     protected float ammoCapacity;
-    protected float ammoCount;
-    protected float ammoTotal;
+    public float ammoCount;
+    public float ammoTotal;
     protected float reloadTime;
     protected float counter = 0;
     protected bool shotReady;
