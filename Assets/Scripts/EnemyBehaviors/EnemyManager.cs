@@ -11,8 +11,7 @@ public enum EnemyStates
 
 public class EnemyManager : MonoBehaviour
 {
-    public Transform _target;
-
+    private Transform _target;
     public float speed { get; private set; } = 10;
 
     [SerializeField] public EnemyStates enemyState;
@@ -23,6 +22,7 @@ public class EnemyManager : MonoBehaviour
 
     public void Start()
     {
+        _target = FindAnyObjectByType<PlayerManager>().transform;
         enemyHealth = GetComponent<EnemyHealth>();
         ChangeState(EnemyStates.Chasing);
         enemyHealth.maxHealth = 10;
