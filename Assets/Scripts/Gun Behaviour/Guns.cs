@@ -13,36 +13,48 @@ abstract public class Guns : MonoBehaviour
     [SerializeField] public GameObject shootingPoint;
 
     protected RaycastHit hit;
-    public float damage;
+    protected float damage;
     protected float bulletAmount;
     protected float bulletDistance;
-    public float ammoCapacity;
-    public float ammoCount;
-    public float ammoTotal;
+    protected float ammoCapacity;
+    protected float ammoCount;
+    protected float ammoTotal;
     protected float reloadTime;
     protected float counter = 0;
+    protected bool shotReady;
 
     protected float minZoom;
     protected float maxZoom;
 
+    protected float zoomCounter = 0;
     protected Camera m_Camera;
-    //protected LineRenderer m_LineRenderer;
-    
+    protected LineRenderer m_LineRenderer;
+
     protected virtual void Start()
     {
-        //m_LineRenderer = GetComponentInChildren<LineRenderer>();
-        m_Camera = Camera.main;
+        m_LineRenderer = GetComponentInChildren<LineRenderer>();
+        m_Camera = GetComponentInChildren<Camera>();
 
-        //m_LineRenderer.startWidth = 0.05f;
-        //m_LineRenderer.endWidth = 0.05f;
-        
+        shotReady = true;
+        m_LineRenderer.startWidth = 0.05f;
+        m_LineRenderer.endWidth = 0.05f;
     }
+    private void Update()
+    {
+        counter += Time.deltaTime;
+    }
+
+    #region Gun operation
     protected virtual void Shoot()
     {
+        //no infinite firerate
+        if (!shotReady) return;
+
         //do you have bullets left?
         if (ammoCount > 0)
         {
             ammoCount--;
+            //shotReady = false;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++)
             {
@@ -52,28 +64,28 @@ abstract public class Guns : MonoBehaviour
                     //does it hit an object that has an enemy script?
                     if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
                     {
-                        //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
                         damageable.TakeDamage(damage);
                     }
-                    //m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
+                    m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
                     Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward * 100, Color.red, 3f);
                 }
-
             }
+
         }
         else Debug.Log("no ammo");
     }
+
     protected virtual void ReloadGun()
     {
         //is your ammo capacity full?
         if (ammoCount == ammoCapacity) Debug.Log("full ammo");
         else
         {
+            counter = 0;
             //reload while the ammoCount is not equal to the capacity AND you still have stockpile left
             while (ammoCount != ammoCapacity && ammoTotal > 0)
             {
                 //reload and reset until full
-                counter += Time.deltaTime;
                 if (counter > reloadTime)
                 {
                     ammoCount++;
@@ -83,6 +95,10 @@ abstract public class Guns : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region Camera zoom
     protected virtual void CameraZoom()
     {
         if (Input.GetMouseButton(1))
@@ -113,11 +129,12 @@ abstract public class Guns : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
     }
-
     private void OnDisable()
     {
         StopAllCoroutines();
     }
+    #endregion
+
 
     protected abstract void PowerUp();
 }

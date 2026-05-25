@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - InteractableBench
-  - Body
-  - InteractableWeaponBench
   - GameManager
-  - ExplodingZombie
+  - Enemy
   layers:
   - Default
   - TransparentFX
