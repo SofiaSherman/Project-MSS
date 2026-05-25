@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class WeaponUpgradeManager : MonoBehaviour
 {
-    /*public bool hasRifle = false;
-    public bool hasShotgun = false;
-    public bool hasDynamite = false;*/
+    [SerializeField] private GameObject modelRevovler;
+    [SerializeField] private GameObject modelRifle;
+    [SerializeField] private GameObject modelShotgun;
+    [SerializeField] private GameObject modelDynamite;
+
 
     private ScoreManager scoreManager;
     private GunManager _gunManager;
