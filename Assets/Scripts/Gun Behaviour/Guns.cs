@@ -11,6 +11,8 @@ abstract public class Guns : MonoBehaviour
     [SerializeField] public TMP_Text ammoText;
     [SerializeField] public TMP_Text totalAmmoText;
     [SerializeField] public GameObject shootingPoint;
+    
+    [SerializeField] protected AudioManager _audioManager;
 
     protected RaycastHit hit;
     public float damage;
@@ -38,6 +40,8 @@ abstract public class Guns : MonoBehaviour
         shotReady = true;
         m_LineRenderer.startWidth = 0.05f;
         m_LineRenderer.endWidth = 0.05f;
+        
+        _audioManager.GetComponent<AudioManager>();
     }
     private void Update()
     {

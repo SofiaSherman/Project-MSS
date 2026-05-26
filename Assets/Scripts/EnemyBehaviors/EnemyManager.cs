@@ -11,6 +11,7 @@ public enum EnemyStates
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private AudioManager _audioManager;
     private Transform _target;
     public float speed { get; private set; } = 10;
 
@@ -27,6 +28,8 @@ public class EnemyManager : MonoBehaviour
         ChangeState(EnemyStates.Chasing);
         enemyHealth.maxHealth = 10;
         enemyHealth.currentHealth = 10;
+        
+        _audioManager = _audioManager.GetComponent<AudioManager>();
     }
     private void Update()
     {
@@ -62,6 +65,7 @@ public class EnemyManager : MonoBehaviour
         if (AttackRange(attackDistance)) return;
 
         speed = 5;
+        _audioManager.PlayRandomZombieSound();
         ChangeState(EnemyStates.Chasing);
         
     }

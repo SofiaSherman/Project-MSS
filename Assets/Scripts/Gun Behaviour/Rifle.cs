@@ -45,6 +45,7 @@ public class Rifle : Guns
     protected override void Shoot()
     {
         base.Shoot();
+        _audioManager.PlaySound("rifleShot");
         if (powerActive == true && hit.collider.tag == "Enemy" && ammoCount > 0) PowerUp();
     }
     private void OnEnable()

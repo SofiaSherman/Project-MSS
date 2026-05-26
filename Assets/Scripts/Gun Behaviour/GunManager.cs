@@ -53,37 +53,37 @@ public class GunManager : MonoBehaviour
         {
             ChangeGun(GunStash.Revolver);
             
-            modelRevolver.active = true;
-            modelShotgun.active = false;
-            modelRifle.active = false;
-            modelDynamite.active = false;
+            modelRevolver.SetActive(true);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && hasShotgun)
         {
             ChangeGun(GunStash.Shotgun);
             
-            modelRevolver.active = false;
-            modelShotgun.active = true;
-            modelRifle.active = false;
-            modelDynamite.active = false;
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(true);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && hasRifle)
         {
             ChangeGun(GunStash.Rifle);
             
-            modelRevolver.active = false;
-            modelShotgun.active = false;
-            modelRifle.active = true;
-            modelDynamite.active = false;
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(true);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.G) && hasDynamite)
         {
             ChangeGun(GunStash.Dynamite);
             
-            modelRevolver.active = false;
-            modelShotgun.active = false;
-            modelRifle.active = false;
-            modelDynamite.active = true;
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(true);
         }
     }
 }
