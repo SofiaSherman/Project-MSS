@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Revolver : Guns
 {
+    
     protected override void Start()
     {
         base.Start();
@@ -47,7 +48,15 @@ public class Revolver : Guns
     }
     protected override void Shoot()
     {
+        Debug.Log("revolver shoot");
         base.Shoot();
+        Debug.Log("finish base.Shoot");
+
+        if (_audioManager == null)
+        {
+            Debug.Log("null audioManager");
+        }
+        _audioManager.PlaySound("revolverShot");
     }
 
     protected override void PowerUp()

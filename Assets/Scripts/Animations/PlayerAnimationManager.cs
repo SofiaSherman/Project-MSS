@@ -80,15 +80,6 @@ public class PlayerAnimationManager : MonoBehaviour
         _animator.SetFloat("VelocityY", _playerMovement.VelocityY, 0.1f, Time.deltaTime);
         _animator.SetFloat("VelocityX", _playerMovement.VelocityX, 0.1f, Time.deltaTime);
         
-        //check if running
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            _animator.SetBool("IsRunning", true);
-        }
-        else
-        {
-            _animator.SetBool("IsRunning", false);
-        }
     }
 
     private void WeaponAnimations()

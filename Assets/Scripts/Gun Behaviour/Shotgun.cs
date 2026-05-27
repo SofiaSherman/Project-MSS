@@ -67,6 +67,7 @@ public class Shotgun : Guns
                     Debug.DrawRay(shootingPoint.transform.position, shootVector * 100 , Color.red, 3f);
                 }
             }
+            _audioManager.PlaySound("shotgunShot");
         }
         else Debug.Log("no ammo");
     }

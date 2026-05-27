@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 490152044064504499}
   - component: {fileID: 815044159224978100}
   - component: {fileID: 6775809014471838710}
-  - component: {fileID: 7651944929923302807}
   - component: {fileID: 2769621267530703006}
+  - component: {fileID: 7651944929923302807}
+  - component: {fileID: 5523415171374810575}
+  - component: {fileID: 6215920491021786066}
   - component: {fileID: 468467421545376601}
   - component: {fileID: 1289235235489891887}
   - component: {fileID: 3993489632443767038}
@@ -81,8 +83,6 @@ MonoBehaviour:
   forwardSpeed: 5
   sideSpeed: 5
   sprintSpeed: 10
-  weaponParent: {fileID: 0}
-  weapons: []
   shotgunAvailable: 0
   movementBoostLevel: 0
 --- !u!143 &6775809014471838710
@@ -110,23 +110,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7651944929923302807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 594769222200412727}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01b6a592e3c50b849b6d3c54dcc28671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shotgun
-  ammoText: {fileID: 4728777396516388147}
-  totalAmmoText: {fileID: 3845076829675435589}
-  shootingPoint: {fileID: 4722874399760393849}
-  damage: 0
-  ammoTotal: 0
 --- !u!114 &2769621267530703006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +126,68 @@ MonoBehaviour:
   totalAmmoText: {fileID: 3845076829675435589}
   shootingPoint: {fileID: 4722874399760393849}
   damage: 0
+  ammoCapacity: 0
+  ammoCount: 0
   ammoTotal: 0
+--- !u!114 &7651944929923302807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594769222200412727}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b6a592e3c50b849b6d3c54dcc28671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shotgun
+  ammoText: {fileID: 4728777396516388147}
+  totalAmmoText: {fileID: 3845076829675435589}
+  shootingPoint: {fileID: 4722874399760393849}
+  damage: 0
+  ammoCapacity: 0
+  ammoCount: 0
+  ammoTotal: 0
+--- !u!114 &5523415171374810575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594769222200412727}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3647bed990ed04ba4dbdd8657ba0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rifle
+  ammoText: {fileID: 4728777396516388147}
+  totalAmmoText: {fileID: 3845076829675435589}
+  shootingPoint: {fileID: 4722874399760393849}
+  damage: 0
+  ammoCapacity: 0
+  ammoCount: 0
+  ammoTotal: 0
+  powerActive: 0
+--- !u!114 &6215920491021786066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594769222200412727}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa5177455deb0e4691c1adb6eb8835b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DynamiteSpawn
+  ammoText: {fileID: 4728777396516388147}
+  totalAmmoText: {fileID: 3845076829675435589}
+  shootingPoint: {fileID: 4722874399760393849}
+  damage: 0
+  ammoCapacity: 0
+  ammoCount: 0
+  ammoTotal: 0
+  dynamiteInstance: {fileID: 6247691600803019348, guid: 6022b63b42f45a44ab4142b06c115b33, type: 3}
 --- !u!114 &468467421545376601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +204,11 @@ MonoBehaviour:
   currentGuns:
   - {fileID: 2769621267530703006}
   - {fileID: 7651944929923302807}
+  - {fileID: 5523415171374810575}
+  - {fileID: 6215920491021786066}
+  hasRifle: 0
+  hasShotgun: 0
+  hasDynamite: 0
 --- !u!114 &1289235235489891887
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Rifle : Guns
 {
+    private GameObject closestEnemy;
     public bool powerActive;
     protected override void Start()
     {
@@ -39,22 +40,13 @@ public class Rifle : Guns
     {
         if (Input.GetMouseButtonDown(0)) Shoot();
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
-        //CameraZoom();
     }
 
-    protected override void CameraZoom()
-    {
-        base.CameraZoom();
-    }
-
-    protected override void ReloadGun()
-    {
-        base.ReloadGun();
-    }
     protected override void Shoot()
     {
         base.Shoot();
-        if (powerActive == true) PowerUp();
+        _audioManager.PlaySound("rifleShot");
+        if (powerActive == true && hit.collider.tag == "Enemy" && ammoCount > 0) PowerUp();
     }
     private void OnEnable()
     {
@@ -63,25 +55,29 @@ public class Rifle : Guns
 
     protected override void PowerUp()
     {
+        Collider[] colliders = Physics.OverlapSphere(hit.point, 5);
 
-         //TO DO: FINISH THE RICOCHET SYSTEM, CURRENTLY NOT REDIRECTING
-        //power up: ricochet
-        Collider[] targets = Physics.OverlapSphere(hit.point, 5);
-        RaycastHit ricochet;
+        float minDistance = 10;
+        foreach (var collider in colliders)
+        {
+            if (collider.tag != "Enemy") continue;
+            float distance = Vector3.Distance(collider.gameObject.transform.position, hit.point);
 
-        if (targets.Length < 1) return;
-        GameObject thing = targets[1].gameObject;
-        Physics.Raycast(hit.point, thing.transform.position, out ricochet);
-        Debug.DrawRay(hit.point, thing.transform.position * 100, Color.red, 10f);
+            if (distance < minDistance && distance >= 1)
+            {
+                minDistance = distance;
+                closestEnemy = collider.gameObject;
+            }
+            else continue;
+        }
 
-        //ricochet.collider.gameObject.TryGetComponent(out IDamageable damageable);
-        
-        //if(hit.collider.gameObject.CompareTag("Head")) damageable.TakeDamage(damage * 2);
-        //damageable.TakeDamage(damage);
-        
-        
-
+        //i'm cheesing the ricochet, raycasts are fucking glorpshit for ricochet, this is fucking glorpshit too but beats not having a ricochet
+        //to team: just dress it up as a ricochet and have the enmy take a blood particle upon impact
+        //on the small chance that you happen to be here and see this, hi David.
+        closestEnemy.GetComponent<IDamageable>()?.TakeDamage(damage * 0.5f);
+        Debug.DrawLine(hit.point, closestEnemy.transform.position, Color.blue, 5);
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(hit.point, 5);

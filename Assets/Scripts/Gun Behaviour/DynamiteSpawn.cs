@@ -58,6 +58,7 @@ public class DynamiteSpawn : Guns
         //do you have bullets left?
         if (ammoCount > 0)
         {
+            _audioManager.PlaySound("dynamiteCharge");
             ammoCount--;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++) Instantiate(dynamiteInstance, shootingPoint.transform.position, m_Camera.transform.rotation);

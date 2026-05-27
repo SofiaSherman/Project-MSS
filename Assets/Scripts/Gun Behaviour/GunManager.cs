@@ -14,6 +14,11 @@ using UnityEngine;
 
 public class GunManager : MonoBehaviour
 {
+    [SerializeField] private GameObject modelRevolver;
+    [SerializeField] private GameObject modelShotgun;
+    [SerializeField] private GameObject modelRifle;
+    [SerializeField] private GameObject modelDynamite;
+    
     [SerializeField] public GunStash currentGun;
     [SerializeField] public Guns[] currentGuns;
     
@@ -47,18 +52,38 @@ public class GunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeGun(GunStash.Revolver);
+            
+            modelRevolver.SetActive(true);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && hasShotgun)
         {
             ChangeGun(GunStash.Shotgun);
+            
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(true);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && hasRifle)
         {
             ChangeGun(GunStash.Rifle);
+            
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(true);
+            modelDynamite.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.G) && hasDynamite)
         {
             ChangeGun(GunStash.Dynamite);
+            
+            modelRevolver.SetActive(false);
+            modelShotgun.SetActive(false);
+            modelRifle.SetActive(false);
+            modelDynamite.SetActive(true);
         }
     }
 }
