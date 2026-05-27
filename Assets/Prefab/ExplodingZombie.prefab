@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 8840274130769415356}
   m_Layer: 0
   m_Name: ExplodingZombie
-  m_TagString: ExplodingZombie
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,13 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea201740c4ba44b841e57042c461c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  _audioManager: {fileID: 0}
   enemyState: 0
   enemyStates:
   - {fileID: 6897458978509840847}
   - {fileID: 4235288683219635754}
   - {fileID: 7091159723973276139}
-  attackDistance: 1
+  attackDistance: 0
+  isExploder: 1
 --- !u!114 &4235288683219635754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
   _scoreManager: {fileID: 0}
+  _audioManager: {fileID: 0}
   scoreOnDeath: 0
 --- !u!95 &2350033056465040237
 Animator:

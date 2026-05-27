@@ -64,6 +64,7 @@ public class Revolver : Guns
     protected override void Shoot()
     {
         base.Shoot();
+        _audioManager.PlaySound("revolverShot");
     }
     private void OnEnable()
     {

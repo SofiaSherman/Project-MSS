@@ -12,7 +12,7 @@ public enum EnemyStates
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private AudioManager _audioManager;
+    private AudioManager _audioManager;
     private Transform _target;
     public float speed { get; private set; } = 10;
 
@@ -20,6 +20,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
+    public bool isExploder;
 
     private EnemyAttack _enemyAttack;
 
@@ -34,7 +35,7 @@ public class EnemyManager : MonoBehaviour
         enemyHealth.currentHealth = 10;
         _enemyAttack = GetComponent<EnemyAttack>();
         
-        _audioManager = _audioManager.GetComponent<AudioManager>();
+        _audioManager = (AudioManager)FindAnyObjectByType(typeof(AudioManager));
     }
     private void Update()
     {
