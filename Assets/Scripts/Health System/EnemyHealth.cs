@@ -9,17 +9,21 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     
     private ParticleSpawner _particleSpawner;
 
+    private EnemyManager _enemyManager;
+
     private void Start()
     {
         manager = GetComponent<EnemyManager>();
         currentHealth = maxHealth;
+
+        _enemyManager = GetComponent<EnemyManager>();
 
         _particleSpawner = GameObject.FindWithTag("GameManager").GetComponent<ParticleSpawner>();
         
     }
     public void TakeDamage(float damage)
     {
-        if (!this.gameObject.CompareTag("ExplodingZombie"))
+        if (_enemyManager.isExploder)
         {
             _particleSpawner.SpawnDamageParticle(this.gameObject);
             

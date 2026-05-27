@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour
     private void UpdateChase()
     {
         if (!AttackRange(attackDistance) && enemyHealth.currentHealth > 0) return;
-        if (this.gameObject.CompareTag("ExplodingZombie"))
+        if (isExploder)
         {
             speed = 10;
         }

@@ -17429,7 +17429,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2114074144646188871, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
       propertyPath: isExploder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2114074144646188871, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
       propertyPath: _audioManager

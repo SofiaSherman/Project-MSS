@@ -24,7 +24,7 @@ public class EnemyAttack : EnemyBase
         {
             Debug.Log("attacking");
             
-            if (!this.gameObject.CompareTag("ExplodingZombie"))
+            if (!_enemyManager.isExploder)
             {
                 _animator.SetTrigger("Attack");
             }
