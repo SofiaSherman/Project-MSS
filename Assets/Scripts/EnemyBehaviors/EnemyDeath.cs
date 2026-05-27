@@ -23,9 +23,21 @@ public class EnemyDeath : EnemyBase
         _scoreManager.scoreText.text = "Score: " + _scoreManager.score.ToString();
     }
 
+    private void ExplosionZombieDying()
+    {
+        Destroy(gameObject,2);
+    }
+
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        if (this.gameObject.CompareTag("ExplodingZombie"))
+        {
+            ExplosionZombieDying();
+            _agent.speed = _enemyManager.speed;
+        }
+        
         Dying();
         _agent.speed = _enemyManager.speed;
     }

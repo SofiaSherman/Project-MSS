@@ -1,3 +1,4 @@
+using GLTFast;
 using UnityEngine;
 
 public enum EnemyStates
@@ -19,6 +20,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] public EnemyBase[] enemyStates;
     [SerializeField] public float attackDistance;
 
+
+    private EnemyAttack _enemyAttack;
+
     private EnemyHealth enemyHealth;
 
     public void Start()
@@ -28,6 +32,7 @@ public class EnemyManager : MonoBehaviour
         ChangeState(EnemyStates.Chasing);
         enemyHealth.maxHealth = 10;
         enemyHealth.currentHealth = 10;
+        _enemyAttack = GetComponent<EnemyAttack>();
         
         _audioManager = _audioManager.GetComponent<AudioManager>();
     }
@@ -72,8 +77,20 @@ public class EnemyManager : MonoBehaviour
     private void UpdateChase()
     {
         if (!AttackRange(attackDistance) && enemyHealth.currentHealth > 0) return;
-        speed = 0;
+        if (this.gameObject.CompareTag("ExplodingZombie"))
+        {
+            speed = 10;
+        }
+        else
+        {
+            speed = 0;
+        }
         ChangeState(EnemyStates.Attacking);
+
+        if (_enemyAttack.hasExploded)
+        {
+            ChangeState(EnemyStates.Death);
+        }
 
         if (enemyHealth.currentHealth > 0) return;
         speed = 0;

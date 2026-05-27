@@ -42,14 +42,13 @@ GameObject:
   - component: {fileID: 7120681884011037989}
   - component: {fileID: 3650655731602775296}
   - component: {fileID: 3845231476300712843}
-  - component: {fileID: 6897458978509840847}
   - component: {fileID: 6297467195557876280}
+  - component: {fileID: 6897458978509840847}
   - component: {fileID: 2114074144646188871}
   - component: {fileID: 4235288683219635754}
   - component: {fileID: 7091159723973276139}
   - component: {fileID: 2350033056465040237}
   - component: {fileID: 8840274130769415356}
-  - component: {fileID: 3303402129439574341}
   m_Layer: 0
   m_Name: ExplodingZombie
   m_TagString: ExplodingZombie
@@ -119,20 +118,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6897458978509840847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7005274572829334751}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4689c4009ec916479487a3594228993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChaseScript
-  _target: {fileID: 0}
-  attackDamage: 0
 --- !u!54 &6297467195557876280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,6 +145,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6897458978509840847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005274572829334751}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4689c4009ec916479487a3594228993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChaseScript
+  _scoreManager: {fileID: 0}
+  enemySpeed: 0
 --- !u!114 &2114074144646188871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,8 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea201740c4ba44b841e57042c461c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  <target>k__BackingField: {fileID: 0}
-  speed: 10
+  _audioManager: {fileID: 0}
   enemyState: 0
   enemyStates:
   - {fileID: 6897458978509840847}
@@ -192,9 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69b7909b4d3f5848a82c3c3b4b90b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _target: {fileID: 0}
-  attackDamage: 0
+  _scoreManager: {fileID: 0}
   attackPoint: {fileID: 5070263596044531687}
+  checkAttackRadius: 0
+  hasExploded: 0
 --- !u!114 &7091159723973276139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a18f4ea960d86f4f93f315946923123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
-  _target: {fileID: 0}
-  attackDamage: 0
+  _scoreManager: {fileID: 0}
   scoreOnDeath: 0
 --- !u!95 &2350033056465040237
 Animator:
@@ -246,21 +244,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHealth: 10
   currentHealth: 0
---- !u!114 &3303402129439574341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7005274572829334751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cff8c2e8d80bcd488e6467528e99bf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyExplode
-  explosionRadius: 0
-  damage: 0
-  explosionStrength: 0
 --- !u!1001 &5528014660944191153
 PrefabInstance:
   m_ObjectHideFlags: 0

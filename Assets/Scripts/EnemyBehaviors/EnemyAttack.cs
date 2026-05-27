@@ -4,19 +4,17 @@ using UnityEngine;
 public class EnemyAttack : EnemyBase
 {
     [SerializeField] private GameObject attackPoint;
+    [SerializeField] private float checkAttackRadius;
+    
+    public bool hasExploded = false;
 
     private float attackSpeed;
     
-    private EnemyExplode _enemyExplode;
     protected override void Start()
     {
         base.Start();
         attackSpeed = 3f;
-
-        if (this.gameObject.GetComponent<EnemyExplode>() != null)
-        {
-            _enemyExplode = GetComponent<EnemyExplode>();
-        }
+        
     }
 
     private IEnumerator Attack()
@@ -25,22 +23,31 @@ public class EnemyAttack : EnemyBase
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             Debug.Log("attacking");
-            _animator.SetTrigger("Attack");
+            
+            if (!this.gameObject.CompareTag("ExplodingZombie"))
+            {
+                _animator.SetTrigger("Attack");
+            }
 
-            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
+            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, checkAttackRadius);
             foreach (Collider result in results)
             {
                 if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
                 {
-                    Debug.Log(result);
-                    playerdamage.TakeDamage(attackDamage);
-                    /*if (this.gameObject.CompareTag("ExplodingZombie"))
+                    if (this.gameObject.CompareTag("ExplodingZombie"))
                     {
-                        _enemyExplode.Explode();
+                        Debug.Log("call explosion");
+                        _animator.SetTrigger("Explode");
+                        yield return new WaitForSeconds(0.5f);
+                        hasExploded = true;
+                        playerdamage.TakeDamage(attackDamage);
+                        yield break;
                     }
                     else
                     {
-                    }*/
+                        playerdamage.TakeDamage(attackDamage);
+                    }
+                    Debug.Log(result);
                 }
             }
             yield return new WaitForSeconds(3);
