@@ -59,7 +59,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         isPaused = false ;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
 
     }
     public void QuietGame()

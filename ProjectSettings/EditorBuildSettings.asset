@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/CoolMainMenu.unity
+    guid: 9a890d2b96abf96469a4aedf75ceefbb
+  - enabled: 1
+    path: Assets/Scenes/fakeLoading.unity
+    guid: 7dd3f48fddf33d9408565dbe01205471
+  - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: f52e34d7b13618941b6a46984cb07320
   - enabled: 0
