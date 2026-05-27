@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Net;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,13 +17,18 @@ abstract public class Guns : MonoBehaviour
     protected float ammoCount;
     protected float ammoTotal;
     protected float reloadTime;
-    protected float counter = 0;
-    protected bool shotReady;
+    protected float reloadCounter = 0;
+    protected float shotCounter = 0;
+    protected float shotCooldown;
+    protected float powerCooldown;
+    protected float powerCounter;
+
+    protected bool powerActive;
+
 
     protected float minZoom;
     protected float maxZoom;
 
-    protected float zoomCounter = 0;
     protected Camera m_Camera;
     protected LineRenderer m_LineRenderer;
 
@@ -35,26 +37,27 @@ abstract public class Guns : MonoBehaviour
         m_LineRenderer = GetComponentInChildren<LineRenderer>();
         m_Camera = GetComponentInChildren<Camera>();
 
-        shotReady = true;
+        shotCounter = shotCooldown;
         m_LineRenderer.startWidth = 0.05f;
         m_LineRenderer.endWidth = 0.05f;
     }
-    private void Update()
+    protected virtual void Update()
     {
-        counter += Time.deltaTime;
+        reloadCounter += Time.deltaTime;
+        shotCounter += Time.deltaTime;
+        powerCooldown += Time.deltaTime;
+        powerCounter += Time.deltaTime;
     }
 
     #region Gun operation
     protected virtual void Shoot()
     {
-        //no infinite firerate
-        if (!shotReady) return;
-
         //do you have bullets left?
         if (ammoCount > 0)
         {
+            if (shotCounter < shotCooldown) return;
+            shotCounter = 0;
             ammoCount--;
-            //shotReady = false;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++)
             {
@@ -77,20 +80,20 @@ abstract public class Guns : MonoBehaviour
 
     protected virtual void ReloadGun()
     {
+        
         //is your ammo capacity full?
         if (ammoCount == ammoCapacity) Debug.Log("full ammo");
         else
         {
-            counter = 0;
             //reload while the ammoCount is not equal to the capacity AND you still have stockpile left
-            while (ammoCount != ammoCapacity && ammoTotal > 0)
+            if (ammoCount != ammoCapacity && ammoTotal > 0)
             {
                 //reload and reset until full
-                if (counter > reloadTime)
+                if (reloadCounter > reloadTime)
                 {
                     ammoCount++;
                     ammoTotal--;
-                    counter = 0;
+                    reloadCounter = 0;
                 }
             }
         }

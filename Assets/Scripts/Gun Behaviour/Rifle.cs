@@ -6,7 +6,7 @@ using UnityEngine;
 public class Rifle : Guns
 {
     private GameObject closestEnemy;
-    public bool powerActive;
+    
     protected override void Start()
     {
         base.Start();
@@ -16,17 +16,20 @@ public class Rifle : Guns
         ammoTotal = 45f;
 
         //other statistics
-        reloadTime = 4;
+        reloadTime = 1.5f;
         bulletAmount = 1;
         damage = 10;
         bulletDistance = 100;
+        shotCooldown = 4;
 
         minZoom = 60;
         maxZoom = 20;
     }
-    private void Update()
+
+
+    protected override void Update()
     {
-        counter += Time.deltaTime;
+        base.Update();
         UpdateText();
         UpdateInput();
         CameraZoom();
@@ -49,6 +52,7 @@ public class Rifle : Guns
     }
     private void OnEnable()
     {
+        shotCounter = shotCooldown;
         StopAllCoroutines();
     }
 
