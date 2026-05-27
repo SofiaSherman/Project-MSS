@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1838a2da53a8474e8db50aa1bca9eb4
+guid: 4a34ff718770f074b987dc1697e3c566
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,18 +31,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Rifle Idle
+      name: Pistol Idle
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 0.5
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -729,7 +729,8 @@ ModelImporter:
     - name: mixamorig:RightHandMiddle3
       parentName: mixamorig:RightHandMiddle2
       position: {x: 0.00013224085, y: 0.15212917, z: -0.000000001016}
-      rotation: {x: -0.000000114569595, y: -0.00000022309372, z: -0.0000014305392, w: 1}
+      rotation: {x: -0.000000114569595, y: -0.00000022309372, z: -0.0000014305392,
+        w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:RightHandMiddle4
       parentName: mixamorig:RightHandMiddle3
@@ -788,7 +789,8 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3cc6b8118edaca240bd68d02fd26688d, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 3cc6b8118edaca240bd68d02fd26688d,
+    type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
