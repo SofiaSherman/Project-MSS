@@ -28,25 +28,22 @@ public class EnemyAttack : EnemyBase
             {
                 _animator.SetTrigger("Attack");
             }
+            else
+            {
+                Debug.Log("call explosion");
+                _animator.SetTrigger("Explode");
+                yield return new WaitForSeconds(0.5f);
+                hasExploded = true;
+            }
 
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, checkAttackRadius);
             foreach (Collider result in results)
             {
                 if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
                 {
-                    if (this.gameObject.CompareTag("ExplodingZombie"))
-                    {
-                        Debug.Log("call explosion");
-                        _animator.SetTrigger("Explode");
-                        yield return new WaitForSeconds(0.5f);
-                        hasExploded = true;
-                        playerdamage.TakeDamage(attackDamage);
-                        yield break;
-                    }
-                    else
-                    {
-                        playerdamage.TakeDamage(attackDamage);
-                    }
+                    
+                    playerdamage.TakeDamage(attackDamage);
+                    
                     Debug.Log(result);
                 }
             }

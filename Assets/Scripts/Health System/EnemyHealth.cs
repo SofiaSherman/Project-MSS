@@ -19,7 +19,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     }
     public void TakeDamage(float damage)
     {
-        _particleSpawner.SpawnDamageParticle(this.gameObject);
+        if (!this.gameObject.CompareTag("ExplodingZombie"))
+        {
+            _particleSpawner.SpawnDamageParticle(this.gameObject);
+            
+        }
         if (currentHealth <= 0)
         {
             manager.ChangeState(EnemyStates.Death);

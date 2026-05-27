@@ -67,11 +67,20 @@ public class EnemyManager : MonoBehaviour
 
     private void UpdateAttack()
     {
-        if (AttackRange(attackDistance)) return;
+        if (AttackRange(attackDistance) && !_enemyAttack.hasExploded) return;
 
-        speed = 5;
-        _audioManager.PlayRandomZombieSound();
-        ChangeState(EnemyStates.Chasing);
+        if (!_enemyAttack.hasExploded)
+        {
+            speed = 5;
+            _audioManager.PlayRandomZombieSound();
+            ChangeState(EnemyStates.Chasing);
+            
+        }
+        else if (_enemyAttack.hasExploded)
+        {
+            speed = 0;
+            ChangeState(EnemyStates.Death);
+        }
         
     }
     private void UpdateChase()
