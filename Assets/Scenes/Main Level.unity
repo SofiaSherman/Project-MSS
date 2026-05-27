@@ -78504,6 +78504,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 594769222200412727, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 783173573193794583}
+    - targetCorrespondingSourceObject: {fileID: 594769222200412727, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 783173573193794596}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
 --- !u!4 &783173573193794571 stripped
 Transform:
@@ -78538,6 +78541,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponBenchInteract
   weaponUpgradeMenuCanvas: {fileID: 1440248985}
+--- !u!114 &783173573193794596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980108722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb3678630578574b917be77f638f563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  maxHealth: 10
+  health: 0
+  deathSceneIndex: 4
 --- !u!1001 &4101107090199783331
 PrefabInstance:
   m_ObjectHideFlags: 0
