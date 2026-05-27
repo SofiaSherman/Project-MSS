@@ -7,7 +7,7 @@ using Cursor = UnityEngine.Cursor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float rotationSpeed = 50;
+
     [SerializeField] public float forwardSpeed = 5;
     [SerializeField] public float sideSpeed = 5;
     [SerializeField] public float sprintSpeed = 10;
@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Camera m_Camera;
     
+    private float rotationSpeed = 50;
+    private float verticalVelocity;
+    private float gravity = 4.8f;
     public float VelocityX { get; private set; }
     public float VelocityY { get; private set; }
     
@@ -43,12 +46,18 @@ public class PlayerMovement : MonoBehaviour
     {
         TimedSpeedBoost();
         UpdateMoveVelocity();
+        UpdateVerticalVelocity();
         UpdateRotation();
 
         ApplyTotalVelocity();
 
 
         
+    }
+    private void ApplyTotalVelocity()
+    {
+        var totalVelocity = moveVelocity + verticalVelocity * Vector3.up;
+        characterController.Move(totalVelocity * Time.deltaTime);
     }
 
     private void UpdateMoveVelocity()
@@ -92,12 +101,11 @@ public class PlayerMovement : MonoBehaviour
 
             
     }
-    private void ApplyTotalVelocity()
-    {
-        var totalVelocity = moveVelocity;
-        characterController.Move(totalVelocity * Time.deltaTime);
-    }
 
+    private void UpdateVerticalVelocity()
+    {
+        verticalVelocity -= gravity * Time.deltaTime;
+    }
     private void UpdateRotation()
     {
         var mouseInput = Input.GetAxis("Mouse X");

@@ -18,23 +18,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        EnemyManager thing = (EnemyManager)FindAnyObjectByType(typeof(EnemyManager));
         StopSpawnZombies();
-        NewRound();
+        if (thing == null) NewRound();
     }
     private void NewRound()
     {
-        EnemyManager thing = (EnemyManager)FindAnyObjectByType(typeof(EnemyManager));
-        if (thing == null)
+        roundCount++;
+        zombieTokens = 1 + (roundCount);
+        foreach (EnemySpawner e in spawners)
         {
-            roundCount++;
-            zombieTokens = 1 + (roundCount);
-            foreach (EnemySpawner e in spawners)
-            {
-                StartCoroutine(e.Spawner());
-                e.activeSpawner = true;
-            }
-            Debug.Log("new round");
+            StartCoroutine(e.Spawner());
+            e.activeSpawner = true;
         }
+        Debug.Log("new round");
+
     }
 
     public void StopSpawnZombies()

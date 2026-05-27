@@ -6,6 +6,7 @@ public class EnemyDeath : EnemyBase
     
     [SerializeField] private AudioManager _audioManager;
     [SerializeField] private int scoreOnDeath;
+
     protected override void Start()
     {
         base.Start();
@@ -36,7 +37,7 @@ public class EnemyDeath : EnemyBase
         Debug.Log("OnEnable");
         base.OnEnable();
 
-        if (this.gameObject.CompareTag("ExplodingZombie"))
+        if (_enemyManager.isExploder)
         {
             ExplosionZombieDying();
             _agent.speed = _enemyManager.speed;

@@ -39,7 +39,7 @@ public class EnemyAttack : EnemyBase
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, checkAttackRadius);
             foreach (Collider result in results)
             {
-                if (result.gameObject.TryGetComponent(out IDamageable playerdamage) && result.gameObject.tag != "Player")
+                if (result.gameObject.TryGetComponent(out IDamageable playerdamage) && result.gameObject.tag == "Player")
                 {
                     
                     playerdamage.TakeDamage(attackDamage);
@@ -47,7 +47,7 @@ public class EnemyAttack : EnemyBase
                     Debug.Log(result);
                 }
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1);
         }
     }
     

@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.663
       objectReference: {fileID: 0}
+    - target: {fileID: 3443300930749797566, guid: d62d4c73cd90bf34caa0219abba5740f, type: 3}
+      propertyPath: checkAttackRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3850707785367330694, guid: d62d4c73cd90bf34caa0219abba5740f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
