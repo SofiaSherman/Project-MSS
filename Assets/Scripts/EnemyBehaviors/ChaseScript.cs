@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class ChaseScript : EnemyBase
 {
+    [SerializeField] private float enemySpeed;
 
     private float counter;
 
@@ -30,6 +31,7 @@ public class ChaseScript : EnemyBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        _agent.speed = _enemyManager.speed;
+        _agent.speed = enemySpeed;
+        //_agent.speed = _enemyManager.speed;
     }
 }

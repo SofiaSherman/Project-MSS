@@ -10,7 +10,9 @@ abstract public class EnemyBase : MonoBehaviour
     protected NavMeshAgent _agent;
     protected EnemyManager _enemyManager;
     protected Animator _animator;
-
+    protected ParticleSpawner _particleSpawner;
+    //protected AudioManager _audioManager;
+    
     protected float attackDamage;
 
     private void Awake()
@@ -20,6 +22,7 @@ abstract public class EnemyBase : MonoBehaviour
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
+        _particleSpawner = GameObject.FindWithTag("GameManager").GetComponent<ParticleSpawner>();
     }
     protected virtual void Start()
     {

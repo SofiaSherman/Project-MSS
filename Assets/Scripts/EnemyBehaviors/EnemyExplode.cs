@@ -1,25 +1,30 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyExplode : MonoBehaviour
+public class EnemyExplode : EnemyBase
 {
     [SerializeField] private float explosionRadius;
     [SerializeField] private float damage;
     [SerializeField] private float explosionStrength;
+    
+    public bool hasExploded = false;
+    
     public void Explode()
     {
+        Debug.Log("Explode");
         Collider[] exploded = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach(Collider c in exploded)
         {
-            if (!c.gameObject.TryGetComponent(out IDamageable damageable))
+            if (c.gameObject.TryGetComponent(out IDamageable playerdamage))
             {
-                if (c.gameObject.tag == "Player")
+                Debug.Log("got damageble");
+                if (c.CompareTag("Player"))
                 {
-                    damageable.TakeDamage(damage);
+                    playerdamage.TakeDamage(damage);
                 }
-                c.GetComponent<Rigidbody>().AddForce(-transform.position + transform.up * explosionStrength, ForceMode.Impulse);
+                //c.GetComponent<Rigidbody>().AddForce(-transform.position + transform.up * explosionStrength, ForceMode.Impulse);
             }
         }
-        Destroy(gameObject);
+        //Destroy(gameObject, 2);
     }
 }
