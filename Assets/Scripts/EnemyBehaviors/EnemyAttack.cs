@@ -30,7 +30,7 @@ public class EnemyAttack : EnemyBase
             Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, 1);
             foreach (Collider result in results)
             {
-                if (result.gameObject.TryGetComponent(out IDamageable playerdamage))
+                if (result.gameObject.TryGetComponent(out IDamageable playerdamage) && result.gameObject.tag != "Player")
                 {
                     Debug.Log(result);
                     playerdamage.TakeDamage(attackDamage);

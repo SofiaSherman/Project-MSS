@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dynamite : MonoBehaviour
 {
     [SerializeField] private float fuseTime;
-    [SerializeField] private float explosionRadius;
+    [SerializeField] public float explosionRadius;
 
     private float damage = 40;
     private Camera m_camera;

@@ -10,7 +10,7 @@ public class DynamiteSpawn : Guns
     private Dynamite dynamiteManager;
     protected override void Start()
     {
-        dynamiteManager = dynamiteInstance.GetComponent<Dynamite>();
+        dynamiteManager = dynamiteInstance.GetComponentInChildren<Dynamite>();
         base.Start();
         //setting up ammo
         ammoCount = 1;
@@ -18,7 +18,7 @@ public class DynamiteSpawn : Guns
         ammoTotal = 5;
 
         //other statistics
-        reloadTime = 4;
+        reloadTime = 1;
         bulletAmount = 1;
         damage = 40;
         bulletDistance = 50;
@@ -26,9 +26,9 @@ public class DynamiteSpawn : Guns
         minZoom = 60;
         maxZoom = 50;
     }
-    private void Update()
+    protected override void Update()
     {
-        counter += Time.deltaTime;
+        base.Update();
         UpdateText();
         UpdateInput();
         CameraZoom();
@@ -40,6 +40,12 @@ public class DynamiteSpawn : Guns
     }
     private void UpdateInput()
     {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (powerCooldown < 40) return;
+            powerCounter = 0;
+            powerActive = true;
+        }
         if (Input.GetMouseButtonDown(0)) Shoot();
         if (Input.GetKeyDown(KeyCode.R)) ReloadGun();
     }
@@ -55,6 +61,8 @@ public class DynamiteSpawn : Guns
     }
     protected override void Shoot()
     {
+        if (powerActive) dynamiteManager.explosionRadius *= 2;
+        else dynamiteManager.explosionRadius = 10;
         //do you have bullets left?
         if (ammoCount > 0)
         {
@@ -62,7 +70,8 @@ public class DynamiteSpawn : Guns
             ammoCount--;
             //take one bullet, and fire the bullet/pellet amount which can be modified
             for (int i = 0; i < bulletAmount; i++) Instantiate(dynamiteInstance, shootingPoint.transform.position, m_Camera.transform.rotation);
-            StartCoroutine(dynamiteManager.Explosion());
+            if(powerActive) powerCooldown = 0;
+            powerActive = false;
         }
         else Debug.Log("no ammo");
 

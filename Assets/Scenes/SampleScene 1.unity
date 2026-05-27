@@ -2330,7 +2330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 73707286317994041, guid: 3af1ba339d1cec544bb1e600c4827d21, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3766413022317234416, guid: 3af1ba339d1cec544bb1e600c4827d21, type: 3}
       propertyPath: attackDistance
