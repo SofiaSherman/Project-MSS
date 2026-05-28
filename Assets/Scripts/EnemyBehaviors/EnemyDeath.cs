@@ -36,8 +36,6 @@ public class EnemyDeath : EnemyBase
     private void ExplosionZombieDying()
     {
         Debug.Log("explosion death");
-        //_scoreManager.score += scoreOnDeath;
-        //_scoreManager.scoreText.text = "Score: " + _scoreManager.score.ToString();
         
         _audioManager.PlaySound("dynamiteExplosion");
         _particleSpawner.SpawnExplosionParticle(this.gameObject);
