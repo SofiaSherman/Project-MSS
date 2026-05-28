@@ -7,6 +7,7 @@ public class EnemyAttack : EnemyBase
     [SerializeField] private float attackRadius = 2f;
     [SerializeField] private float explosionAttackRadius = 15f;
     [SerializeField] private float explosionDamage = 2f;
+    [SerializeField] private float enemyDamage;
     
     public bool hasExploded = false;
     private bool hasExplodedOnce = false;
@@ -23,24 +24,28 @@ public class EnemyAttack : EnemyBase
             attackRadius = explosionAttackRadius;
             attackDamage = explosionDamage;
         }
+        else
+        {
+            attackDamage = enemyDamage;
+        }
         
     }
 
     private IEnumerator Attack()
     {
-        Debug.Log("Tried attacking");
+        //Debug.Log("Tried attacking");
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             //Debug.Log("attacking");
             
             if (!_enemyManager.isExploder)
             {
-                Debug.Log("Animate attack");
+                //Debug.Log("Animate attack");
                 _animator.SetTrigger("Attack");
             }
             else
             {
-                Debug.Log("call explosion");
+                //Debug.Log("call explosion");
                 _animator.SetTrigger("Explode");
                 yield return new WaitForSeconds(0.5f);
                 hasExploded = true;
@@ -53,7 +58,7 @@ public class EnemyAttack : EnemyBase
                 {
                     if ((_enemyManager.isExploder && !hasExplodedOnce) || (!_enemyManager.isExploder))
                     {
-                        Debug.Log("player take damage");
+                        //Debug.Log("player take damage");
                         hasExplodedOnce = true;
                         playerdamage.TakeDamage(attackDamage);
                     }

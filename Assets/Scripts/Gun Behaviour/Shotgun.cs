@@ -52,6 +52,7 @@ public class Shotgun : Guns
     }
     protected override void Shoot()
     {
+        _audioManager.PlaySound("rifleShot");
         if (powerActive && _abilityManager.hasUpgradedShotgun)
         {
             PowerUp();

@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [Header("Death Settings")]
     [SerializeField] private int deathSceneIndex;
+    
+    private bool hasDied = false;
 
     private void Start()
     {
@@ -43,8 +45,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         {
             health = 0;
 
-            if (p_manager != null)
+            if (p_manager != null && !hasDied)
             {
+                Debug.Log("check if dead");
+                hasDied = true;
                 StartCoroutine(StartDeathSequence());
             }
         }
@@ -64,10 +68,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private IEnumerator StartDeathSequence()
     {
+        Debug.Log("start coroutine");
         isDead = true;
-        _animator.SetBool("Dead", true);
+        int layerIndex = _animator.GetLayerIndex("TopLayer");
+        //_animator.SetLayerWeight(layerIndex, 0);
+        _animator.SetTrigger("Dead");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         SceneManager.LoadScene(deathSceneIndex);
     }

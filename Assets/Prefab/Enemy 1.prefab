@@ -106,7 +106,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 20
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
@@ -195,6 +195,7 @@ MonoBehaviour:
   attackRadius: 2
   explosionAttackRadius: 15
   explosionDamage: 2
+  enemyDamage: 1
   hasExploded: 0
 --- !u!114 &4902531184340346928
 MonoBehaviour:
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
   _scoreManager: {fileID: 0}
-  scoreOnDeath: 25
+  scoreOnDeath: 50
 --- !u!95 &5309942659310219739
 Animator:
   serializedVersion: 7
