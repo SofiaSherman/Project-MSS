@@ -9,6 +9,7 @@ public class EnemyDeath : EnemyBase
 
     private EnemyAttack _enemyAttack;
 
+    private bool hasExplodedOnce = false;
     protected override void Start()
     {
         base.Start();
@@ -17,10 +18,10 @@ public class EnemyDeath : EnemyBase
 
     private void Update()
     {
-        if (_enemyAttack.hasExploded)
+        /*if (_enemyAttack.hasExploded)
         {
             ExplosionZombieDying();
-        }
+        }*/
     }
     private void Dying()
     {
@@ -39,9 +40,9 @@ public class EnemyDeath : EnemyBase
         //_scoreManager.score += scoreOnDeath;
         //_scoreManager.scoreText.text = "Score: " + _scoreManager.score.ToString();
         
-        Destroy(gameObject,0.2f);
         _audioManager.PlaySound("dynamiteExplosion");
         _particleSpawner.SpawnExplosionParticle(this.gameObject);
+        Destroy(gameObject,0.2f);
     }
 
     protected override void OnEnable()
@@ -49,8 +50,9 @@ public class EnemyDeath : EnemyBase
         Debug.Log("OnEnable");
         base.OnEnable();
 
-        if (_enemyManager.isExploder)
+        if (_enemyManager.isExploder && !hasExplodedOnce)
         {
+            hasExplodedOnce = true;
             ExplosionZombieDying();
             _agent.speed = _enemyManager.speed;
         }

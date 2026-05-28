@@ -176,7 +176,8 @@ MonoBehaviour:
   - {fileID: 805518861777955858}
   - {fileID: 3443300930749797566}
   - {fileID: 4902531184340346928}
-  attackDistance: 1
+  attackDistance: 2
+  isExploder: 0
 --- !u!114 &3443300930749797566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   _scoreManager: {fileID: 0}
   attackPoint: {fileID: 5454946202339791883}
-  checkAttackRadius: 1
+  attackRadius: 2
+  explosionAttackRadius: 15
+  explosionDamage: 2
   hasExploded: 0
 --- !u!114 &4902531184340346928
 MonoBehaviour:

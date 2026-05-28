@@ -48,11 +48,9 @@ public class EnemyManager : MonoBehaviour
                 break;
             case EnemyStates.Death:
                 Debug.Log("is dead");
-
                 break;
             case EnemyStates.Chasing:
-                Debug.Log("is chasing");
-
+                //Debug.Log("is chasing");
                 UpdateChase();
                 break;
         }

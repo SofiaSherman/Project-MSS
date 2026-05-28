@@ -19,6 +19,7 @@ public class BuyableDoor : MonoBehaviour
     
     [SerializeField] private GameObject pauseMenuObject;
     private PauseMenu pauseMenu;
+    [SerializeField] private GameManager _gameManager;
 
     private void Start()
     {
@@ -70,6 +71,7 @@ public class BuyableDoor : MonoBehaviour
     {
         if (_scoreManager.score >= scoreRequirement)
         {
+            _gameManager.doorsOpen++;
             //pauseMenu.UpgradeResumeGame();
             isBought = true;
             Cursor.lockState = CursorLockMode.Locked;

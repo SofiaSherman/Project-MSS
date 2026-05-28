@@ -22,13 +22,13 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string soundName)
     {
-        Debug.Log("call playSound");
+        //Debug.Log("call playSound");
         Sound s = Array.Find(sounds, x => x.name == soundName);
         if (s != null)
         {
             s.source.Play();
-            Debug.Log("played sound: " + s.name);
-            Debug.Log("sound volume " + s.volume);
+            //Debug.Log("played sound: " + s.name);
+            //Debug.Log("sound volume " + s.volume);
         }
     }
     

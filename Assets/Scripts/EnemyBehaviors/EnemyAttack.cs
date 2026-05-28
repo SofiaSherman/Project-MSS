@@ -28,13 +28,14 @@ public class EnemyAttack : EnemyBase
 
     private IEnumerator Attack()
     {
-        //Debug.Log("Tried attacking");
+        Debug.Log("Tried attacking");
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
             //Debug.Log("attacking");
             
             if (!_enemyManager.isExploder)
             {
+                Debug.Log("Animate attack");
                 _animator.SetTrigger("Attack");
             }
             else
@@ -52,6 +53,7 @@ public class EnemyAttack : EnemyBase
                 {
                     if ((_enemyManager.isExploder && !hasExplodedOnce) || (!_enemyManager.isExploder))
                     {
+                        Debug.Log("player take damage");
                         hasExplodedOnce = true;
                         playerdamage.TakeDamage(attackDamage);
                     }

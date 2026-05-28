@@ -31431,10 +31431,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1700049293}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
       objectReference: {fileID: 1157196098}
@@ -50565,10 +50561,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1700049293}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
       objectReference: {fileID: 1157196098}
@@ -56554,10 +56546,6 @@ PrefabInstance:
       propertyPath: costText
       value: 
       objectReference: {fileID: 1700049293}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
@@ -63872,10 +63860,6 @@ PrefabInstance:
       propertyPath: costText
       value: 
       objectReference: {fileID: 1700049293}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
@@ -76870,10 +76854,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1700049293}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
       objectReference: {fileID: 1157196098}
@@ -80626,10 +80606,6 @@ PrefabInstance:
       propertyPath: costText
       value: 
       objectReference: {fileID: 1700049293}
-    - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 461086737}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: pauseMenuObject
       value: 
