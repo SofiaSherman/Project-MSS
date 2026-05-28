@@ -209,8 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
   _scoreManager: {fileID: 0}
-  _audioManager: {fileID: 0}
-  scoreOnDeath: 150
+  scoreOnDeath: 50
 --- !u!95 &2350033056465040237
 Animator:
   serializedVersion: 7
