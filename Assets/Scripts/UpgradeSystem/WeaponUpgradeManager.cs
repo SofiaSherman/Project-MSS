@@ -96,9 +96,9 @@ public class WeaponUpgradeManager : MonoBehaviour
             }
             buttons[weaponType - 1].SetActive(true);
             
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             pauseMenu.UpgradePauseGame();
-            //Cursor.lockState = CursorLockMode.Confined;
-            //Cursor.visible = true;
         }
     }
 

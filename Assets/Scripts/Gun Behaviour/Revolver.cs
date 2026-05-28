@@ -23,6 +23,7 @@ public class Revolver : Guns
 
         minZoom = 60;
         maxZoom = 30;
+
     }
     protected override void Update()
     {
@@ -31,9 +32,9 @@ public class Revolver : Guns
         UpdateInput();
         CameraZoom();
 
-        if (_gunManager._abilityManager.hasUpgradedRifle)
+        if (_abilityManager.hasUpgradedRevolver)
         {
-            
+            Debug.Log("Upgraded revolver");
             PowerUp();
         }
 

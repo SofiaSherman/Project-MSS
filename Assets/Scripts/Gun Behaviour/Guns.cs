@@ -34,7 +34,8 @@ abstract public class Guns : MonoBehaviour
     protected Camera m_Camera;
     protected LineRenderer m_LineRenderer;
 
-    protected GunManager _gunManager;
+    //protected GunManager _gunManager;
+    [SerializeField] protected AbilityManager _abilityManager;
 
     protected virtual void Start()
     {
@@ -46,7 +47,9 @@ abstract public class Guns : MonoBehaviour
         m_LineRenderer.endWidth = 0.05f;
         
         _audioManager.GetComponent<AudioManager>();
-        _gunManager.GetComponent<GunManager>();
+        //_gunManager.GetComponent<GunManager>();
+        //_abilityManager.GetComponent<AbilityManager>();
+        Debug.Log("AbilityManager");
     }
     protected virtual void Update()
     {

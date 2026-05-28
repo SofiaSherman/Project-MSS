@@ -24,9 +24,9 @@ public class WorkbenchIneract : MonoBehaviour
             upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
             isActive = true;
             
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
             pauseMenu.UpgradePauseGame();
-            //Cursor.lockState = CursorLockMode.Confined;
-            //Cursor.visible = true;
         }
     }
 
@@ -37,9 +37,9 @@ public class WorkbenchIneract : MonoBehaviour
         {
             isActive = false;
             upgradeMenuCanvas.SetActive(!upgradeMenuCanvas.activeSelf);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             pauseMenu.UpgradeResumeGame();
-            //Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.visible = false;
         }
     }
 }

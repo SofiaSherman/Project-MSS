@@ -25,7 +25,7 @@ public class AbilityManager : MonoBehaviour
     {
         scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
         
-        GameObject playerObj = GameObject.Find("Player");
+        //GameObject playerObj = GameObject.Find("Player");
     }
 
     void Update()

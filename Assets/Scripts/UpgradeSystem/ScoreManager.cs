@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             score += 100;
         }

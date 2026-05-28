@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Shotgun : Guns
 {
+
     protected override void Start()
     {
         base.Start();
@@ -20,6 +21,7 @@ public class Shotgun : Guns
 
         minZoom = 60;
         maxZoom = 40;
+        
     }
     protected override void Update()
     {
@@ -50,7 +52,7 @@ public class Shotgun : Guns
     }
     protected override void Shoot()
     {
-        if (powerActive && _gunManager._abilityManager.hasUpgradedShotgun)
+        if (powerActive && _abilityManager.hasUpgradedShotgun)
         {
             PowerUp();
             return;

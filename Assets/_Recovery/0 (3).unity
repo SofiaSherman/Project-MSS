@@ -31979,10 +31979,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyableDoor1
       objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
       value: 
@@ -33182,7 +33178,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 783173573193794572}
+      - m_Target: {fileID: 1120033322}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: UpgradeRevolver
         m_Mode: 1
@@ -41268,7 +41264,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 783173573193794572}
+      - m_Target: {fileID: 1120033322}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: UpgradeDynamite
         m_Mode: 1
@@ -41732,6 +41728,7 @@ GameObject:
   - component: {fileID: 1120033319}
   - component: {fileID: 1120033321}
   - component: {fileID: 1120033320}
+  - component: {fileID: 1120033322}
   - component: {fileID: 1120033323}
   m_Layer: 5
   m_Name: AbilityPage
@@ -41801,6 +41798,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120033318}
   m_CullTransparentMesh: 1
+--- !u!114 &1120033322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120033318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73afb5885abc04d41a2356bad7178ad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityManager
+  scoreToUpgradeRevolver: 200
+  scoreToUpgradeRifle: 200
+  scoreToUpgradeShotgun: 200
+  scoreToUpgradeDynamite: 200
+  revolverButton: {fileID: 900892183}
+  rifleButton: {fileID: 1435466563}
+  shotgunButton: {fileID: 1222939194}
+  dynamiteButton: {fileID: 1110209397}
+  hasUpgradedRevolver: 0
+  hasUpgradedShotgun: 0
+  hasUpgradedRifle: 0
+  hasUpgradedDynamite: 0
 --- !u!114 &1120033323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45225,11 +45246,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b2240c18b9f23c44917c20ca3977b89, type: 3}
---- !u!1 &1205038884 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 594769222200412727, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-  m_PrefabInstance: {fileID: 30931295524219149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1205641398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46232,7 +46248,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 783173573193794572}
+      - m_Target: {fileID: 1120033322}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: UpgradeShotgun
         m_Mode: 1
@@ -51125,10 +51141,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyableDoor6
       objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
       value: 
@@ -54307,7 +54319,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 783173573193794572}
+      - m_Target: {fileID: 1120033322}
         m_TargetAssemblyTypeName: AbilityManager, Assembly-CSharp
         m_MethodName: UpgradeRifle
         m_Mode: 1
@@ -57321,10 +57333,6 @@ PrefabInstance:
     - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: m_Name
       value: BuyableDoor3
-      objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
@@ -64395,10 +64403,6 @@ PrefabInstance:
     - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: m_Name
       value: BuyableDoor5
-      objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
       objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
@@ -77408,10 +77412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyableDoor2
       objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
       value: 
@@ -81161,10 +81161,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuyableDoor4
       objectReference: {fileID: 0}
-    - target: {fileID: 818881904207315236, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
-      propertyPath: m_TagString
-      value: BuyableDoor
-      objectReference: {fileID: 0}
     - target: {fileID: 1151489710323212747, guid: 2aa3fac42534e944496a806e07d83fe7, type: 3}
       propertyPath: button
       value: 
@@ -81357,7 +81353,7 @@ PrefabInstance:
     - target: {fileID: 468467421545376601, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: _abilityManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1120033322}
     - target: {fileID: 594769222200412727, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -81374,10 +81370,6 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
-    - target: {fileID: 2769621267530703006, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-      propertyPath: _abilityManager
-      value: 
-      objectReference: {fileID: 783173573193794572}
     - target: {fileID: 3620463677402963397, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: deathSceneIndex
       value: 4
@@ -81438,10 +81430,6 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
-    - target: {fileID: 5523415171374810575, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-      propertyPath: _abilityManager
-      value: 
-      objectReference: {fileID: 783173573193794572}
     - target: {fileID: 5763358730612129035, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -81454,10 +81442,6 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
-    - target: {fileID: 6215920491021786066, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-      propertyPath: _abilityManager
-      value: 
-      objectReference: {fileID: 783173573193794572}
     - target: {fileID: 6418353342512735027, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: m_Name
       value: ShootingPoint
@@ -81466,10 +81450,6 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
-    - target: {fileID: 7651944929923302807, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-      propertyPath: _abilityManager
-      value: 
-      objectReference: {fileID: 783173573193794572}
     - target: {fileID: 8655049472137612457, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -81477,10 +81457,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 594769222200412727, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
-      insertIndex: 15
-      addedObject: {fileID: 783173573193794572}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
 --- !u!1001 &578608686273411002
 PrefabInstance:
@@ -81548,30 +81525,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4254503442843168698, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
   m_PrefabInstance: {fileID: 30931295524219149}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &783173573193794572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1205038884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73afb5885abc04d41a2356bad7178ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AbilityManager
-  scoreToUpgradeRevolver: 0
-  scoreToUpgradeRifle: 0
-  scoreToUpgradeShotgun: 0
-  scoreToUpgradeDynamite: 0
-  revolverButton: {fileID: 900892183}
-  rifleButton: {fileID: 1435466563}
-  shotgunButton: {fileID: 1222939194}
-  dynamiteButton: {fileID: 1110209397}
-  hasUpgradedRevolver: 0
-  hasUpgradedShotgun: 0
-  hasUpgradedRifle: 0
-  hasUpgradedDynamite: 0
 --- !u!1001 &4101107090199783331
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class Rifle : Guns
 
         minZoom = 60;
         maxZoom = 20;
+        
     }
 
 
@@ -49,7 +50,7 @@ public class Rifle : Guns
     {
         base.Shoot();
         _audioManager.PlaySound("rifleShot");
-        if (_gunManager._abilityManager.hasUpgradedRifle)
+        if (_abilityManager.hasUpgradedRifle)
         {
             
             if (powerActive == true && hit.collider.tag == "Enemy" && ammoCount > 0) PowerUp();

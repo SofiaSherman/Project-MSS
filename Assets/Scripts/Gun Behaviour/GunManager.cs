@@ -29,11 +29,9 @@ public class GunManager : MonoBehaviour
     
     private WeaponUpgradeManager _weaponUpgradeManager;
     private PlayerHealth _playerHealth;
-    [SerializeField] public AbilityManager _abilityManager;
     
     private void Start()
     {
-        _abilityManager = GetComponent<AbilityManager>();
         _weaponUpgradeManager = GameObject.FindWithTag("InteractableWeaponBench").GetComponent<WeaponUpgradeManager>();
         _playerHealth = GetComponent<PlayerHealth>();
         ChangeGun(0);

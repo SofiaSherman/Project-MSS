@@ -25,6 +25,7 @@ public class DynamiteSpawn : Guns
 
         minZoom = 60;
         maxZoom = 50;
+        
     }
     protected override void Update()
     {
@@ -61,7 +62,11 @@ public class DynamiteSpawn : Guns
     }
     protected override void Shoot()
     {
-        if (powerActive) dynamiteManager.explosionRadius *= 2;
+        if (_abilityManager.hasUpgradedDynamite && powerActive)
+        {
+            //if (powerActive)
+            dynamiteManager.explosionRadius *= 2;
+        }
         else dynamiteManager.explosionRadius = 10;
         //do you have bullets left?
         if (ammoCount > 0)
