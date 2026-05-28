@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyDeath : EnemyBase
 {
     
-    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private int scoreOnDeath;
 
     private EnemyAttack _enemyAttack;

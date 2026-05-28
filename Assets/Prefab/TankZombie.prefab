@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4689c4009ec916479487a3594228993, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaseScript
-  _target: {fileID: 0}
+  _scoreManager: {fileID: 0}
+  enemySpeed: 5
 --- !u!54 &6297467195557876280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,13 +171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eea201740c4ba44b841e57042c461c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  <target>k__BackingField: {fileID: 0}
   enemyState: 0
   enemyStates:
   - {fileID: 6897458978509840847}
   - {fileID: 4235288683219635754}
   - {fileID: 7091159723973276139}
-  attackDistance: 1
+  attackDistance: 2
+  isExploder: 0
 --- !u!114 &4235288683219635754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,8 +190,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e69b7909b4d3f5848a82c3c3b4b90b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  _target: {fileID: 0}
+  _scoreManager: {fileID: 0}
   attackPoint: {fileID: 5070263596044531687}
+  attackRadius: 2
+  explosionAttackRadius: 15
+  explosionDamage: 2
+  hasExploded: 0
 --- !u!114 &7091159723973276139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +208,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a18f4ea960d86f4f93f315946923123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
-  _target: {fileID: 0}
+  _scoreManager: {fileID: 0}
+  _audioManager: {fileID: 0}
+  scoreOnDeath: 200
 --- !u!95 &2350033056465040237
 Animator:
   serializedVersion: 7

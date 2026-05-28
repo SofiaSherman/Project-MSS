@@ -79,10 +79,10 @@ public class EnemyManager : MonoBehaviour
             ChangeState(EnemyStates.Death);
         }
 
+        _audioManager.PlayRandomZombieSound();
         /*if (isExploder) //&& !_enemyAttack.hasExploded)
         {
             speed = 5;
-            _audioManager.PlayRandomZombieSound();
             ChangeState(EnemyStates.Chasing);
             
         }

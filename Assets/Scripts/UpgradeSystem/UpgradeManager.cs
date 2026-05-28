@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
+    private AudioManager _audioManager;
     [SerializeField] private GameObject[] pages;
     private GameObject player;
 
@@ -44,6 +45,7 @@ public class UpgradeManager : MonoBehaviour
         playerHealth =  playerObj.GetComponent<PlayerHealth>();
 
         visualLevelUpgrade = GetComponent<VisualLevelUpgrade>();
+        _audioManager =  GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
     }
 
     public void CanUpgradeDamage()
@@ -58,6 +60,7 @@ public class UpgradeManager : MonoBehaviour
                 }
             }
             scoreManager.score -= 200;
+            _audioManager.PlaySound("coinDrop");
         }
     }
     public void CanUpgradeDamage400()
@@ -72,6 +75,8 @@ public class UpgradeManager : MonoBehaviour
                 }
             }
             scoreManager.score -= 400;
+            _audioManager.PlaySound("coinDrop");
+
         }
     }
 
@@ -88,6 +93,8 @@ public class UpgradeManager : MonoBehaviour
             }
 
             scoreManager.score -= 200;
+            _audioManager.PlaySound("coinDrop");
+
         }
     }
     public void CanUpgradeAmmo400()
@@ -102,6 +109,8 @@ public class UpgradeManager : MonoBehaviour
                 }
             }
             scoreManager.score -= 400;
+            _audioManager.PlaySound("coinDrop");
+
         }
     }
 
@@ -205,6 +214,8 @@ public class UpgradeManager : MonoBehaviour
                 visualLevelUpgrade.VisualUpgrade(playerHealthLevel, 1);
 
                 scoreManager.score -= 400;
+                _audioManager.PlaySound("coinDrop");
+
                 
             }
         }
@@ -217,6 +228,8 @@ public class UpgradeManager : MonoBehaviour
         {
             playerMovement.movementBoostLevel += 1;
             scoreManager.score -= 200;
+            _audioManager.PlaySound("coinDrop");
+
         }
     }
     
