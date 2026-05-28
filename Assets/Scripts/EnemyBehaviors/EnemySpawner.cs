@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        activeSpawner = true;
+        activeSpawner = false;
         StartCoroutine(Spawner());
     }
     private void Update()
@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
 
     public IEnumerator Spawner()
     {
+        if (gameManager.zombieTokens <= 0) yield break;
         while (activeSpawner == true)
         {
             decision = Random.Range(0, gameManager.doorsOpen);

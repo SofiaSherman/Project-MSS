@@ -8414,6 +8414,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205698337}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &209901840 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1284414314374708767, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+  m_PrefabInstance: {fileID: 30931295524219149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!4 &210921779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4637143289151374, guid: 9e6ec8b133f24494aa540e839494d2fb, type: 3}
@@ -17300,6 +17311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ParticleSpawner
   bloodParticle: {fileID: 1000013355911406, guid: ee5bbedc56c85bc45b101c6279dc95de, type: 3}
   explosionparticle: {fileID: 1834194341294532, guid: 948bb2747bb7279488765c7301614acf, type: 3}
+  ExplosionVisual: {fileID: 0}
 --- !u!114 &461086737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17312,6 +17324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0f5410e8473f448b0da8b36702dcb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  doors: []
   spawners:
   - {fileID: 1756826620}
   roundText: {fileID: 1503849557}
@@ -82411,10 +82424,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1424955305485991336, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 18858803709778759, guid: d870b4f0cba458640b29cda304d40186, type: 3}
     - target: {fileID: 2445116463386424559, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: m_Name
       value: ShootingPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 2769621267530703006, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      propertyPath: rayStart
+      value: 
+      objectReference: {fileID: 209901840}
     - target: {fileID: 2769621267530703006, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: _audioManager
       value: 
@@ -82492,6 +82513,10 @@ PrefabInstance:
       value: ShootingPoint
       objectReference: {fileID: 0}
     - target: {fileID: 5523415171374810575, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      propertyPath: rayStart
+      value: 
+      objectReference: {fileID: 209901840}
+    - target: {fileID: 5523415171374810575, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
@@ -82519,6 +82544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingPoint
       objectReference: {fileID: 0}
+    - target: {fileID: 7651944929923302807, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      propertyPath: rayStart
+      value: 
+      objectReference: {fileID: 209901840}
     - target: {fileID: 7651944929923302807, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: _audioManager
       value: 
