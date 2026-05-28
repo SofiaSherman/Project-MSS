@@ -195,6 +195,7 @@ MonoBehaviour:
   attackRadius: 2
   explosionAttackRadius: 15
   explosionDamage: 2
+  enemyDamage: 0
   hasExploded: 0
 --- !u!114 &7091159723973276139
 MonoBehaviour:
@@ -209,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
   _scoreManager: {fileID: 0}
-  scoreOnDeath: 50
+  scoreOnDeath: 100
 --- !u!95 &2350033056465040237
 Animator:
   serializedVersion: 7

@@ -195,6 +195,7 @@ MonoBehaviour:
   attackRadius: 2
   explosionAttackRadius: 15
   explosionDamage: 2
+  enemyDamage: 2
   hasExploded: 0
 --- !u!114 &7091159723973276139
 MonoBehaviour:
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ec139948612604293f0adf4dfad213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHealth: 10
+  maxHealth: 7
   currentHealth: 0
 --- !u!1001 &8621302264319340340
 PrefabInstance:

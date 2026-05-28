@@ -31,7 +31,7 @@ public class ChaseScript : EnemyBase
     protected override void OnEnable()
     {
         base.OnEnable();
-        _agent.speed = enemySpeed;
+        //_agent.speed = enemySpeed;
         //_agent.speed = _enemyManager.speed;
     }
 }
