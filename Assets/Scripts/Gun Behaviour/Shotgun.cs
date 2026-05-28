@@ -50,7 +50,7 @@ public class Shotgun : Guns
     }
     protected override void Shoot()
     {
-        if (powerActive)
+        if (powerActive && _gunManager._abilityManager.hasUpgradedShotgun)
         {
             PowerUp();
             return;

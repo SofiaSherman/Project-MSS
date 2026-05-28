@@ -11,6 +11,7 @@ TagManager:
   - InteractableBench
   - Body
   - AudioManager
+  - BuyableDoor
   layers:
   - Default
   - TransparentFX

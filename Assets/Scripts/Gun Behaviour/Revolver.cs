@@ -31,7 +31,12 @@ public class Revolver : Guns
         UpdateInput();
         CameraZoom();
 
-        PowerUp();
+        if (_gunManager._abilityManager.hasUpgradedRifle)
+        {
+            
+            PowerUp();
+        }
+
         
     }
     private void UpdateText()

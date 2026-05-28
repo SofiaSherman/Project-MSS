@@ -14,6 +14,12 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private GameObject dynamiteButton;
 
 
+    public bool hasUpgradedRevolver = false;
+    public bool hasUpgradedShotgun = false;
+    public bool hasUpgradedRifle = false;
+    public bool hasUpgradedDynamite = false;
+
+ 
     private ScoreManager scoreManager;
     void Start()
     {
@@ -31,6 +37,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (scoreManager.score >= scoreToUpgradeRevolver)
         {
+            hasUpgradedRevolver = true;
             scoreManager.score -= scoreToUpgradeRevolver;
             revolverButton.SetActive(false);
         }
@@ -39,6 +46,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (scoreManager.score >= scoreToUpgradeRifle)
         {
+            hasUpgradedRifle = true;
             scoreManager.score -= scoreToUpgradeRifle;
             rifleButton.SetActive(false);
         }
@@ -47,6 +55,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (scoreManager.score >= scoreToUpgradeShotgun)
         {
+            hasUpgradedShotgun = true;
             scoreManager.score -= scoreToUpgradeShotgun;
             shotgunButton.SetActive(false);
         }
@@ -55,6 +64,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (scoreManager.score >= scoreToUpgradeDynamite)
         {
+            hasUpgradedDynamite = true;
             scoreManager.score -= scoreToUpgradeDynamite;
             dynamiteButton.SetActive(false);
         }

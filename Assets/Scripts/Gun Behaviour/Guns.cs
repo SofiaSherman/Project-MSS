@@ -34,6 +34,8 @@ abstract public class Guns : MonoBehaviour
     protected Camera m_Camera;
     protected LineRenderer m_LineRenderer;
 
+    protected GunManager _gunManager;
+
     protected virtual void Start()
     {
         m_LineRenderer = GetComponentInChildren<LineRenderer>();
@@ -44,6 +46,7 @@ abstract public class Guns : MonoBehaviour
         m_LineRenderer.endWidth = 0.05f;
         
         _audioManager.GetComponent<AudioManager>();
+        _gunManager.GetComponent<GunManager>();
     }
     protected virtual void Update()
     {

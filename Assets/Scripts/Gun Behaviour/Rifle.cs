@@ -49,7 +49,11 @@ public class Rifle : Guns
     {
         base.Shoot();
         _audioManager.PlaySound("rifleShot");
-        if (powerActive == true && hit.collider.tag == "Enemy" && ammoCount > 0) PowerUp();
+        if (_gunManager._abilityManager.hasUpgradedRifle)
+        {
+            
+            if (powerActive == true && hit.collider.tag == "Enemy" && ammoCount > 0) PowerUp();
+        }
     }
     private void OnEnable()
     {
