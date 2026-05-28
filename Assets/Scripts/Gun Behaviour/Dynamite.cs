@@ -8,12 +8,14 @@ public class Dynamite : MonoBehaviour
     [SerializeField] private float fuseTime;
     [SerializeField] public float explosionRadius;
 
+    private ParticleSpawner _particleSpawner;
     private float damage = 40;
     private Camera m_camera;
     private Rigidbody rb;
     
     private void Start()
     {
+        _particleSpawner = GameObject.FindWithTag("GameManager").GetComponent<ParticleSpawner>();
         m_camera = Camera.main;
         rb = GetComponent<Rigidbody>();
         StartCoroutine(Explosion());
@@ -32,7 +34,7 @@ public class Dynamite : MonoBehaviour
                     
         }
 
-        Debug.Log("EXPLODED!!!!!");
+        _particleSpawner.SpawnExplosionVisual(gameObject);
         Destroy(gameObject);
     }
 
