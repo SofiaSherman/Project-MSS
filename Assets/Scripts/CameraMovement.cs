@@ -11,7 +11,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     private void Update()
     {
@@ -32,14 +32,21 @@ public class CameraMovement : MonoBehaviour
     private void VerticalCameraMovement()
     {
         var mouseInput = Input.GetAxisRaw("Mouse Y");
-       verticalRotation = -mouseInput * rotationSpeed;
+        verticalRotation = -mouseInput * rotationSpeed;
 
     }
 
     private void TotalRotation()
     {
+        var pitch = transform.localEulerAngles;
         rotation = new Vector3(verticalRotation, 0 , 0) * Time.deltaTime;
         rotation.z = 0;
-        transform.localEulerAngles += rotation;
+
+        print(transform.localEulerAngles.x);
+        pitch += rotation;
+        if (pitch.x > 50) pitch.x -= 360;
+        if (pitch.x < -20) pitch.x = -20;
+        pitch = new Vector3 (Mathf.Clamp(pitch.x, -20, 45),0,0);
+        transform.localEulerAngles = pitch;
     }
 }
