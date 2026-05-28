@@ -20,15 +20,18 @@ public class EnemyDeath : EnemyBase
     }
     private void Dying()
     {
+        Debug.Log("normal death");
         _scoreManager.score += scoreOnDeath;
         _scoreManager.scoreText.text = "Score: " + _scoreManager.score.ToString();
         
         _animator.SetTrigger("Death");
+        Debug.Log("animation trigger play");
         Destroy(gameObject,2);
     }
 
     private void ExplosionZombieDying()
     {
+        Debug.Log("explosion death");
         
         _audioManager.PlaySound("dynamiteExplosion");
         _particleSpawner.SpawnExplosionParticle(this.gameObject);
@@ -37,6 +40,7 @@ public class EnemyDeath : EnemyBase
 
     protected override void OnEnable()
     {
+        Debug.Log("OnEnable");
         base.OnEnable();
 
         if (_enemyManager.isExploder && !hasExplodedOnce)

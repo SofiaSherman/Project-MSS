@@ -71,7 +71,7 @@ public class Shotgun : Guns
                 //each bullet will have their own direction
 
 
-                Vector3 shootVector = rayStart.transform.forward;
+                Vector3 shootVector = m_Camera.transform.forward;
                 shootVector += new Vector3(randomX, randomY, 0);
                 //that vector is applied to the raycast each time
                 if (Physics.Raycast(shootingPoint.transform.position, shootVector, out RaycastHit hit, bulletDistance))
@@ -100,16 +100,15 @@ public class Shotgun : Guns
 
     private void OnEnable()
     {
-        shotCounter += shotCooldown;
+        shotCounter = shotCooldown;
         StopAllCoroutines();
     }
 
     protected override void PowerUp()
     {
         RaycastHit hit;
-        Physics.Raycast(shootingPoint.transform.position, rayStart.transform.forward, out hit, bulletDistance);
+        Physics.Raycast(shootingPoint.transform.position, m_Camera.transform.forward, out hit, bulletDistance);
         Collider[] exploded = Physics.OverlapSphere(hit.point, 5);
-        particles.SpawnExplosionBullet(hit.point);
         foreach (Collider c in exploded)
         {
             if(c.tag != "Enemy") continue;

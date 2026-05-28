@@ -7,7 +7,6 @@ public class DynamiteSpawn : Guns
 
     [SerializeField] private GameObject dynamiteInstance;
 
-    
     private Dynamite dynamiteManager;
     protected override void Start()
     {
