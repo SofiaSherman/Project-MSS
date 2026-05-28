@@ -66508,6 +66508,7 @@ MonoBehaviour:
   - {fileID: 166414045}
   - {fileID: 72666513}
   - {fileID: 1120033318}
+  playerHealth: {fileID: 0}
   visualLevelUpgrade: {fileID: 1307409867}
 --- !u!114 &1747534995
 MonoBehaviour:
