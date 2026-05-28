@@ -18,8 +18,8 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)) activeSpawner = false;
-        if(Input.GetKeyDown(KeyCode.M)) activeSpawner = true;
+       // if(Input.GetKeyDown(KeyCode.P)) activeSpawner = false;
+       // if(Input.GetKeyDown(KeyCode.M)) activeSpawner = true;
     }
 
     public IEnumerator Spawner()
