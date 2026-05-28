@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaseScript
   _scoreManager: {fileID: 0}
-  enemySpeed: 0
+  enemySpeed: 10
 --- !u!114 &2114074144646188871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
   - {fileID: 6897458978509840847}
   - {fileID: 4235288683219635754}
   - {fileID: 7091159723973276139}
-  attackDistance: 0
+  attackDistance: 2
   isExploder: 1
 --- !u!114 &4235288683219635754
 MonoBehaviour:
@@ -192,7 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
   _scoreManager: {fileID: 0}
   attackPoint: {fileID: 5070263596044531687}
-  checkAttackRadius: 0
+  attackRadius: 2
+  explosionAttackRadius: 15
+  explosionDamage: 2
   hasExploded: 0
 --- !u!114 &7091159723973276139
 MonoBehaviour:
@@ -218,7 +220,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7005274572829334751}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b9bfec2c4f09f184a950b28d82191e3a, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 433dc8875aed2e04e98f455f9f70a4a2, type: 3}
   m_Controller: {fileID: 9100000, guid: 2ef8e6599b7f9934e8ff0d64c5325a1f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

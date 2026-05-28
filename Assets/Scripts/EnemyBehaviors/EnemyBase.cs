@@ -11,7 +11,7 @@ abstract public class EnemyBase : MonoBehaviour
     protected EnemyManager _enemyManager;
     protected Animator _animator;
     protected ParticleSpawner _particleSpawner;
-    //protected AudioManager _audioManager;
+    protected AudioManager _audioManager;
     
     protected float attackDamage;
 
@@ -24,6 +24,7 @@ abstract public class EnemyBase : MonoBehaviour
         _enemyManager = GetComponent<EnemyManager>();
         _particleSpawner = GameObject.FindWithTag("GameManager").GetComponent<ParticleSpawner>();
         _scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
+        _audioManager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
     }
     protected virtual void Start()
     {
