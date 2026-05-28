@@ -13,7 +13,7 @@ public class UpgradeManager : MonoBehaviour
     private Shotgun playerShotgun;
     private DynamiteSpawn  playerDynamiteSpawn;
     private PlayerMovement playerMovement;
-    private PlayerManager playerManager;
+    public PlayerHealth playerHealth;
     
     private ScoreManager scoreManager;
     
@@ -41,7 +41,7 @@ public class UpgradeManager : MonoBehaviour
         playerDynamiteSpawn = playerObj.GetComponent<DynamiteSpawn>();
         
         playerMovement  = playerObj.GetComponent<PlayerMovement>();
-        playerManager =  playerObj.GetComponent<PlayerManager>();
+        playerHealth =  playerObj.GetComponent<PlayerHealth>();
 
         visualLevelUpgrade = GetComponent<VisualLevelUpgrade>();
     }
@@ -199,7 +199,8 @@ public class UpgradeManager : MonoBehaviour
         {
             if (playerHealthLevel < 5)
             {
-                playerManager.Health += 1;
+                playerHealth.maxHealth += 1;
+                playerHealth.health = playerHealth.maxHealth;
                 playerHealthLevel++;
                 visualLevelUpgrade.VisualUpgrade(playerHealthLevel, 1);
 

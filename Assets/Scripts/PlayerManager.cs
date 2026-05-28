@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    private Animator _animator;
+   /* private Animator _animator;
     public float Health = 3; // { get; private set; } = 3;
     private void Start()
     {
@@ -19,5 +19,5 @@ public class PlayerManager : MonoBehaviour
     {
         _animator.SetBool("Dead", true);
         //Destroy(gameObject);
-    }
+    }*/
 }

@@ -32,10 +32,10 @@ public class PlayerAnimationManager : MonoBehaviour
     void Update()
     {
         //check death
-        if (_playerManager.Health <= 0)
+       /* if (_playerManager.Health <= 0)
         {
             _animator.SetTrigger("Death");
-        }
+        }*/
         
         MovementAnimations();
 
