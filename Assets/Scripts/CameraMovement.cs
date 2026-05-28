@@ -42,7 +42,7 @@ public class CameraMovement : MonoBehaviour
         rotation = new Vector3(verticalRotation, 0 , 0) * Time.deltaTime;
         rotation.z = 0;
 
-        print(transform.localEulerAngles.x);
+        //print(transform.localEulerAngles.x);
         pitch += rotation;
         if (pitch.x > 50) pitch.x -= 360;
         if (pitch.x < -20) pitch.x = -20;
