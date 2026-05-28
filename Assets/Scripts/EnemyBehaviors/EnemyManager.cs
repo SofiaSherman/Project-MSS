@@ -43,15 +43,15 @@ public class EnemyManager : MonoBehaviour
         switch (enemyState)
         {
             case EnemyStates.Attacking:
-                //Debug.Log("is attacking");
+                Debug.Log("is attacking");
                 UpdateAttack();
                 break;
             case EnemyStates.Death:
-                //Debug.Log("is dead");
+                Debug.Log("is dead");
 
                 break;
             case EnemyStates.Chasing:
-                //Debug.Log("is chasing");
+                Debug.Log("is chasing");
 
                 UpdateChase();
                 break;
