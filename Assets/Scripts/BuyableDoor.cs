@@ -8,7 +8,6 @@ using Cursor = UnityEngine.Cursor;
 public class BuyableDoor : MonoBehaviour
 {
     [SerializeField] private int scoreRequirement;
-    //private Rigidbody body;
     [SerializeField] private GameObject doorUpgradePopUp;
     private bool isBought = false;
 
@@ -23,7 +22,6 @@ public class BuyableDoor : MonoBehaviour
 
     private void Start()
     {
-        //body = GetComponent<Rigidbody>();
         _scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
         doorUpgradePopUp.SetActive(false);
         button.SetActive(false);
@@ -44,21 +42,12 @@ public class BuyableDoor : MonoBehaviour
 
 
         }
-        
-        /*if (Input.GetKey(KeyCode.E) && _scoreManager.score >= scoreRequirement)
-        {
-            doorUpgradePopUp.SetActive(false);
-            body.isKinematic = true;
-            _scoreManager.score -= scoreRequirement;
-            Destroy(gameObject,0.5f);
-        }*/
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //pauseMenu.UpgradeResumeGame();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             Cursor.visible = false;
@@ -72,12 +61,10 @@ public class BuyableDoor : MonoBehaviour
         if (_scoreManager.score >= scoreRequirement)
         {
             _gameManager.doorsOpen++;
-            //pauseMenu.UpgradeResumeGame();
             isBought = true;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             doorUpgradePopUp.SetActive(false);
-            //body.isKinematic = true;
             _scoreManager.score -= scoreRequirement;
             Destroy(gameObject, 1f);
         }

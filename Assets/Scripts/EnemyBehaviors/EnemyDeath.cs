@@ -17,10 +17,6 @@ public class EnemyDeath : EnemyBase
 
     private void Update()
     {
-        /*if (_enemyAttack.hasExploded)
-        {
-            ExplosionZombieDying();
-        }*/
     }
     private void Dying()
     {

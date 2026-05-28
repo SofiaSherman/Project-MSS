@@ -8,10 +8,6 @@ public class ScoreManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            score += 100;
-        }
         scoreText.text = "Score: " + score.ToString();
     }
 
