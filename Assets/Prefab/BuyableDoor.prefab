@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4065406514740876417}
   - component: {fileID: 5056275922887161062}
   - component: {fileID: 1151489710323212747}
+  - component: {fileID: 459057739447376807}
   m_Layer: 0
   m_Name: BuyableDoor
   m_TagString: Untagged
@@ -179,3 +180,19 @@ MonoBehaviour:
   costText: {fileID: 0}
   button: {fileID: 0}
   pauseMenuObject: {fileID: 0}
+--- !u!208 &459057739447376807
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818881904207315236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.758, y: 0.321, z: 0.379}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.321, z: 0}
+  m_TimeToStationary: 0.5

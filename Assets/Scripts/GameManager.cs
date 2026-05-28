@@ -1,10 +1,12 @@
 using System;
-using System.Collections;
 using UnityEngine;
+using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private EnemySpawner[] spawners;
+    [SerializeField] private TextMeshProUGUI roundText;
 
     private int roundCount;
     public float zombieTokens;
@@ -16,17 +18,17 @@ public class GameManager : MonoBehaviour
     {
         roundCount = 0;
         zombieTokens = 1;
+
+        UpdateRoundUI();
         NewRound();
     }
 
     private void Update()
     {
-        //Debug.Log("is updating");
-        //Debug.Log(startingRound);
-        //Debug.Log(zombieTokens);
-        //Debug.Log(roundCount);
         EnemyManager thing = (EnemyManager)FindAnyObjectByType(typeof(EnemyManager));
+
         StopSpawnZombies();
+
         if (thing == null && !startingRound)
         {
             startingRound = true;
@@ -34,19 +36,29 @@ public class GameManager : MonoBehaviour
             NewRound();
         }
     }
+
     private void NewRound()
     {
         roundCount++;
+
         zombieTokens = 1 + (roundCount);
+
+        UpdateRoundUI();
+
         foreach (EnemySpawner e in spawners)
         {
+           
             e.activeSpawner = true;
             StartCoroutine(e.Spawner());
         }
-        Debug.Log("new round");
-        //startingRound = false;
-        StartCoroutine(RoundStarted());
 
+        Debug.Log("new round");
+        StartCoroutine(RoundStarted());
+    }
+
+    private void UpdateRoundUI()
+    {
+        roundText.text = "Round: " + roundCount;
     }
 
     public void StopSpawnZombies()
@@ -57,11 +69,10 @@ public class GameManager : MonoBehaviour
             {
                 e.activeSpawner = false;
                 StopCoroutine(e.Spawner());
-                //Debug.Log("zombies exhausted");
+               
             }
         }
     }
-
     private IEnumerator RoundStarted()
     {
         yield return new WaitForSeconds(1f);
