@@ -5,7 +5,6 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private BuyableDoor[] doors;
     [SerializeField] private EnemySpawner[] spawners;
     [SerializeField] private TextMeshProUGUI roundText;
 
@@ -20,7 +19,6 @@ public class GameManager : MonoBehaviour
         roundCount = 0;
         zombieTokens = 1;
 
-        spawners[0].activeSpawner = true;
         UpdateRoundUI();
         NewRound();
     }
@@ -46,21 +44,13 @@ public class GameManager : MonoBehaviour
         zombieTokens = 1 + (roundCount);
 
         UpdateRoundUI();
-        spawners[0].activeSpawner = true;
-        StartCoroutine(spawners[0].Spawner());
 
-        foreach (BuyableDoor door in doors)
+        foreach (EnemySpawner e in spawners)
         {
-            if(door.spawner != null && door.isBought)
-            {
-                foreach (EnemySpawner e in spawners)
-                {
-                    e.activeSpawner = true;
-                    StartCoroutine(e.Spawner());
-                }
-            }
+           
+            e.activeSpawner = true;
+            StartCoroutine(e.Spawner());
         }
-        
 
         Debug.Log("new round");
         StartCoroutine(RoundStarted());

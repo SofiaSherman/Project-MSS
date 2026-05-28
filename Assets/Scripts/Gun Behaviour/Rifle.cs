@@ -58,7 +58,7 @@ public class Rifle : Guns
     }
     private void OnEnable()
     {
-        shotCounter += shotCooldown;
+        shotCounter = shotCooldown;
         StopAllCoroutines();
     }
 

@@ -7,11 +7,10 @@ using Cursor = UnityEngine.Cursor;
 
 public class BuyableDoor : MonoBehaviour
 {
-    [SerializeField] public EnemySpawner spawner;
     [SerializeField] private int scoreRequirement;
     [SerializeField] private GameObject doorUpgradePopUp;
-    public bool isBought = false;
-    
+    private bool isBought = false;
+
     private ScoreManager _scoreManager;
     
     [SerializeField] private TMP_Text costText;
@@ -68,7 +67,6 @@ public class BuyableDoor : MonoBehaviour
             doorUpgradePopUp.SetActive(false);
             _scoreManager.score -= scoreRequirement;
             Destroy(gameObject, 1f);
-            spawner.activeSpawner = true;
         }
     }
 
