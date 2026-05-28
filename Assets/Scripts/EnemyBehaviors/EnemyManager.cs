@@ -43,11 +43,16 @@ public class EnemyManager : MonoBehaviour
         switch (enemyState)
         {
             case EnemyStates.Attacking:
+                Debug.Log("is attacking");
                 UpdateAttack();
                 break;
             case EnemyStates.Death:
+                Debug.Log("is dead");
+
                 break;
             case EnemyStates.Chasing:
+                Debug.Log("is chasing");
+
                 UpdateChase();
                 break;
         }
@@ -68,19 +73,30 @@ public class EnemyManager : MonoBehaviour
 
     private void UpdateAttack()
     {
-        if (AttackRange(attackDistance) && !_enemyAttack.hasExploded) return;
+        if (AttackRange(attackDistance) && !isExploder) return;
 
-        if (!_enemyAttack.hasExploded)
+        if (isExploder && _enemyAttack.hasExploded)
+        {
+            speed = 0;
+            ChangeState(EnemyStates.Death);
+        }
+
+        /*if (isExploder) //&& !_enemyAttack.hasExploded)
         {
             speed = 5;
             _audioManager.PlayRandomZombieSound();
             ChangeState(EnemyStates.Chasing);
             
         }
-        else if (_enemyAttack.hasExploded)
+        /*else if (isExploder && _enemyAttack.hasExploded)
         {
             speed = 0;
             ChangeState(EnemyStates.Death);
+        }*/
+
+        if (!isExploder)
+        {
+            ChangeState(EnemyStates.Chasing);
         }
         
     }
@@ -93,7 +109,7 @@ public class EnemyManager : MonoBehaviour
         }
         else
         {
-            speed = 0;
+            speed = 10;
         }
         ChangeState(EnemyStates.Attacking);
 

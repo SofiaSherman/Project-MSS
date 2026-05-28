@@ -4,9 +4,12 @@ using UnityEngine;
 public class EnemyAttack : EnemyBase
 {
     [SerializeField] private GameObject attackPoint;
-    [SerializeField] private float checkAttackRadius;
+    [SerializeField] private float attackRadius = 2f;
+    [SerializeField] private float explosionAttackRadius = 15f;
+    [SerializeField] private float explosionDamage = 2f;
     
     public bool hasExploded = false;
+    private bool hasExplodedOnce = false;
 
     private float attackSpeed;
     
@@ -14,15 +17,21 @@ public class EnemyAttack : EnemyBase
     {
         base.Start();
         attackSpeed = 3f;
+
+        if (_enemyManager.isExploder)
+        {
+            attackRadius = explosionAttackRadius;
+            attackDamage = explosionDamage;
+        }
         
     }
 
     private IEnumerator Attack()
     {
-        Debug.Log("Tried attacking");
+        //Debug.Log("Tried attacking");
         while (_agent.remainingDistance < _enemyManager.attackDistance)
         {
-            Debug.Log("attacking");
+            //Debug.Log("attacking");
             
             if (!_enemyManager.isExploder)
             {
@@ -36,15 +45,18 @@ public class EnemyAttack : EnemyBase
                 hasExploded = true;
             }
 
-            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, checkAttackRadius);
+            Collider[] results = Physics.OverlapSphere(attackPoint.transform.position, attackRadius);
             foreach (Collider result in results)
             {
                 if (result.gameObject.TryGetComponent(out IDamageable playerdamage) && result.gameObject.tag == "Player")
                 {
+                    if ((_enemyManager.isExploder && !hasExplodedOnce) || (!_enemyManager.isExploder))
+                    {
+                        hasExplodedOnce = true;
+                        playerdamage.TakeDamage(attackDamage);
+                    }
                     
-                    playerdamage.TakeDamage(attackDamage);
-                    
-                    Debug.Log(result);
+                    //Debug.Log(result);
                 }
             }
             yield return new WaitForSeconds(1);

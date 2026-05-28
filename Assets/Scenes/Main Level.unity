@@ -17491,6 +17491,10 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
+    - target: {fileID: 7091159723973276139, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
+      propertyPath: _scoreManager
+      value: 
+      objectReference: {fileID: 461086734}
     - target: {fileID: 7120681884011037989, guid: 41fb53a23cea10747b8675297db6e19b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -27.40793
@@ -78776,6 +78780,10 @@ PrefabInstance:
       propertyPath: _audioManager
       value: 
       objectReference: {fileID: 882544534}
+    - target: {fileID: 3620463677402963397, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
+      propertyPath: deathSceneIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4011004713232900172, guid: 9d4a5f418ae4e3c4b8b3db022d9a3cdb, type: 3}
       propertyPath: pauseMenuObject
       value: 

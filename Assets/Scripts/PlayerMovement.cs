@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveVelocity;
     private CharacterController characterController;
     private Camera m_Camera;
+    private PlayerHealth _playerHealth;
     
     private float rotationSpeed = 50;
     private float verticalVelocity;
@@ -37,22 +38,21 @@ public class PlayerMovement : MonoBehaviour
         m_Camera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         characterController = GetComponent<CharacterController>();
-        
-        
-
+        _playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
-        TimedSpeedBoost();
-        UpdateMoveVelocity();
-        UpdateVerticalVelocity();
-        UpdateRotation();
+        if (!_playerHealth.isDead)
+        {
+            TimedSpeedBoost();
+            UpdateMoveVelocity();
+            UpdateVerticalVelocity();
+            UpdateRotation();
 
-        ApplyTotalVelocity();
-
-
-        
+            ApplyTotalVelocity();
+            
+        }
     }
     private void ApplyTotalVelocity()
     {

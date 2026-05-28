@@ -23,6 +23,7 @@ abstract public class EnemyBase : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _enemyManager = GetComponent<EnemyManager>();
         _particleSpawner = GameObject.FindWithTag("GameManager").GetComponent<ParticleSpawner>();
+        _scoreManager = GameObject.FindWithTag("GameManager").GetComponent<ScoreManager>();
     }
     protected virtual void Start()
     {

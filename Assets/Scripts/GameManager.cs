@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
             {
                 StopCoroutine(e.Spawner());
                 e.activeSpawner = false;
-                Debug.Log("zombies exhausted");
+                //Debug.Log("zombies exhausted");
             }
         }
     }

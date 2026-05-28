@@ -28,14 +28,20 @@ public class GunManager : MonoBehaviour
     public bool hasDynamite = false;
     
     private WeaponUpgradeManager _weaponUpgradeManager;
+    private PlayerHealth _playerHealth;
     private void Start()
     {
         _weaponUpgradeManager = GameObject.FindWithTag("InteractableWeaponBench").GetComponent<WeaponUpgradeManager>();
+        _playerHealth = GetComponent<PlayerHealth>();
         ChangeGun(0);
     }
     private void Update()
     {
-        WeaponChanger();
+        if (!_playerHealth.isDead)
+        {
+            
+            WeaponChanger();
+        }
     }
 
     private void ChangeGun(GunStash newGun)
