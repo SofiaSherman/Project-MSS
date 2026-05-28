@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     [Header("UI")]
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private TMP_Text healthText;
 
     [Header("Death Settings")]
     [SerializeField] private int deathSceneIndex;
@@ -28,25 +30,36 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         // Setup slider
         healthSlider.maxValue = maxHealth;
         healthSlider.value = health;
+
+        // Setup health text
+        UpdateHealthUI();
     }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
 
-        // Update UI
-        healthSlider.value = health;
-
         if (health <= 0)
         {
             health = 0;
-            healthSlider.value = health;
 
             if (p_manager != null)
             {
                 StartCoroutine(StartDeathSequence());
             }
         }
+
+        // Update UI
+        UpdateHealthUI();
+    }
+
+    private void UpdateHealthUI()
+    {
+        // Update slider
+        healthSlider.value = health;
+
+        // Update text
+        healthText.text = Mathf.RoundToInt(health) + " / " + Mathf.RoundToInt(maxHealth);
     }
 
     private IEnumerator StartDeathSequence()
