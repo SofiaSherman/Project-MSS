@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/JORGE LOPEZ/(Jorge) Capsule.meta
 guid: 15f2107a6ddfd6b4f86db1cd55be6105
+========
+guid: 48add6c22dd9fa54ab8d85893ebf4be9
+>>>>>>>> B2-Jorge:Assets/CharacterModels/ExplodingZombie.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

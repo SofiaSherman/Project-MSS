@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/JORGE LOPEZ/Animations/Animations.meta
 guid: dc380945ef06d2f4ab0324857022e565
+========
+guid: ddae92564f3b8174689ac6f6af28205b
+>>>>>>>> B2-Jorge:Assets/CharacterModels/FastZombie.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
