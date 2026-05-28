@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/JORGE LOPEZ/Animations/Animations.meta
 guid: dc380945ef06d2f4ab0324857022e565
+========
+guid: 056148e947982674596eebee4ab3162e
+>>>>>>>> A-Sonia:Assets/CharacterModels/Player.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
