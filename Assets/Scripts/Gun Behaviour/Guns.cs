@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 abstract public class Guns : MonoBehaviour
@@ -8,6 +9,8 @@ abstract public class Guns : MonoBehaviour
     [SerializeField] public TMP_Text ammoText;
     [SerializeField] public TMP_Text totalAmmoText;
     [SerializeField] public GameObject shootingPoint;
+    [SerializeField] protected ParticleSpawner particles;
+    [SerializeField] protected Image rayStart;
     
     [SerializeField] protected AudioManager _audioManager;
 
@@ -49,7 +52,6 @@ abstract public class Guns : MonoBehaviour
         _audioManager.GetComponent<AudioManager>();
         //_gunManager.GetComponent<GunManager>();
         //_abilityManager.GetComponent<AbilityManager>();
-        Debug.Log("AbilityManager");
     }
     protected virtual void Update()
     {
@@ -57,6 +59,8 @@ abstract public class Guns : MonoBehaviour
         shotCounter += Time.deltaTime;
         powerCooldown += Time.deltaTime;
         powerCounter += Time.deltaTime;
+
+        if (shotCounter < shotCooldown) m_LineRenderer.SetPositions(new Vector3[2] { shootingPoint.transform.position, shootingPoint.transform.position });
     }
 
     #region Gun operation
@@ -72,7 +76,7 @@ abstract public class Guns : MonoBehaviour
             for (int i = 0; i < bulletAmount; i++)
             {
 
-                if (Physics.Raycast(shootingPoint.transform.position, m_Camera.transform.forward, out hit, bulletDistance))
+                if (Physics.Raycast(shootingPoint.transform.position, rayStart.transform.forward, out hit, bulletDistance))
                 {
                     //does it hit an object that has an enemy script?
                     if (hit.collider.gameObject.TryGetComponent(out IDamageable damageable))
@@ -80,7 +84,7 @@ abstract public class Guns : MonoBehaviour
                         damageable.TakeDamage(damage);
                     }
                     m_LineRenderer.SetPositions(new Vector3[2] {shootingPoint.transform.position, hit.point});
-                    Debug.DrawRay(shootingPoint.transform.position, m_Camera.transform.forward * 100, Color.red, 3f);
+                    Debug.DrawRay(shootingPoint.transform.position, rayStart.transform.forward * 100, Color.red, 3f);
                 }
             }
 
